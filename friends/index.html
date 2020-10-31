@@ -783,8 +783,14 @@ $(function () {
 		//}
 	</script>
 	
-	<!-- ӣ��Ʈ�� -->
-	<script src="/js/snow.js"></script>
+	<!-- ѩ����Ʈ�� -->
+	<script type="text/javascript">
+		ֻ���������ҳ������Ч
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
+		}
+	</script>
 </body>
 
 </html>
