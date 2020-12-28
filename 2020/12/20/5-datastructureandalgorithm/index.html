@@ -768,20 +768,20 @@
 <li>尽量减少操作次数。</li>
 </ol>
 <p>实现：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>nums <span class="token operator">==</span> null <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>nums <span class="token operator">==</span> null <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 1. 移除零元素</span>
 <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 非零元素的索引</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
         nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 2. 添加零元素</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
     nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>数组(装水最多的容器)</p>
 <p>题述：给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
@@ -798,15 +798,15 @@
 <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 初始化最大面积值</span>
 <span class="token keyword">int</span> area <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 初始化当前面积值</span>
 <span class="token comment" spellcheck="true">// 外层循环遍历左边界，内循环遍历右边界</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 选取左右边界的最小高作为当前矩形高，并计算左右边界差作为当前矩形长</span>
         <span class="token comment" spellcheck="true">// 由此计算当前矩形面积</span>
         area <span class="token operator">=</span> <span class="token punctuation">(</span>j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 始终将最大的面积值存放在max变量</span>
         max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span>
 
@@ -821,22 +821,22 @@
 <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 初始化当前面积</span>
 <span class="token keyword">int</span> area<span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果右边界的高度值大于左边界</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 则当前面积为左边界的高*左右边界之差</span>
         area <span class="token operator">=</span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 左边界向前走</span>
         left <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 否则当前面积为右边界的高*左右边界之差</span>
         area <span class="token operator">=</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 右边界向后走(以数组索引递增为正方向)</span>
         right <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 返回最大值的面积值</span>
     max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span>
 
@@ -849,13 +849,13 @@
 <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 初始化当前面积</span>
 <span class="token keyword">int</span> area<span class="token punctuation">;</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 计算最小高度，注意这里返回的是left+1和right-1处的高度值</span>
     <span class="token keyword">int</span> minHeight <span class="token operator">=</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">?</span> height<span class="token punctuation">[</span>left<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">:</span> height<span class="token punctuation">[</span>right<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 这里+1是补加left和left+1间的矩形面积，同样也是补加right和right-1之间的面积值(谁小补谁)</span>
     area <span class="token operator">=</span> minHeight <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span></code></pre>
 </li>
@@ -875,9 +875,9 @@
 3.  2 阶 + 1 阶</code></pre>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 没思路，先考虑简单情况 --> 泛化(数学归纳法)找到递推公式(找重复)</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> n<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 1个台阶的方法数</span>
 <span class="token keyword">int</span> one_step_before <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 2个台阶的方法数</span>
@@ -885,20 +885,20 @@
 <span class="token comment" spellcheck="true">// 当前台阶总方法数</span>
 <span class="token keyword">int</span> all_ways <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 更新方法数</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
     all_ways <span class="token operator">=</span> one_step_before <span class="token operator">+</span> two_steps_before<span class="token punctuation">;</span>
     one_step_before <span class="token operator">=</span> two_steps_before<span class="token punctuation">;</span>
     two_steps_before <span class="token operator">=</span> all_ways<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 返回指定数字的方法数</span>
 <span class="token keyword">return</span> all_ways<span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
         a <span class="token operator">=</span> <span class="token punctuation">(</span>b <span class="token operator">+=</span> a<span class="token punctuation">)</span> <span class="token operator">-</span> a<span class="token punctuation">;</span>
     <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>数组(三数之和)</p>
 <p>题述：</p>
