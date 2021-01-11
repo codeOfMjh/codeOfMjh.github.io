@@ -994,6 +994,57 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre>
 <p>附加：你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代解法</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 初始化前驱节点</span>
+    ListNode prevHead <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果头结点不为null</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 记录头结点的指针</span>
+        ListNode recordNext <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将头结点的指针指向前驱节点</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> prevHead<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将头结点和前驱节点值交换</span>
+        prevHead <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        head <span class="token operator">=</span> recordNext<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 返回最新链表</span>
+    <span class="token keyword">return</span> prevHead<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 递归解法一</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">reverseListInt</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span> ListNode <span class="token function">reverseListInt</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> ListNode newHead<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 如果头结点的指针指向null说明链表翻转完成，则返回反转后的链表</span>
+        <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 交换头结点和前驱节点的值</span>
+    ListNode next <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> newHead<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将交换后的指针和头结点再次进行交换；直到头结点的指针指向null后返回最新链表</span>
+    <span class="token keyword">return</span> <span class="token function">reverseListInt</span><span class="token punctuation">(</span>next<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 递归解法二</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 如果头结点的指针指向null说明链表翻转完成，则返回反转后的链表</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 交换头结点和递归交换前驱节点的值</span>
+    ListNode nextNode <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    ListNode newHead <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>nextNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将前驱节点的指针指向头结点</span>
+    nextNode<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将头结点的指针指向null</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 返回最新的链表</span>
+    <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>链表(两两交换链表中的节点)</p>
 <p>题述：给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。<strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p>
@@ -1012,6 +1063,47 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <li>链表中节点的数目在范围 <code>[0, 100]</code> 内</li>
 <li><code>0 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法</span>
+<span class="token keyword">public</span> ListNode <span class="token function">swapPairs</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 记录头结点指针的位置</span>
+    ListNode prevHead <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 递归将头节点的指针指向头结点指针的指针</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">swapPairs</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将前驱元素的指针指向头结点</span>
+    prevHead<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 返回最新链表</span>
+    <span class="token keyword">return</span> prevHead<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 迭代解法</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">algorithm</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将链表的指针指向头结点</span>
+    dummy<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 记录当前链表</span>
+    ListNode current <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果当前链表的指针不为null且者前驱元素的指针不为null</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 记录头结点的指针</span>
+        ListNode first <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 记录头结点前驱元素的指针</span>
+        ListNode second <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将头结点前驱元素的指针指向头结点前驱的前驱的指针</span>
+        first<span class="token punctuation">.</span>next <span class="token operator">=</span> second<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将头结点的指针指向头结点前驱元素的指针</span>
+        current<span class="token punctuation">.</span>next <span class="token operator">=</span> second<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将头结点前去元素的指针指向头结点的指针</span>
+        current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将当前链表指向头结点前去元素的指针</span>
+        current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 返回头结点前驱元素的指针</span>
+    <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>链表(环形链表)</p>
 <p>题述：给定一个链表，判断链表中是否有环。</p>
@@ -1038,6 +1130,36 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <li><code>-105 &lt;= Node.val &lt;= 105</code></li>
 <li><code>pos</code> 为 <code>-1</code> 或者链表中的一个 <strong>有效索引</strong> 。</li>
 </ul>
+<p>题解：</p>
+<ol>
+<li>使用两个指针，一个快指针，一个慢指针</li>
+<li>慢指针一次走一步，快指针一次走两步</li>
+<li>当快慢指针指向同一个元素说明有环存在，否则无环存在</li>
+</ol>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 快慢指针解法</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 初始化慢指针</span>
+    ListNode walker <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 初始化快指针</span>
+    ListNode runner <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果快指针不指向null且快指针的前驱指针不为null</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>runner<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> runner<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将慢指针指向他的前驱指针</span>
+        walker <span class="token operator">=</span> walker<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将快指针指向他的前驱指针</span>
+        runner <span class="token operator">=</span> runner<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 如果快慢指针指向同一个元素说明有环存在</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>walker <span class="token operator">==</span> runner<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 快慢指针指向不是同一个元素</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>链表(环形链表 II)</p>
 <p>题述：给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</p>
@@ -1064,6 +1186,36 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <li><code>-105 &lt;= Node.val &lt;= 105</code></li>
 <li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引</li>
 </ul>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 初始化慢指针</span>
+    ListNode slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 初始化快指针</span>
+    ListNode fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果快指针不指向null且快指针的前驱指针不为null</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将慢指针指向其前驱的指针</span>
+        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 将快指针指向前驱的前驱</span>
+        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 如果快慢指针相遇，则说明链表有环</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 如果慢指针没有指向头结点</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 就一直往前走</span>
+                slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">// 将头结点指向自身</span>
+                head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 返回头结点</span>
+            <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>链表(K 个一组翻转链表)</p>
 <p>题述：给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</p>
@@ -1080,6 +1232,8 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <li>你的算法只能使用常数的额外空间。</li>
 <li><strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际进行节点交换。</li>
 </ul>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
 </li>
 </ol>
 <h3 id="2-4-练习"><a href="#2-4-练习" class="headerlink" title="2.4 练习"></a>2.4 练习</h3><ol>
