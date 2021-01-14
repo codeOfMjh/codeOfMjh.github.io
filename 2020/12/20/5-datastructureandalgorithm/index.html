@@ -768,20 +768,20 @@
 <li>尽量减少操作次数。</li>
 </ol>
 <p>实现：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> null <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> null <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 1. 移除零元素</span>
 <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 非零元素的索引</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 2. 添加零元素</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     nums<span class="token punctuation">[</span>count<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>数组(装水最多的容器)</p>
 <p>题述：给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
@@ -798,15 +798,15 @@
 <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 初始化最大面积值</span>
 <span class="token keyword">int</span> area <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 初始化当前面积值</span>
 <span class="token comment" spellcheck="true">// 外层循环遍历左边界，内循环遍历右边界</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> height<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 选取左右边界的最小高作为当前矩形高，并计算左右边界差作为当前矩形长</span>
         <span class="token comment" spellcheck="true">// 由此计算当前矩形面积</span>
         area <span class="token operator">=</span> <span class="token punctuation">(</span>j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 始终将最大的面积值存放在max变量</span>
         max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
@@ -820,22 +820,22 @@
 <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 初始化当前面积</span>
 <span class="token keyword">int</span> area<span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 如果右边界的高度值大于左边界</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 则当前面积为左边界的高*左右边界之差</span>
         area <span class="token operator">=</span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 左边界向前走</span>
         left <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 否则当前面积为右边界的高*左右边界之差</span>
         area <span class="token operator">=</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 右边界向后走(以数组索引递增为正方向)</span>
         right <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回最大值的面积值</span>
     max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 使用三元运算符简化最优解</span>
@@ -847,13 +847,13 @@
 <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 初始化当前面积</span>
 <span class="token keyword">int</span> area<span class="token punctuation">;</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">!=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 计算最小高度，注意这里返回的是left+1和right-1处的高度值</span>
     <span class="token keyword">int</span> minHeight <span class="token operator">=</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">></span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">?</span> height<span class="token punctuation">[</span>left<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">:</span> height<span class="token punctuation">[</span>right<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 这里+1是补加left和left+1间的矩形面积，同样也是补加right和right-1之间的面积值(谁小补谁)</span>
     area <span class="token operator">=</span> minHeight <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span> area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 返回最大面积</span>
 <span class="token keyword">return</span> max<span class="token punctuation">;</span></code></pre>
 </li>
@@ -873,9 +873,9 @@
 3.  2 阶 + 1 阶</code></pre>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 没思路，先考虑简单情况 --> 泛化(数学归纳法)找到递推公式(找重复)</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> n<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 1个台阶的方法数</span>
 <span class="token keyword">int</span> one_step_before <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 2个台阶的方法数</span>
@@ -883,19 +883,19 @@
 <span class="token comment" spellcheck="true">// 当前台阶总方法数</span>
 <span class="token keyword">int</span> all_ways <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 更新方法数</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     all_ways <span class="token operator">=</span> one_step_before <span class="token operator">+</span> two_steps_before<span class="token punctuation">;</span>
     one_step_before <span class="token operator">=</span> two_steps_before<span class="token punctuation">;</span>
     two_steps_before <span class="token operator">=</span> all_ways<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// 返回指定数字的方法数</span>
 <span class="token keyword">return</span> all_ways<span class="token punctuation">;</span></code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
         a <span class="token operator">=</span> <span class="token punctuation">(</span>b <span class="token operator">+=</span> a<span class="token punctuation">)</span> <span class="token operator">-</span> a<span class="token punctuation">;</span>
     <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>数组(三数之和)—高频老题</p>
 <p>题述：给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。</p>
@@ -910,39 +910,39 @@
 ]</code></pre>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 暴力解法，依次枚举三个数求和，和为0则添加至结果集，有重复则跳出本次循环</span>
-<span class="token keyword">public</span> List<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> <span class="token function">threeSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> List<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> <span class="token function">threeSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
     List<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> sum <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 遍历寻找第1个数</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 遍历寻找第2个数</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 遍历寻找第3个数</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment" spellcheck="true">// 如果三个数的和相加等于0；则将三数添加至sum数组</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     <span class="token comment" spellcheck="true">// 如果结果集已有该和为零的序列，则结束本次循环；继续下一次</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token keyword">continue</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
                     <span class="token comment" spellcheck="true">// 为结果集合添加符合要求的数组</span>
                     sum<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回最终的结果集</span>
     <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 双指针解法</span>
 <span class="token comment" spellcheck="true">// 对原始数组进行排序</span>
 Arrays<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 初始化结果集</span>
 List<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 枚举所有的变量</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 如果当前变量是第一个元素或者相邻两数和不为0，则开始双端遍历</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 左端遍历起点</span>
         <span class="token keyword">int</span> lo <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 右端遍历起点</span>
@@ -950,31 +950,31 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
         <span class="token comment" spellcheck="true">// 初始化目标值</span>
         <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 如果左端序列比右端序列小则一直进行查找</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 如果在左右端找出和为sum的值即将目标值，左端值，右端值添加到结果集合</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">==</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">==</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment" spellcheck="true">// 将符合条件的目标值，左端值和右端值添加至结果集</span>
                 res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">// 如果左端序列小于右端序列；且；左端值等于左端序列之前的值就跳过该序列</span>
-                <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>lo <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>lo <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     lo<span class="token operator">++</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
                 <span class="token comment" spellcheck="true">// 如果左端序列小于右端序列；且；右端值等于右端序列之后的值就跳过该序列</span>
-                <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>hi <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>lo <span class="token operator">&lt;</span> hi <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>hi <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     hi<span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
                 <span class="token comment" spellcheck="true">// 左端序列递增</span>
                 lo<span class="token operator">++</span><span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">// 右端序列递减</span>
                 hi<span class="token operator">--</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">&lt;</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 如果三数和小于0，则继续向前找左端值</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>lo<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>hi<span class="token punctuation">]</span> <span class="token operator">&lt;</span> sum<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 如果三数和小于0，则继续向前找左端值</span>
                 lo<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 如果三数和大于0，则继续向后找右端值</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 如果三数和大于0，则继续向后找右端值</span>
                 hi<span class="token operator">--</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 返回最终的结果集</span>
 <span class="token keyword">return</span> sum<span class="token punctuation">;</span></code></pre>
@@ -993,11 +993,11 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <p>附加：你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 初始化前驱节点</span>
     ListNode prevHead <span class="token operator">=</span> null<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果头结点不为null</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 记录头结点的指针</span>
         ListNode recordNext <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将头结点的指针指向前驱节点</span>
@@ -1005,32 +1005,32 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
         <span class="token comment" spellcheck="true">// 将头结点和前驱节点值交换</span>
         prevHead <span class="token operator">=</span> head<span class="token punctuation">;</span>
         head <span class="token operator">=</span> recordNext<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回最新链表</span>
     <span class="token keyword">return</span> prevHead<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法一</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">reverseListInt</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">private</span> ListNode <span class="token function">reverseListInt</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> ListNode newHead<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span> ListNode <span class="token function">reverseListInt</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> ListNode newHead<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果头结点的指针指向null说明链表翻转完成，则返回反转后的链表</span>
         <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 交换头结点和前驱节点的值</span>
     ListNode next <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     head<span class="token punctuation">.</span>next <span class="token operator">=</span> newHead<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 将交换后的指针和头结点再次进行交换；直到头结点的指针指向null后返回最新链表</span>
     <span class="token keyword">return</span> <span class="token function">reverseListInt</span><span class="token punctuation">(</span>next<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法二</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果头结点的指针指向null说明链表翻转完成，则返回反转后的链表</span>
         <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 交换头结点和递归交换前驱节点的值</span>
     ListNode nextNode <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     ListNode newHead <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>nextNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1040,7 +1040,7 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
     head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 返回最新的链表</span>
     <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>链表(两两交换链表中的节点)</p>
 <p>题述：给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。<strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p>
@@ -1061,10 +1061,10 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 </ul>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">swapPairs</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">swapPairs</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 记录头结点指针的位置</span>
     ListNode prevHead <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 递归将头节点的指针指向头结点指针的指针</span>
@@ -1073,16 +1073,16 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
     prevHead<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 返回最新链表</span>
     <span class="token keyword">return</span> prevHead<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代解法</span>
-<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">algorithm</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">algorithm</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 将链表的指针指向头结点</span>
     dummy<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 记录当前链表</span>
     ListNode current <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果当前链表的指针不为null且者前驱元素的指针不为null</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 记录头结点的指针</span>
         ListNode first <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 记录头结点前驱元素的指针</span>
@@ -1095,10 +1095,10 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
         current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> first<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将当前链表指向头结点前去元素的指针</span>
         current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回头结点前驱元素的指针</span>
     <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>链表(环形链表)</p>
 <p>题述：给定一个链表，判断链表中是否有环。</p>
@@ -1133,28 +1133,28 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 </ol>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 快慢指针解法</span>
-<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 初始化慢指针</span>
     ListNode walker <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 初始化快指针</span>
     ListNode runner <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果快指针不指向null且快指针的前驱指针不为null</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>runner<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> runner<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>runner<span class="token punctuation">.</span>next <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> runner<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 将慢指针指向他的前驱指针</span>
         walker <span class="token operator">=</span> walker<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将快指针指向他的前驱指针</span>
         runner <span class="token operator">=</span> runner<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 如果快慢指针指向同一个元素说明有环存在</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>walker <span class="token operator">==</span> runner<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>walker <span class="token operator">==</span> runner<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 快慢指针指向不是同一个元素</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>链表(环形链表 II)</p>
 <p>题述：给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</p>
@@ -1182,35 +1182,35 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 <li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引</li>
 </ul>
 <p>实现：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 初始化慢指针</span>
     ListNode slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 初始化快指针</span>
     ListNode fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果快指针不指向null且快指针的前驱指针不为null</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 将慢指针指向其前驱的指针</span>
         slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将快指针指向前驱的前驱</span>
         fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 如果快慢指针相遇，则说明链表有环</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 如果慢指针没有指向头结点</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment" spellcheck="true">// 就一直往前走</span>
                 slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">// 将头结点指向自身</span>
                 head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
             <span class="token comment" spellcheck="true">// 返回头结点</span>
             <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>链表(K 个一组翻转链表)</p>
 <p>题述：给你一个链表，<strong>每 k 个节点一组进行翻转</strong>，请你返回翻转后的链表。</p>
@@ -1243,55 +1243,55 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
 </ol>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ListNode curr <span class="token operator">=</span> head<span class="token punctuation">;</span>
     <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> count <span class="token operator">!=</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// find the k+1 node</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> count <span class="token operator">!=</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// find the k+1 node</span>
         curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         count<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// if k+1 node is found</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// if k+1 node is found</span>
         curr <span class="token operator">=</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>curr<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// reverse list with k+1 node as head</span>
         <span class="token comment" spellcheck="true">// head - head-pointer to direct part, </span>
         <span class="token comment" spellcheck="true">// curr - head-pointer to reversed part;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>count<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// reverse current k-group:</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>count<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// reverse current k-group:</span>
             ListNode tmp <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// tmp - next head in direct part</span>
             head<span class="token punctuation">.</span>next <span class="token operator">=</span> curr<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// preappending "direct" head to the reversed list</span>
             curr <span class="token operator">=</span> head<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// move head of reversed part to a new node</span>
             head <span class="token operator">=</span> tmp<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// move "direct" head to the next node in direct part</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         head <span class="token operator">=</span> curr<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span>ListNode i <span class="token operator">=</span> head<span class="token punctuation">;</span> i <span class="token operator">!=</span> null<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">,</span> i <span class="token operator">=</span> i<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     ListNode dmy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     dmy<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span>ListNode prev <span class="token operator">=</span> dmy<span class="token punctuation">,</span> tail <span class="token operator">=</span> head<span class="token punctuation">;</span> n <span class="token operator">>=</span> k<span class="token punctuation">;</span> n <span class="token operator">-=</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>ListNode prev <span class="token operator">=</span> dmy<span class="token punctuation">,</span> tail <span class="token operator">=</span> head<span class="token punctuation">;</span> n <span class="token operator">>=</span> k<span class="token punctuation">;</span> n <span class="token operator">-=</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             ListNode next <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             tail<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> prev<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             prev<span class="token punctuation">.</span>next <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             tail<span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
         prev <span class="token operator">=</span> tail<span class="token punctuation">;</span>
         tail <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> dmy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 推荐解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 初始化开始节点</span>
     ListNode begin<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果头结点的值或头结点的前驱元素不为null或者一个元素为一组反转</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token operator">==</span>null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span>null <span class="token operator">||</span> k<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token operator">==</span>null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span>null <span class="token operator">||</span> k<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> head<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 直接返回当前链表</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 初始化头结点的后驱元素</span>
     ListNode dummyhead <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 将头结点后驱元素的指针指向头结点</span>
@@ -1301,27 +1301,27 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
     <span class="token comment" spellcheck="true">// 初始化计数器</span>
     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果头节点不为null</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 计数器递增</span>
         i<span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将计数器值对分组值取余，刚好除尽就进行反转操作</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">%</span>k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">%</span>k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 将头结点元素和头结点的后驱元素进行位置调换</span>
             begin <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>begin<span class="token punctuation">,</span> head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">// 将当前链表指向头结点元素</span>
             head <span class="token operator">=</span> begin<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 将当前链表指向头结点元素</span>
             head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回开始节点的指针</span>
     <span class="token keyword">return</span> dummyhead<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 反转链表</span>
-<span class="token keyword">public</span> ListNode <span class="token function">reverse</span><span class="token punctuation">(</span>ListNode begin<span class="token punctuation">,</span> ListNode end<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">reverse</span><span class="token punctuation">(</span>ListNode begin<span class="token punctuation">,</span> ListNode end<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 将开始元素的指针记录</span>
     ListNode curr <span class="token operator">=</span> begin<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 定义两个链表</span>
@@ -1331,7 +1331,7 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
     <span class="token comment" spellcheck="true">// 将开始元素的指针指向反转后的链表</span>
     first <span class="token operator">=</span> curr<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果反转链表的值和原始链表的结束值不一致，就一直进行交换操作</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr<span class="token operator">!=</span>end<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>curr<span class="token operator">!=</span>end<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 将反转链表的指针指向原始链表</span>
         next <span class="token operator">=</span> curr<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将反转链表的指针指向开始元素的值</span>
@@ -1340,14 +1340,14 @@ List<span class="token operator">&lt;</span>List<span class="token operator">&lt
         prev <span class="token operator">=</span> curr<span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 用原始链表替换反转链表</span>
         curr <span class="token operator">=</span> next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 将开始元素的指针指向最终的元素</span>
     begin<span class="token punctuation">.</span>next <span class="token operator">=</span> prev<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 将反转链表的指针指向开始元素的值</span>
     first<span class="token punctuation">.</span>next <span class="token operator">=</span> curr<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 返回最终的反转链表</span>
     <span class="token keyword">return</span> first<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
 <h3 id="2-4-练习"><a href="#2-4-练习" class="headerlink" title="2.4 练习"></a>2.4 练习</h3><ol>
@@ -1370,63 +1370,63 @@ int len = removeDuplicates(nums);
 
 // 在函数里修改输入数组对于调用者是可见的。
 // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-for (int i = 0; i < len; i++) {;
+for (int i = 0; i < len; i++) {
     print(nums[i]);
-};</code></pre>
+}</code></pre>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 简单解法</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 初始化重复数字的计数器</span>
     <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 获取数组的长度</span>
     <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 遍历数组拿出每一个元素</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果当前元素和上一个元素一致，则计数器值+1</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             count<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 否则将当前元素赋给去重后的最新索引位置的值</span>
             nums<span class="token punctuation">[</span>i <span class="token operator">-</span> count<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回最新的数组长度</span>
     <span class="token keyword">return</span> len <span class="token operator">-</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// Time O(n), Space O(1)</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 获取数组长度</span>
     <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果长度小于2直接返回当前数组的长度</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> len<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 初始化非重数组长度计数器</span>
     <span class="token keyword">int</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 遍历拿出数组中的每一个元素</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果当前元素和上一个元素相等就将当前元素记录在非重复数组中</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nums<span class="token punctuation">[</span>id<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回非重复元素数组的长度</span>
     <span class="token keyword">return</span> id<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代器遍历最简形式</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 初始化非重数组的长度</span>
     <span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 遍历数组</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 如果当前元素和上一个元素不相等</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">></span> nums<span class="token punctuation">[</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">></span> nums<span class="token punctuation">[</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 就将非重数组索引递增来存储当前元素</span>
             nums<span class="token punctuation">[</span>length<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回非重数组的长度</span>
     <span class="token keyword">return</span> length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>旋转数组</p>
 <p>题述：给定一个数组，将数组中的元素向右移动 <em>k</em> 个位置，其中 <em>k</em> 是非负数。</p>
@@ -1449,18 +1449,18 @@ for (int i = 0; i < len; i++) {;
 <li>要求使用空间复杂度为 O(1) 的算法。</li>
 </ul>
 <p>实现：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 获取k的索引值</span>
     k <span class="token operator">%=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 执行旋转</span>
     <span class="token function">reverse</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">reverse</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">reverse</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> k<span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 旋转数组</span>
-<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 记录开始位置的值</span>
         <span class="token keyword">int</span> temp <span class="token operator">=</span> nums<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将结束位置的值赋给开始位置</span>
@@ -1471,8 +1471,8 @@ for (int i = 0; i < len; i++) {;
         start<span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 结束序列递减</span>
         end<span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>合并两个有序链表</p>
 <p>题述：将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
@@ -1494,58 +1494,58 @@ for (int i = 0; i < len; i++) {;
 </ul>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 递归解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 如果链表1为null就返回链表2,如果链表2为null就返回链表1</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> null <span class="token operator">||</span> l2 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> null <span class="token operator">||</span> l2 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> l2 <span class="token operator">==</span> null <span class="token operator">?</span> l1 <span class="token operator">:</span> l2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 如果链表1的值小于链表2的值</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 将链表1的指针指向链表2</span>
         l1<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 返回链表1</span>
         <span class="token keyword">return</span> l1<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 否则将链表2的指针指向链表1</span>
         l2<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 返回链表2</span>
         <span class="token keyword">return</span> l2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 迭代解法</span>
-<span class="token keyword">public</span> ListNode <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> ListNode <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 如果链表1为null就返回链表2,如果链表2为null就返回链表1</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> l2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> l1<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 初始化开始节点</span>
     ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 将开始节点存入当前链表</span>
     ListNode curr <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果两个链表都不为null，就对链表的值进行判断</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> l2 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null <span class="token operator">&amp;&amp;</span> l2 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果链表1的值小于链表2的值</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 就将当前链表的指针指向链表1</span>
             curr<span class="token punctuation">.</span>next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">// 将链表1的指针指向链表1</span>
             l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 否则将当前链表的指针指向链表2</span>
             curr<span class="token punctuation">.</span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">// 将链表2的指针指向链表2</span>
             l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
         <span class="token comment" spellcheck="true">// 将当前链表的指针指向当前链表</span>
         curr <span class="token operator">=</span> curr<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 如果当前链表的指针指向链表1且为null就指向链表2，否则指向链表1</span>
     curr<span class="token punctuation">.</span>next <span class="token operator">=</span> l1 <span class="token operator">==</span> null <span class="token operator">?</span> l2 <span class="token operator">:</span> l1<span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 返回开始元素指针指向的链表</span>
     <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>合并两个有序数组</p>
 <p>题述：给你两个有序整数数组 <em>nums1</em> 和 <em>nums2</em>，请你将 <em>nums2</em> 合并到 <em>nums1</em> 中<em>，</em>使 <em>nums1</em> 成为一个有序数组。</p>
@@ -1566,7 +1566,7 @@ nums2 <span class="token operator">=</span> <span class="token punctuation">[</s
 <p><code>0 &lt;= m, n &lt;= 200</code><br><code>1 &lt;= m + n &lt;= 200</code><br><code>nums1.length == m + n</code><br><code>nums2.length == n</code><br><code>-109 &lt;= nums1[i], nums2[i] &lt;= 109</code></p>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// AC解法</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 记录数组1的末尾元素索引</span>
     <span class="token keyword">int</span> endOne <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 记录数组2的末尾元素索引</span>
@@ -1574,44 +1574,44 @@ nums2 <span class="token operator">=</span> <span class="token punctuation">[</s
     <span class="token comment" spellcheck="true">// 记录数组1和数组2衔接处的索引</span>
     <span class="token keyword">int</span> midpoint <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果两个数组的起始索引都大于零</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>endOne <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> endTwo <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>endOne <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> endTwo <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果数组1的末尾元素比数组2的大</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>endOne<span class="token punctuation">]</span> <span class="token operator">></span> nums2<span class="token punctuation">[</span>endTwo<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>endOne<span class="token punctuation">]</span> <span class="token operator">></span> nums2<span class="token punctuation">[</span>endTwo<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 说明数组1的最大值是整个数组的最大值，所以将相邻之前的元素赋值给衔接处之前的位置</span>
             nums1<span class="token punctuation">[</span>midpoint<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums1<span class="token punctuation">[</span>endOne<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 否则将数组2之前的元素赋给衔接处之前的位置</span>
             nums1<span class="token punctuation">[</span>midpoint<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>endTwo<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 如果数组2的末尾索引一直大于0</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>endTwo <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>endTwo <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 就依次将该所引之前的元素赋给数组1</span>
         nums1<span class="token punctuation">[</span>midpoint<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>endTwo<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 简单解法</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> j <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> k <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> j <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> k <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         nums1<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> nums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums2<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> nums2<span class="token punctuation">[</span>j<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">:</span> nums1<span class="token punctuation">[</span>i<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 最佳解法</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 初始化三个节点的索引，数组1的末尾索引，数组1和数组2衔接处索引，数组2的末尾索引</span>
     <span class="token keyword">int</span> tail1 <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> tail2 <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> finished <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 如果数组1和数组2的末端索引值一直大于等于0</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tail1 <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> tail2 <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tail1 <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> tail2 <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果数组1末端值大于数组2末端值，则将数组1的末端值赋值给数组衔接处，否则将数组2的末端值赋值给衔接处，总是保证最后一个元素最大</span>
         nums1<span class="token punctuation">[</span>finished<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>tail1<span class="token punctuation">]</span> <span class="token operator">></span> nums2<span class="token punctuation">[</span>tail2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span>
             nums1<span class="token punctuation">[</span>tail1<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">:</span> nums2<span class="token punctuation">[</span>tail2<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     <span class="token comment" spellcheck="true">// 单独处理数组2，将数组2拼接到后面</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>tail2 <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//only need to combine with remaining nums2</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tail2 <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//only need to combine with remaining nums2</span>
         nums1<span class="token punctuation">[</span>finished<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>tail2<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>两数之和</p>
 <p>题述：给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。</p>
@@ -1706,12 +1706,12 @@ String peekedElement <span class="token operator">=</span> queue<span class="tok
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>peekedElement<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// two</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [two, three, four]</span>
 
-<span class="token keyword">while</span> <span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>queue<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 第一次循环 two</span>
     <span class="token comment" spellcheck="true">// 第二次循环 three</span>
     <span class="token comment" spellcheck="true">// 第三次循环 four</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
 <h4 id="2-6-1-优先队列"><a href="#2-6-1-优先队列" class="headerlink" title="2.6.1 优先队列"></a>2.6.1 优先队列</h4><ol>
@@ -1748,12 +1748,12 @@ String peek <span class="token operator">=</span> deque<span class="token punctu
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>peek<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// c</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>deque<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [c, b, a]</span>
 
-<span class="token keyword">while</span> <span class="token punctuation">(</span>deque<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>deque<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>deque<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 第一次循环 c</span>
     <span class="token comment" spellcheck="true">// 第二次循环 b</span>
     <span class="token comment" spellcheck="true">// 第三次循环 a</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>deque<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// []</span></code></pre>
 </li>
@@ -1769,7 +1769,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <pre class=" language-text"><code class="language-text">输入: "()"
 输出: true
 
-输入: "()[]{;};"
+输入: "()[]{}"
 输出: true
 
 输入: "(]"
@@ -1778,7 +1778,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 输入: "([)]"
 输出: false
 
-输入: "{;[]};"
+输入: "{[]}"
 输出: true</code></pre>
 <p>题解：</p>
 <ol>
@@ -1789,17 +1789,17 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </ol>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java">Stack<span class="token operator">&lt;</span>Character<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Character<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果字符是左括号就像栈里存入右括号</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 如果字符是左括号就像栈里存入右括号</span>
         stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'{;'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果字符是左中括号就像栈里存入右中括号</span>
-        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'};'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'['</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果字符是左大括号就像栈里存入大右括号</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'{'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 如果字符是左中括号就像栈里存入右中括号</span>
+        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'['</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 如果字符是左大括号就像栈里存入大右括号</span>
         stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果栈顶元素和字符串字符不相等就说明不匹配返回false，这里需要对栈进行非空校验</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 如果栈顶元素和字符串字符不相等就说明不匹配返回false，这里需要对栈进行非空校验</span>
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果栈为空说明全部匹配上</span></code></pre>
 </li>
 <li><p>栈(最小栈)</p>
@@ -1828,9 +1828,9 @@ minStack.getMin();   --> 返回 -2.</code></pre>
 </ul>
 <p>实现：</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** initialize your data structure here. */</span>
-<span class="token keyword">public</span> <span class="token function">MinStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token function">MinStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 初始化最小值为0x7fffffff</span>
 <span class="token keyword">int</span> min <span class="token operator">=</span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
@@ -1838,25 +1838,25 @@ minStack.getMin();   --> 返回 -2.</code></pre>
 Stack<span class="token operator">&lt;</span>Integer<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stack</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// </span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> min<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>
         min <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> min<span class="token punctuation">)</span> min <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> min<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>栈(柱状图中最大的矩形)</p>
 <p>题述：给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
