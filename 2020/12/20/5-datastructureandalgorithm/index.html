@@ -554,7 +554,13 @@
    5. 面试前再次刷题(五刷)
 10. 职业练习
     1. 拆分知识点，刻意练习，反馈
+11. 解题
+    1. 和面试官交流充分理解题意
+    2. 思考解法，选择一种最优的解法
+    3. 开始编码
+    4. 测试代码
 </div>
+
 
 
 
@@ -579,7 +585,7 @@
 </li>
 <li><p>操作</p>
 <ol>
-<li>home，end</li>
+<li><code>home</code>，<code>end</code></li>
 <li>选单词，选整行</li>
 </ol>
 </li>
@@ -1654,7 +1660,7 @@ nums2 <span class="token operator">=</span> <span class="token punctuation">[</s
     <span class="token comment" spellcheck="true">// 返回最新的索引数组</span>
     <span class="token keyword">return</span> result<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 集合解法</span>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 集合解法// hash解法</span>
 <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 用于记录数组元素和其索引的映射关系</span>
     HashMap<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1881,7 +1887,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>deque<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// []</span></code></pre>
 </li>
 </ol>
-<h3 id="2-7-练习"><a href="#2-7-练习" class="headerlink" title="2.7 练习"></a>2.7 练习</h3><h4 id="2-7-1-栈"><a href="#2-7-1-栈" class="headerlink" title="2.7.1 栈"></a>2.7.1 栈</h4><ol>
+<h3 id="2-7-栈-amp-队列练习"><a href="#2-7-栈-amp-队列练习" class="headerlink" title="2.7 栈&amp;队列练习"></a>2.7 栈&amp;队列练习</h3><h4 id="2-7-1-栈"><a href="#2-7-1-栈" class="headerlink" title="2.7.1 栈"></a>2.7.1 栈</h4><ol>
 <li><p>一个问题有最近相关性就考虑用栈来解决</p>
 </li>
 <li><p>栈(stack)—有效的括号1</p>
@@ -2153,7 +2159,7 @@ for i-->i(0,n-1)
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h3 id="2-7-2-队列"><a href="#2-7-2-队列" class="headerlink" title="2.7.2 队列"></a>2.7.2 队列</h3><ol>
+<h4 id="2-7-2-队列"><a href="#2-7-2-队列" class="headerlink" title="2.7.2 队列"></a>2.7.2 队列</h4><ol>
 <li><p>讲究先来后到的顺序(公平性)</p>
 </li>
 <li><p>队列(滑动窗口最大值)4</p>
@@ -2335,7 +2341,174 @@ circularDeque.getFront();                // 返回 4</code></pre>
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h3 id="2-6-哈希表"><a href="#2-6-哈希表" class="headerlink" title="2.6 哈希表"></a>2.6 哈希表</h3><h3 id="2-7-映射"><a href="#2-7-映射" class="headerlink" title="2.7 映射"></a>2.7 映射</h3><h3 id="2-8-集合"><a href="#2-8-集合" class="headerlink" title="2.8 集合"></a>2.8 集合</h3><h2 id="3-树形结构"><a href="#3-树形结构" class="headerlink" title="3. 树形结构"></a>3. 树形结构</h2><h3 id="3-1-一般树"><a href="#3-1-一般树" class="headerlink" title="3.1 一般树"></a>3.1 一般树</h3><h3 id="3-2-二叉树"><a href="#3-2-二叉树" class="headerlink" title="3.2 二叉树"></a>3.2 二叉树</h3><h3 id="3-3-二叉搜索树"><a href="#3-3-二叉搜索树" class="headerlink" title="3.3 二叉搜索树"></a>3.3 二叉搜索树</h3><h3 id="3-4-泛型递归"><a href="#3-4-泛型递归" class="headerlink" title="3.4 泛型递归"></a>3.4 泛型递归</h3><h3 id="3-5-树的递归"><a href="#3-5-树的递归" class="headerlink" title="3.5 树的递归"></a>3.5 树的递归</h3><h3 id="3-6-字典树和并查集"><a href="#3-6-字典树和并查集" class="headerlink" title="3.6 字典树和并查集"></a>3.6 字典树和并查集</h3><h3 id="3-7-红黑树和AL树"><a href="#3-7-红黑树和AL树" class="headerlink" title="3.7 红黑树和AL树"></a>3.7 红黑树和AL树</h3><h2 id="4-算法"><a href="#4-算法" class="headerlink" title="4. 算法"></a>4. 算法</h2><h3 id="4-1-分治"><a href="#4-1-分治" class="headerlink" title="4.1 分治"></a>4.1 分治</h3><h3 id="4-2-回溯"><a href="#4-2-回溯" class="headerlink" title="4.2 回溯"></a>4.2 回溯</h3><h3 id="4-3-深度优先搜索"><a href="#4-3-深度优先搜索" class="headerlink" title="4.3 深度优先搜索"></a>4.3 深度优先搜索</h3><h3 id="4-4-广度优先搜索"><a href="#4-4-广度优先搜索" class="headerlink" title="4.4 广度优先搜索"></a>4.4 广度优先搜索</h3><h3 id="4-5-贪心算法"><a href="#4-5-贪心算法" class="headerlink" title="4.5 贪心算法"></a>4.5 贪心算法</h3><h3 id="4-6-二分查找"><a href="#4-6-二分查找" class="headerlink" title="4.6 二分查找"></a>4.6 二分查找</h3><h3 id="4-7-动态规划"><a href="#4-7-动态规划" class="headerlink" title="4.7 动态规划"></a>4.7 动态规划</h3><h3 id="4-8-高级搜索"><a href="#4-8-高级搜索" class="headerlink" title="4.8 高级搜索"></a>4.8 高级搜索</h3><h3 id="4-9-位运算"><a href="#4-9-位运算" class="headerlink" title="4.9 位运算"></a>4.9 位运算</h3><h3 id="4-10-布隆过滤器和LRU缓存"><a href="#4-10-布隆过滤器和LRU缓存" class="headerlink" title="4.10 布隆过滤器和LRU缓存"></a>4.10 布隆过滤器和LRU缓存</h3><h2 id="5-重要算法"><a href="#5-重要算法" class="headerlink" title="5. 重要算法"></a>5. 重要算法</h2><h3 id="5-1-排序算法"><a href="#5-1-排序算法" class="headerlink" title="5.1 排序算法"></a>5.1 排序算法</h3><h3 id="5-2-高阶动态规划"><a href="#5-2-高阶动态规划" class="headerlink" title="5.2 高阶动态规划"></a>5.2 高阶动态规划</h3><h3 id="5-3-字符串算法"><a href="#5-3-字符串算法" class="headerlink" title="5.3 字符串算法"></a>5.3 字符串算法</h3>
+<h3 id="2-8-哈希表-amp-映射-amp-集合"><a href="#2-8-哈希表-amp-映射-amp-集合" class="headerlink" title="2.8 哈希表&amp;映射&amp;集合"></a>2.8 哈希表&amp;映射&amp;集合</h3><ol>
+<li><p>应用</p>
+<ol>
+<li>map<ol>
+<li>使用hash码实现</li>
+<li>部分使用二叉树实现</li>
+</ol>
+</li>
+<li>set<ol>
+<li>使用hash码实现</li>
+<li>部分使用二叉树实现</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>概述</p>
+<ol>
+<li><p>描述</p>
+<blockquote>
+<p>哈希表(hash table) ，也称为散列表，是根据关键码值(key value)而直接进行访问的数据结构</p>
+</blockquote>
+</li>
+<li><p>特点</p>
+<ol>
+<li>通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度</li>
+<li>这种映射关系称为散列函数(hash function)，存放记录的数组称为hash表(或散列表)</li>
+</ol>
+</li>
+<li><p>应用</p>
+<ol>
+<li>用户信息表</li>
+<li>缓存(LRU Cache)</li>
+<li>键值对存储(Redis)</li>
+</ol>
+</li>
+<li><p>hash table原理图</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/JK/algorithm/16.hash%E8%A1%A8%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="hash表原理图"></p>
+</li>
+<li><p>hash碰撞</p>
+<blockquote>
+<p>对于一个存储元素，由hash函数计算所得到的整数值，有可能两个不同元素的hashcode值是一样的，不过概率很小</p>
+</blockquote>
+</li>
+<li><p>解决hash碰撞</p>
+<ol>
+<li>升级维度(由原来的数组结构升级为数组+链表形式)—拉链式解决冲突的方法</li>
+</ol>
+</li>
+<li><p>增删改查的时间复杂度都是<code>O(1)</code></p>
+</li>
+<li><p>实现</p>
+<ol>
+<li>HashMap/TreeMap—<code>key-value</code>对，key不重复<ol>
+<li>主要掌握put和get原理流程</li>
+</ol>
+</li>
+<li>HashSet/TreeSet—不重复的元素集合<ol>
+<li>主要依赖<code>HashMap/TreeMap</code>来实现</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-8-1-练习"><a href="#2-8-1-练习" class="headerlink" title="2.8.1 练习"></a>2.8.1 练习</h4><ol>
+<li><p>hash(有效的字母异位词)</p>
+<p>题述：给定两个字符串 <em>s</em> 和 <em>t</em> ，编写一个函数来判断 <em>t</em> 是否是 <em>s</em> 的字母异位词。</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text">输入: s = "anagram", t = "nagaram"
+输出: true
+
+输入: s = "rat", t = "car"
+输出: false</code></pre>
+<p><strong>说明:</strong><br>你可以假设字符串只包含小写字母。</p>
+<p><strong>进阶:</strong><br>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
+<p>实现</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 一般方法</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isAnagram</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> alphabet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        alphabet<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> t<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        alphabet<span class="token punctuation">[</span>t<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">:</span> alphabet<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 时间复杂度较低解法</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isAnagram</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> String t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> t<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> anagram<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> anagramlength <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        anagram<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">++</span>index <span class="token operator">&lt;</span> t<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>anagram<span class="token punctuation">[</span>t<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            anagramlength<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> anagramlength <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+<li><p>hash(字母异位词分组)</p>
+<p>题述：给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text">输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+输出:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+Input: strs = [""]
+Output: [[""]]
+
+Input: strs = ["a"]
+Output: [["a"]]</code></pre>
+<p><strong>说明：</strong></p>
+<ul>
+<li><code>1 &lt;= strs.length &lt;= 104</code></li>
+<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>
+<li>所有输入均为小写字母</li>
+<li>不考虑答案输出的顺序。</li>
+</ul>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li><p>()</p>
+<p>题述：</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text"></code></pre>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li><p>()</p>
+<p>题述：</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text"></code></pre>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li><p>()</p>
+<p>题述：</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text"></code></pre>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li><p>()</p>
+<p>题述：</p>
+<p>示例：</p>
+<pre class=" language-text"><code class="language-text"></code></pre>
+<p>实现：</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+<li></li>
+</ol>
+<h2 id="3-树形结构"><a href="#3-树形结构" class="headerlink" title="3. 树形结构"></a>3. 树形结构</h2><h3 id="3-1-一般树"><a href="#3-1-一般树" class="headerlink" title="3.1 一般树"></a>3.1 一般树</h3><h3 id="3-2-二叉树"><a href="#3-2-二叉树" class="headerlink" title="3.2 二叉树"></a>3.2 二叉树</h3><h3 id="3-3-二叉搜索树"><a href="#3-3-二叉搜索树" class="headerlink" title="3.3 二叉搜索树"></a>3.3 二叉搜索树</h3><h3 id="3-4-泛型递归"><a href="#3-4-泛型递归" class="headerlink" title="3.4 泛型递归"></a>3.4 泛型递归</h3><h3 id="3-5-树的递归"><a href="#3-5-树的递归" class="headerlink" title="3.5 树的递归"></a>3.5 树的递归</h3><h3 id="3-6-字典树和并查集"><a href="#3-6-字典树和并查集" class="headerlink" title="3.6 字典树和并查集"></a>3.6 字典树和并查集</h3><h3 id="3-7-红黑树和AL树"><a href="#3-7-红黑树和AL树" class="headerlink" title="3.7 红黑树和AL树"></a>3.7 红黑树和AL树</h3><h2 id="4-算法"><a href="#4-算法" class="headerlink" title="4. 算法"></a>4. 算法</h2><h3 id="4-1-分治"><a href="#4-1-分治" class="headerlink" title="4.1 分治"></a>4.1 分治</h3><h3 id="4-2-回溯"><a href="#4-2-回溯" class="headerlink" title="4.2 回溯"></a>4.2 回溯</h3><h3 id="4-3-深度优先搜索"><a href="#4-3-深度优先搜索" class="headerlink" title="4.3 深度优先搜索"></a>4.3 深度优先搜索</h3><h3 id="4-4-广度优先搜索"><a href="#4-4-广度优先搜索" class="headerlink" title="4.4 广度优先搜索"></a>4.4 广度优先搜索</h3><h3 id="4-5-贪心算法"><a href="#4-5-贪心算法" class="headerlink" title="4.5 贪心算法"></a>4.5 贪心算法</h3><h3 id="4-6-二分查找"><a href="#4-6-二分查找" class="headerlink" title="4.6 二分查找"></a>4.6 二分查找</h3><h3 id="4-7-动态规划"><a href="#4-7-动态规划" class="headerlink" title="4.7 动态规划"></a>4.7 动态规划</h3><h3 id="4-8-高级搜索"><a href="#4-8-高级搜索" class="headerlink" title="4.8 高级搜索"></a>4.8 高级搜索</h3><h3 id="4-9-位运算"><a href="#4-9-位运算" class="headerlink" title="4.9 位运算"></a>4.9 位运算</h3><h3 id="4-10-布隆过滤器和LRU缓存"><a href="#4-10-布隆过滤器和LRU缓存" class="headerlink" title="4.10 布隆过滤器和LRU缓存"></a>4.10 布隆过滤器和LRU缓存</h3><h2 id="5-重要算法"><a href="#5-重要算法" class="headerlink" title="5. 重要算法"></a>5. 重要算法</h2><h3 id="5-1-排序算法"><a href="#5-1-排序算法" class="headerlink" title="5.1 排序算法"></a>5.1 排序算法</h3><h3 id="5-2-高阶动态规划"><a href="#5-2-高阶动态规划" class="headerlink" title="5.2 高阶动态规划"></a>5.2 高阶动态规划</h3><h3 id="5-3-字符串算法"><a href="#5-3-字符串算法" class="headerlink" title="5.3 字符串算法"></a>5.3 字符串算法</h3>
             </div>
             <hr/>
 
