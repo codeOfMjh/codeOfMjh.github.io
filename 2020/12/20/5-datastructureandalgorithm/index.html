@@ -3843,7 +3843,48 @@ Click : [1,2]
 <pre class=" language-java"><code class="language-java"></code></pre>
 </li>
 </ol>
-<h3 id="4-6-贪心算法"><a href="#4-6-贪心算法" class="headerlink" title="4.6 贪心算法"></a>4.6 贪心算法</h3><h4 id="4-6-1-简介"><a href="#4-6-1-简介" class="headerlink" title="4.6.1 简介"></a>4.6.1 简介</h4><h4 id="4-6-2-练习"><a href="#4-6-2-练习" class="headerlink" title="4.6.2 练习"></a>4.6.2 练习</h4><ol>
+<h3 id="4-6-贪心算法"><a href="#4-6-贪心算法" class="headerlink" title="4.6 贪心算法"></a>4.6 贪心算法</h3><h4 id="4-6-1-简介"><a href="#4-6-1-简介" class="headerlink" title="4.6.1 简介"></a>4.6.1 简介</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>是一种在每一步选择中都采取在当前状态下最好或最优(即最有利)的选择，从而希望结果是全局最好或最优的算法</p>
+</blockquote>
+</li>
+<li><p>区分</p>
+<blockquote>
+<p>贪心算法与动态规划的区别：贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。</p>
+</blockquote>
+</li>
+<li><p>贪心&amp;回溯&amp;动态规划</p>
+<ol>
+<li>贪心：当下做局部最优判断</li>
+<li>回溯：能够回退</li>
+<li>动态规划：最优判断+回退</li>
+</ol>
+</li>
+<li><p>贪心算法特点</p>
+<blockquote>
+<p>一个问题可以通过贪心算法解决，那么贪心算法必然是最优解决方案；由于贪心算法具有高效性以及所求结果比较接近最优解决方案，所以常用做辅助算法或者直接解决一些对结果要求不是特别精确的问题。</p>
+</blockquote>
+</li>
+<li><p>应用</p>
+<ol>
+<li>图中求最小生成树</li>
+<li>求哈夫曼编码</li>
+<li>在工程和生活中一般不用贪心算法</li>
+</ol>
+</li>
+<li><p>处处最优不一定得到全局最优，全局最优势必放弃处处最优。</p>
+</li>
+<li><p>适用场景</p>
+<blockquote>
+<p>一般地，一个问题能够分解为若干子问题来解决，而子问题的最优解能==<strong>递推</strong>==到最终问题的最优解；这种子问题的最优解称为最优子结构。</p>
+</blockquote>
+<blockquote>
+<p>贪心算法会对每个子问题的解决方案都做出选择，且不能回退。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="4-6-2-练习"><a href="#4-6-2-练习" class="headerlink" title="4.6.2 练习"></a>4.6.2 练习</h4><ol>
 <li><p>零钱兑换—322题</p>
 <p>题述：给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
 <p>你可以认为每种硬币的数量是无限的。</p>
@@ -3924,7 +3965,48 @@ Click : [1,2]
 <li><code>bills[i]</code> 不是 <code>5</code> 就是 <code>10</code> 或是 <code>20</code></li>
 </ul>
 <p>实现</p>
-<pre class=" language-java"><code class="language-java"></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">lemonadeChange</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> five <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ten <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">:</span> bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            five<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            five<span class="token operator">--</span><span class="token punctuation">;</span> 
+            ten<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ten <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ten<span class="token operator">--</span><span class="token punctuation">;</span> 
+            five<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            five <span class="token operator">-=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>five <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">lemonadeChange</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> bill <span class="token operator">:</span> bills<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>bill<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">--</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> j<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">20</span><span class="token operator">:</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    i<span class="token operator">--</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">>=</span> <span class="token number">3</span><span class="token punctuation">)</span> i <span class="token operator">-=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                k<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>买卖股票的最佳时机 II—122题</p>
 <p>题述：给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p>
