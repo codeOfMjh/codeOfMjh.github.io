@@ -643,9 +643,9 @@
 <li><code>HashMap</code><ol>
 <li>底层原理<ol>
 <li>1.8之前底层是数组+链表，1.8之后是数组+链表+红黑树</li>
-<li>链表的出现就是解决Hash值相同，由HashCode值决定存放的位置</li>
-<li>链表转为红黑树—当数组长度大于64且链表长度大于8时会将链表转为红黑树</li>
-<li>初始值为16，当负载因子达到0.75时，就会扩容为原来的2倍</li>
+<li>链表的出现就是解决Hash值相同，由<code>HashCode</code>值决定存放的位置</li>
+<li>链表转为红黑树—当数组长度大于==64==且链表长度大于==8==时会将链表转为红黑树</li>
+<li>初始值为==16==，当负载因子达到==0.75==时，就会扩容为原来的==2==倍</li>
 <li>一般用于单线程环境</li>
 </ol>
 </li>
@@ -717,16 +717,16 @@
 </ol>
 </li>
 <li>并发集合Collections<ol>
-<li>BlockingQueue：提供可阻塞的入队和出队操作(都是线程安全的)<ol>
+<li><code>BlockingQueue</code>：提供可阻塞的入队和出队操作(都是线程安全的)<ol>
 <li>主要用于生产者-消费者模式：将任务的生产和消费进行隔离</li>
-<li>ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列</li>
-<li>LinkedBlockingQueue：一个由链表结构组成的有/无界阻塞队列</li>
-<li>PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列</li>
-<li>DealyQueue：一个使用优先级队列实现的无界阻塞队列</li>
-<li>SynchronousQueue：一个不存储元素的阻塞队列</li>
-<li>LinkedTransferQueue：一个由链表结构组成的无界阻塞队列</li>
-<li>LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列</li>
-<li>ConcurrentHashMap<ol>
+<li><code>ArrayBlockingQueue</code>：一个由数组结构组成的有界阻塞队列</li>
+<li><code>LinkedBlockingQueue</code>：一个由链表结构组成的有/无界阻塞队列</li>
+<li><code>PriorityBlockingQueue</code>：一个支持优先级排序的无界阻塞队列</li>
+<li><code>DealyQueue</code>：一个使用优先级队列实现的无界阻塞队列</li>
+<li><code>SynchronousQueue</code>：一个不存储元素的阻塞队列</li>
+<li><code>LinkedTransferQueue</code>：一个由链表结构组成的无界阻塞队列</li>
+<li><code>LinkedBlockingDeque</code>：一个由链表结构组成的双向阻塞队列</li>
+<li><code>ConcurrentHashMap</code><ol>
 <li>JDK8以前：使用更细粒度的锁，由一个Segment数组和多个HashEntry组成，实现了锁分离，即每个元素的锁是不一样的</li>
 <li>JDK8之后：使用CAS++synchronized使锁更细化</li>
 <li>存在于JUC包下，不允许存储null键值</li>
@@ -908,7 +908,7 @@
 </li>
 </ol>
 </li>
-<li>ReentranLock(重入锁)<ol>
+<li><code>ReentranLock</code>(重入锁)<ol>
 <li>位于Java.util.concurrent.locks包下</li>
 <li>和CountDownLatch，FutureTask，Semaphore一样基于AQS实现<ol>
 <li>AQS：AbstractQueueSynchronizer</li>
@@ -929,7 +929,7 @@
 </li>
 </ol>
 </li>
-<li>JMM—Java Memory Model<ol>
+<li>JMM—<code>Java Memory Model</code><ol>
 <li>主内存<ol>
 <li>存储Java实例对象</li>
 <li>包括成员变量，类信息，常量，静态变量等</li>
@@ -1022,11 +1022,11 @@
 </ol>
 </li>
 <li>5种不同场景的线程池创建<ol>
-<li>newFixedThreadPool(int nThread)：指定工作线程数量的线程池</li>
-<li>newCachedThreadPool()：短时间处理大量工作任务的线程池</li>
-<li>newSingleThreadExecutor()：创建唯一的工作线程来执行任务，如果该线程一结束，会有另一个线程取代它</li>
-<li>newSingleThreadScheduledExecutor()和newScheduledThreadExecutor(int corePoolSize)：定时或者周期性的工作调度线程池，两个的区别在于单一工作线程还是多线程</li>
-<li>newWorkStealingPool()：内部构建ForkJoinPool，利用working-stealing算法，并行的执行任务，不保证处理顺序<ol>
+<li><code>newFixedThreadPool(int nThread)</code>：指定工作线程数量的线程池</li>
+<li><code>newCachedThreadPool()</code>：短时间处理大量工作任务的线程池</li>
+<li><code>newSingleThreadExecutor()</code>：创建唯一的工作线程来执行任务，如果该线程一结束，会有另一个线程取代它</li>
+<li><code>newSingleThreadScheduledExecutor()</code>和<code>newScheduledThreadExecutor(int corePoolSize)</code>：定时或者周期性的工作调度线程池，两个的区别在于单一工作线程还是多线程</li>
+<li><code>newWorkStealingPool()</code>：内部构建ForkJoinPool，利用working-stealing算法，并行的执行任务，不保证处理顺序<ol>
 <li>Fork/Join框架<ol>
 <li>把大任务分割为有限的小任务执行，把每个小 任务的执行结果汇总得到大任务结果的框架</li>
 </ol>
@@ -1046,17 +1046,17 @@
 <li>提高线程的可管理性</li>
 </ol>
 </li>
-<li>ThreadPoolExecutor构造函数<ol>
-<li>corePoolSize：核心线程数量</li>
-<li>maximunPoolSize：线程不够用时，最多可创建的线程数</li>
-<li>workQueue：任务等待队列</li>
-<li>keepAliveTime：抢占顺序不一定</li>
-<li>ThreadFactory：创建新线程</li>
-<li>Handler：线程池的饱和策略<ol>
-<li>AbortPolicy：直接抛出异常，默认策略</li>
-<li>CallerRunsPolicy：用调用者所在的线程来执行任务，并执行当前任务</li>
-<li>DiscardOldPolicy：丢弃队列中最靠前的任务，并执行当前任务</li>
-<li>DiscardPolicy：直接丢弃任务</li>
+<li><code>ThreadPoolExecutor</code>构造函数<ol>
+<li><code>corePoolSize</code>：核心线程数量</li>
+<li><code>maximunPoolSize</code>：线程不够用时，最多可创建的线程数</li>
+<li><code>workQueue</code>：任务等待队列</li>
+<li><code>keepAliveTime</code>：抢占顺序不一定</li>
+<li><code>ThreadFactory</code>：创建新线程</li>
+<li><code>Handler</code>：线程池的饱和策略<ol>
+<li><code>AbortPolicy</code>：直接抛出异常，默认策略</li>
+<li><code>CallerRunsPolicy</code>：用调用者所在的线程来执行任务，并执行当前任务</li>
+<li><code>DiscardOldPolicy</code>：丢弃队列中最靠前的任务，并执行当前任务</li>
+<li><code>DiscardPolicy</code>：直接丢弃任务</li>
 <li>通过实现RejectedExecutorHandler接口来自定义Handler</li>
 </ol>
 </li>
@@ -1070,11 +1070,11 @@
 </ol>
 </li>
 <li>线程池的状态<ol>
-<li>Runing：能够接受新任务提交，也可以处理阻塞队列中的任务</li>
-<li>Shutdown：不在接受新提交的任务，但可以处理存量任务</li>
-<li>Stop：不在接受新提交的任务，也不处理存量任务</li>
-<li>Tidying：所有任务都已终止</li>
-<li>Terminated：terminated方法执行后进入该状态(仅作标识)</li>
+<li><code>Runing</code>：能够接受新任务提交，也可以处理阻塞队列中的任务</li>
+<li><code>Shutdown</code>：不在接受新提交的任务，但可以处理存量任务</li>
+<li><code>Stop</code>：不在接受新提交的任务，也不处理存量任务</li>
+<li><code>Tidying</code>：所有任务都已终止</li>
+<li><code>Terminated：terminated</code>方法执行后进入该状态(仅作标识)</li>
 </ol>
 </li>
 </ol>
@@ -1231,13 +1231,13 @@
 <li>分代收集算法<ol>
 <li>按照对象生命周期的不同划分区域以采用不同的垃圾回收算法，提高了JVM的回收效率</li>
 <li>JDK8以前分为年轻代，老年代，永久代；JDK8开始取消永久代</li>
-<li>Minor GC发生在年轻代中的收集动作，采用的是复制算法<ol>
+<li><code>Minor GC</code>发生在年轻代中的收集动作，采用的是复制算法<ol>
 <li>尽可能快速的收集哪些生命周期短的对象</li>
 <li>主要分为Eden区和两个Survivor区(包含一个from区和to区)[Eden:from:to=8:1:1]</li>
 <li>每次触发GC后存活的对象年龄值+1，默认是15岁后进入老年代</li>
 </ol>
 </li>
-<li>Full GC<ol>
+<li><code>Full GC</code><ol>
 <li>经历一定次数(默认是15次)的Minor GC后依然存活的对象开始进入老年代</li>
 <li>Survivor区存放不下的大对象直接进入老年代</li>
 <li>发生在老年代的收集动作，存放生命周期较长的对象；采用标记-清除算法和标记-整理算法</li>
@@ -1254,18 +1254,18 @@
 </ol>
 </li>
 <li>调优参数<ol>
-<li>-XX:SurvivorRatio：设置Eden和Survivor的比值，默认是8:1</li>
-<li>-XX:NewRatio：设置老年代和年轻代内存大小的比例</li>
-<li>-XX:MaxTenuringThreshold：对象从年轻代升级为老年代需要出发Minor GC的次数</li>
+<li><code>-XX:SurvivorRatio</code>：设置Eden和Survivor的比值，默认是8:1</li>
+<li><code>-XX:NewRatio</code>：设置老年代和年轻代内存大小的比例</li>
+<li><code>-XX:MaxTenuringThreshold</code>：对象从年轻代升级为老年代需要出发Minor GC的次数</li>
 </ol>
 </li>
-<li>Stop_the_World<ol>
+<li><code>Stop_the_World</code><ol>
 <li>JVM由于要执行GC而停止了应用程序的执行</li>
 <li>任何一种GC都会发生</li>
 <li>通过避免减少Stop_the_World的发生时间来提高程序性能</li>
 </ol>
 </li>
-<li>Safepoint(安全点)<ol>
+<li><code>Safepoint</code>(安全点)<ol>
 <li>触发GC的快照点</li>
 <li>分析过程中对象引用关系不会产生变化的点</li>
 <li>Safepoint可能点：方法调用，循环跳转，异常跳转等</li>
@@ -1645,12 +1645,12 @@
 </ul>
 <ol>
 <li>数据类型<ul>
-<li>String：基本数据类型，二进制安全</li>
-<li>Hash：String组成的字典，适合存储对象</li>
-<li>List：列表，按照String元素插入顺序排序</li>
-<li>Set：String元素组成的无序集合，通过Hash表现，不允许重复</li>
-<li>Sorted Set：通过分数类为集合中的成员进行从小到大的排序</li>
-<li>HyperLogLog：用于支持存储地理位置信息</li>
+<li><code>String</code>：基本数据类型，二进制安全</li>
+<li><code>Hash：String</code>组成的字典，适合存储对象</li>
+<li><code>List</code>：列表，按照String元素插入顺序排序</li>
+<li><code>Set：String</code>元素组成的无序集合，通过Hash表现，不允许重复</li>
+<li><code>Sorted Set</code>：通过分数类为集合中的成员进行从小到大的排序</li>
+<li><code>HyperLogLog</code>：用于支持存储地理位置信息</li>
 </ul>
 </li>
 <li>大数据查询固定前缀的key<ul>
@@ -1811,7 +1811,8 @@
 </ul>
 </li>
 <li><p>三次握手</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E7%8A%B6%E6%80%81.png"></p>
+</li>
+<li><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/01.TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E7%8A%B6%E6%80%81.png" alt="三次握手"></p>
 <ul>
 <li>说明<ul>
 <li>建立连接时，客户端发送syn包到服务器，并进入syn_send状态，等待服务器确认。</li>
@@ -1822,7 +1823,7 @@
 </ul>
 </li>
 <li><p>四次挥手</p>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png"></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/02.TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" alt="四次挥手"></p>
 <ul>
 <li>说明<ul>
 <li>客户端发送fin字段来请求关闭连接到服务器，客户端进入fin_wait_1状态</li>
