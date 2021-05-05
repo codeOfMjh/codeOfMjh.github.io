@@ -624,7 +624,7 @@
 <li>实现类<ol>
 <li><code>ArrayList</code><ol>
 <li>底层是数组，利用数组的下标进行元素访问</li>
-<li>初始大小为10 ，扩容为原来的0.5倍，扩容是基于数组的复制，比较耗费内存</li>
+<li>初始大小为<font color="#FFFF00">10</font> ，扩容为原来的<font color="#FFFF00">0.5</font>倍，扩容是基于数组的复制，比较耗费内存</li>
 <li>查询快，增删慢</li>
 </ol>
 </li>
@@ -644,79 +644,79 @@
 <li>底层原理<ol>
 <li>1.8之前底层是数组+链表，1.8之后是数组+链表+红黑树</li>
 <li>链表的出现就是解决Hash值相同，由<code>HashCode</code>值决定存放的位置</li>
-<li>链表转为红黑树—当数组长度大于==64==且链表长度大于==8==时会将链表转为红黑树</li>
-<li>初始值为==16==，当负载因子达到==0.75==时，就会扩容为原来的==2==倍</li>
+<li>链表转为红黑树—当数组长度大于<font color="#FFFF00">64</font>且链表长度大于<font color="#FFFF00">8</font>时会将链表转为红黑树</li>
+<li>初始值为<font color="#FFFF00">16</font>，当负载因子达到<font color="#FFFF00">0.75</font>时，就会扩容为原来的<font color="#FFFF00">2</font>倍</li>
 <li>一般用于单线程环境</li>
 </ol>
 </li>
 <li><code>put</code>流程<ol>
-<li>如果HashMap未被初始化，则先进行初始化</li>
-<li>对key求hash值，然后通过hashcode方法计算下标值</li>
-<li>如果没有hash碰撞，直接放入桶中</li>
-<li>如果有hash碰撞，以链表的方式链接到后面</li>
-<li>如果链表的长度超过8时，就把链表转为红黑树</li>
-<li>如果链表的长度小于6时，就把红黑树转为链表</li>
-<li>如果节点满了，则进行扩容，扩容为原来的2倍后进行重排</li>
+<li>如果<code>HashMap</code>未被初始化，则先进行初始化</li>
+<li>对<code>key</code>求<code>hash</code>值，然后通过<code>hashcode</code>方法计算下标值</li>
+<li>如果没有<code>hash</code>碰撞，直接放入桶中</li>
+<li>如果有<code>hash</code>碰撞，以链表的方式链接到后面</li>
+<li>如果链表的长度超过<font color="#FFFF00">8</font>时，就把链表转为红黑树</li>
+<li>如果链表的长度小于<font color="#FFFF00">6</font>时，就把红黑树转为链表</li>
+<li>如果节点满了，则进行扩容，扩容为原来的<font color="#FFFF00">2</font>倍后进行重排</li>
 </ol>
 </li>
-<li>减少hash碰撞<ol>
+<li>减少<code>hash</code>碰撞<ol>
 <li>扰动函数：使元素分布均匀，减少碰撞几率</li>
-<li>使用final对象，这些对象已经重写equals和hashcode方法</li>
+<li>使用<code>final</code>对象，这些对象已经重写<code>equals</code>和<code>hashcode</code>方法</li>
 </ol>
 </li>
 <li>扩容<ol>
-<li>基础容量为16，负载因子达到0.75时扩容为原来的2倍</li>
+<li>基础容量为<font color="#FFFF00">16</font>，负载因子达到<font color="#FFFF00">0.75</font>时扩容为原来的<font color="#FFFF00">2</font>倍</li>
 <li>多线程环境下，调整大小会存在条件竞争，容易造成死锁</li>
-<li>rehashing是比较耗时的过程</li>
+<li><code>rehashing</code>是比较耗时的过程</li>
 </ol>
 </li>
 <li>解决线程不安全<ol>
-<li>调用Collections的synchronizedMap为HashMap实例对象加锁</li>
-<li>synchronizedMap方法为hashMap实例对象加synchronized锁，锁是mutex互斥锁</li>
+<li>调用<code>Collections</code>的<code>synchronizedMap</code>为<code>HashMap</code>实例对象加锁</li>
+<li><code>synchronizedMap</code>方法为<code>hashMap</code>实例对象加<code>synchronized</code>锁，锁是<code>mutex</code>互斥锁</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>LinkedHashMap</li>
-<li>TreeMap</li>
-<li>HashTable：线程安全，有同步锁</li>
+<li><code>LinkedHashMap</code></li>
+<li><code>TreeMap</code></li>
+<li><code>HashTable</code>：线程安全，有同步锁</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>Queue</li>
-<li>Set<ol>
+<li><code>Queue</code></li>
+<li><code>Set</code><ol>
 <li>特点<ol>
-<li>无序，不可重复，但TreeSet有序</li>
+<li>无序，不可重复，但<code>TreeSet</code>有序</li>
 </ol>
 </li>
 <li>实现类<ol>
-<li>HashSet：底层是HashMap，由Hashcode和equals方法保证元素唯一性</li>
-<li>TreeSet：底层是TreeMap，元素有序<ol>
-<li>自然排序：让所属对象的方法实现comparable接口的无参构造</li>
-<li>比较器排序：comparator带参构造</li>
+<li><code>HashSet</code>：底层是<code>HashMap</code>，由<code>Hashcode</code>和<code>equals</code>方法保证元素唯一性</li>
+<li><code>TreeSet</code>：底层是<code>TreeMap</code>，元素有序<ol>
+<li>自然排序：让所属对象的方法实现<code>comparable</code>接口的无参构造</li>
+<li>比较器排序：<code>comparator</code>带参构造</li>
 </ol>
 </li>
-<li>LinkedHashSet</li>
+<li><code>LinkedHashSet</code></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>JUC<ol>
-<li>CAS是JUC的基础</li>
-<li>AQS是JUC的locks包的基础</li>
+<li><code>JUC</code><ol>
+<li><code>CAS</code>是<code>JUC</code>的基础</li>
+<li><code>AQS</code>是<code>JUC</code>的<code>locks</code>包的基础</li>
 <li>包的分类<ol>
-<li>线程执行器executor</li>
-<li>锁locks</li>
-<li>原子变量atomic</li>
-<li>并发工具类tools<ol>
-<li>闭锁CountDownLatch：让主线程等待一组事件发生后继续执行</li>
-<li>栅栏CyclicBarrier：阻塞当前线程，等待其他线程</li>
-<li>信号量Semaphore：控制某个资源可被同时访问的线程个数</li>
-<li>交换器Exchanger：两个线程达到同步点后，相互交换数据</li>
+<li>线程执行器<code>executor</code></li>
+<li>锁<code>locks</code></li>
+<li>原子变量<code>atomic</code></li>
+<li>并发工具类<code>tools</code><ol>
+<li>闭锁<code>CountDownLatch</code>：让主线程等待一组事件发生后继续执行</li>
+<li>栅栏<code>CyclicBarrier</code>：阻塞当前线程，等待其他线程</li>
+<li>信号量<code>Semaphore</code>：控制某个资源可被同时访问的线程个数</li>
+<li>交换器<code>Exchanger</code>：两个线程达到同步点后，相互交换数据</li>
 </ol>
 </li>
-<li>并发集合Collections<ol>
+<li>并发集合<code>Collections</code><ol>
 <li><code>BlockingQueue</code>：提供可阻塞的入队和出队操作(都是线程安全的)<ol>
 <li>主要用于生产者-消费者模式：将任务的生产和消费进行隔离</li>
 <li><code>ArrayBlockingQueue</code>：一个由数组结构组成的有界阻塞队列</li>
@@ -727,27 +727,27 @@
 <li><code>LinkedTransferQueue</code>：一个由链表结构组成的无界阻塞队列</li>
 <li><code>LinkedBlockingDeque</code>：一个由链表结构组成的双向阻塞队列</li>
 <li><code>ConcurrentHashMap</code><ol>
-<li>JDK8以前：使用更细粒度的锁，由一个Segment数组和多个HashEntry组成，实现了锁分离，即每个元素的锁是不一样的</li>
-<li>JDK8之后：使用CAS++synchronized使锁更细化</li>
+<li>JDK8以前：使用更细粒度的锁，由一个<code>Segmen</code>t数组和多个<code>HashEntry</code>组成，实现了锁分离，即每个元素的锁是不一样的</li>
+<li>JDK8之后：使用<code>CAS+synchronized</code>使锁更细化</li>
 <li>存在于JUC包下，不允许存储null键值</li>
 <li>put逻辑<ol>
-<li>判断Node[]数组是否初始化，没有就先初始化</li>
-<li>通过hash定位数组的索引坐标，是否有node节点，如果没有则使用CAS进行添加(链表的头结点)，添加失败则进入下次循环</li>
+<li>判断<code>Node[]</code>数组是否初始化，没有就先初始化</li>
+<li>通过<code>hash</code>定位数组的索引坐标，是否有<code>node</code>节点，如果没有则使用<code>CAS</code>进行添加(链表的头结点)，添加失败则进入下次循环</li>
 <li>检查内部正在扩容，就帮助它一块扩容</li>
-<li>如果f!=null，则使用synchronized锁住元素(锁是链表/红黑树的头元素)<ol>
-<li>如果Node(链表结构)则执行链表的添加操作</li>
-<li>如果Node(树结构)则执行树的添加操作</li>
+<li>如果<code>f!=null</code>，则使用<code>synchronized</code>锁住元素(锁是链表/红黑树的头元素)<ol>
+<li>如果<code>Node</code>(链表结构)则执行链表的添加操作</li>
+<li>如果<code>Node</code>(树结构)则执行树的添加操作</li>
 </ol>
 </li>
-<li>判断链表的长度是否达到临界值8(可修改的默认值)，达到8就将链表转为红黑树</li>
+<li>判断链表的长度是否达到临界值<font color="#FFFF00">8</font>(可修改的默认值)，达到8就将链表转为红黑树</li>
 </ol>
 </li>
 <li>锁<ol>
-<li>首先使用无锁操作CAS插入头节点，失败就循环重试</li>
+<li>首先使用无锁操作<code>CAS</code>插入头节点，失败就循环重试</li>
 <li>若已有头节点，则尝试获取头节点的同步锁，再进行操作</li>
 </ol>
 </li>
-<li>Size方法和MappingCount方法异同</li>
+<li><code>Size</code>方法和<code>MappingCount</code>方法异同</li>
 </ol>
 </li>
 </ol>
@@ -767,31 +767,31 @@
 </ol>
 </li>
 <li>线程<ol>
-<li>是CPU调度的最小单元(共享进程的内存资源，可以更细粒度的控制任务)</li>
+<li>是<code>CPU</code>调度的最小单元(共享进程的内存资源，可以更细粒度的控制任务)</li>
 </ol>
 </li>
 <li>进程和线程的关系<ol>
 <li>运行一个程序会产生一个进程，进程至少包含一个线程</li>
-<li>每个进程对应一个JVM实例，多线程共享JVM里的堆</li>
-<li>Java采用单线程编程模型，程序会自动创建主线程</li>
+<li>每个进程对应一个<code>JVM</code>实例，多线程共享<code>JVM</code>里的堆</li>
+<li><code>Java</code>采用单线程编程模型，程序会自动创建主线程</li>
 <li>主线程可以创建子线程，在子线程之后完成执行</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>start和run方法<ol>
-<li>start用于启动线程，而run用于运行线程</li>
-<li>start方法会创建子线程并启动，而run方法是线程的一个普通方法调用</li>
+<li><code>start</code>和<code>run</code>方法<ol>
+<li><code>start</code>用于启动线程，而<code>run</code>用于运行线程</li>
+<li><code>start</code>方法会创建子线程并启动，而<code>run</code>方法是线程的一个普通方法调用</li>
 </ol>
 </li>
 <li>实现线程<ol>
-<li>继承Thread类，而Thread类底层也是实现了Runnable接口</li>
-<li>直接实现Runnable接口，重写run方法</li>
-<li>实现Callable接口，重写call方法</li>
+<li>继承<code>Thread</code>类，而<code>Thread</code>类底层也是实现了<code>Runnable</code>接口</li>
+<li>直接实现<code>Runnable</code>接口，重写<code>run</code>方法</li>
+<li>实现<code>Callable</code>接口，重写<code>call</code>方法</li>
 <li>处理线程的返回值<ol>
 <li>主线程等待法</li>
-<li>使用线程的join方法用以阻塞等待子线程处理完毕</li>
-<li>实现Callable接口，获取call方法的返回值</li>
+<li>使用线程的<code>join</code>方法用以阻塞等待子线程处理完毕</li>
+<li>实现<code>Callable</code>接口，获取<code>call</code>方法的返回值</li>
 <li>通过线程池来获取返回值</li>
 </ol>
 </li>
@@ -800,7 +800,7 @@
 <li>线程状态<ol>
 <li>新建：创建后还没有启动的线程</li>
 <li>运行：包含正在运行和等待运行的线程</li>
-<li>无限等待：不会被分配CPU执行，需要显示被唤醒</li>
+<li>无限等待：不会被分配<code>CPU</code>执行，需要显示被唤醒</li>
 <li>限期等待：在一定时间后会由系统自动唤醒</li>
 <li>阻塞：等待获取排他锁</li>
 <li>结束：已终止线程的状态，执行结束</li>
@@ -808,47 +808,47 @@
 </li>
 <li>等待线程和唤醒线程<ol>
 <li>等待线程<ol>
-<li>wait<ol>
-<li>是Object类中的方法</li>
-<li>只能在synchronized方法或synchronized块中使用</li>
-<li>不仅释放CPU，而且会释放已经占有的同步资源锁</li>
+<li><code>wait</code><ol>
+<li>是<code>Object</code>类中的方法</li>
+<li>只能在<code>synchronized</code>方法或<code>synchronized</code>块中使用</li>
+<li>不仅释放<code>CPU</code>，而且会释放已经占有的同步资源锁</li>
 </ol>
 </li>
-<li>sleep<ol>
+<li><code>sleep</code><ol>
 <li>是线程类特有的方法</li>
 <li>可以在任何地方调用</li>
-<li>只会让出cpu，不会导致锁行为的改变</li>
+<li>只会让出<code>cpu</code>，不会导致锁行为的改变</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>唤醒线程<ol>
 <li>池<ol>
-<li>锁池EntryList：等待获取锁的池</li>
-<li>等待池WaitSet：等待线程的池</li>
+<li>锁池<code>EntryList</code>：等待获取锁的池</li>
+<li>等待池<code>WaitSet</code>：等待线程的池</li>
 </ol>
 </li>
-<li>notify<ol>
+<li><code>notify</code><ol>
 <li>只会随机选取一个处于等待池中的线程进入锁池中去竞争获取锁</li>
 </ol>
 </li>
-<li>notifyAll<ol>
+<li><code>notifyAll</code><ol>
 <li>会让所有处于等待池中的线程全部进入锁池去竞争获取锁</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>函数<ol>
-<li>yield<ol>
-<li>告知线程调度器当前(调用者)线程愿意让出CPU的暗示，但是线程调度器会忽略这个暗示</li>
+<li><code>yield</code><ol>
+<li>告知线程调度器当前(调用者)线程愿意让出<code>CPU</code>的暗示，但是线程调度器会忽略这个暗示</li>
 <li>不会影响锁的行为(不会使当前线程让出已经占用的锁)</li>
 </ol>
 </li>
-<li>interrupt<ol>
-<li>停止线程：stop方法，suspend方法，resume方法</li>
-<li>调用interrupt如果线程处于阻塞状态，那么线程立即退出阻塞状态，抛出InterruptedException异常</li>
-<li>调用interrupt如果线程处于正常运行，那么会将其中断标志位设置为true，被中断标识的线程仍可以正常运行</li>
-<li>需要被调用interrupt的线程配合中断</li>
+<li><code>interrupt</code><ol>
+<li>停止线程：<code>stop</code>方法，<code>suspend</code>方法，<code>resume</code>方法</li>
+<li>调用<code>interrupt</code>如果线程处于阻塞状态，那么线程立即退出阻塞状态，抛出<code>InterruptedException</code>异常</li>
+<li>调用<code>interrupt</code>如果线程处于正常运行，那么会将其中断标志位设置为<code>true</code>，被中断标识的线程仍可以正常运行</li>
+<li>需要被调用<code>interrupt</code>的线程配合中断</li>
 </ol>
 </li>
 </ol>
@@ -861,7 +861,7 @@
 </li>
 <li>同步锁<ol>
 <li>获取对象锁<ol>
-<li>同步代码块，锁 是this</li>
+<li>同步代码块，锁 是<code>this</code></li>
 <li>同步非静态方法，锁是当前对象的实例对象</li>
 </ol>
 </li>
@@ -871,15 +871,15 @@
 </ol>
 </li>
 <li>原理<ol>
-<li>基于Java对象头和Monitor实现</li>
+<li>基于<code>Java</code>对象头和<code>Monitor</code>实现</li>
 <li>对象在内存中的布局<ol>
-<li>对象头：Mark Word和Class Metadata Address组成<ol>
-<li>Mark Word：存储对象的运行时数据，默认存储对象的HashCode，分代年龄，锁类型，锁标志位等</li>
-<li>Class Metadata Address：是指针，指向对象的类元数据</li>
+<li>对象头：<code>Mark Word</code>和<code>Class Metadata Address</code>组成<ol>
+<li><code>Mark Word</code>：存储对象的运行时数据，默认存储对象的<code>HashCode</code>，分代年龄，锁类型，锁标志位等</li>
+<li><code>Class Metadata Address</code>：是指针，指向对象的类元数据</li>
 </ol>
 </li>
-<li>Monitor<ol>
-<li>每个Java对象自身存在的内部锁—java对象可以作为锁的原因</li>
+<li><code>Monitor</code><ol>
+<li>每个<code>Java</code>对象自身存在的内部锁—<code>java</code>对象可以作为锁的原因</li>
 <li>重入：一个线程试图获取自己持有对象锁的临界资源时</li>
 <li>阻塞：一个线程试图获取由其他线程持有的对象锁的临界资源时</li>
 </ol>
@@ -888,12 +888,12 @@
 <li>对齐填充</li>
 </ol>
 </li>
-<li>早期的synchronized锁<ol>
-<li>属于重量级锁，依赖于Mutex Lock实现</li>
+<li>早期的<code>synchronized</code>锁<ol>
+<li>属于重量级锁，依赖于<code>Mutex Lock</code>实现</li>
 <li>线程之间的切换需要从用户态转到核心态，开销大</li>
 </ol>
 </li>
-<li>自旋锁：通过让线程忙于循环等待锁的释放，不让出CPU的执行权；若锁被其他线程长时间占用，则会带来许多性能上的开销</li>
+<li>自旋锁：通过让线程忙于循环等待锁的释放，不让出<code>CPU</code>的执行权；若锁被其他线程长时间占用，则会带来许多性能上的开销</li>
 <li>自适应自旋锁：自旋的次数由前一次在同一个锁上自旋的时间以及锁的拥有者状态来决定</li>
 <li>锁消除：JIT在编译时，对运行上下文进行扫描，消除不可能存在竞争的锁</li>
 <li>状态<ol>
@@ -909,70 +909,70 @@
 </ol>
 </li>
 <li><code>ReentranLock</code>(重入锁)<ol>
-<li>位于Java.util.concurrent.locks包下</li>
-<li>和CountDownLatch，FutureTask，Semaphore一样基于AQS实现<ol>
-<li>AQS：AbstractQueueSynchronizer</li>
+<li>位于<code>Java.util.concurrent.locks</code>包下</li>
+<li>和<code>CountDownLatch</code>，<code>FutureTask</code>，<code>Semaphore</code>一样基于<code>AQS</code>实现<ol>
+<li><code>AQS</code>：<code>AbstractQueueSynchronizer</code></li>
 </ol>
 </li>
-<li>实现比synchronized更细粒度的控制，如fairness(公平锁)<ol>
-<li>公平锁：获取锁的顺序按先后调用lock方法的顺序</li>
+<li>实现比<code>synchronized</code>更细粒度的控制，如<code>fairness</code>(公平锁)<ol>
+<li>公平锁：获取锁的顺序按先后调用<code>lock</code>方法的顺序</li>
 <li>非公平锁：抢占机制，优先度高的抢到的几率大</li>
 </ol>
 </li>
-<li>调用lock方法后，必须调用unlock释放锁</li>
-<li>区分synchronized锁<ol>
-<li>synchronized是关键字，而ReentranLock是类</li>
-<li>ReentranLock可以对锁的等待时间进行设置，避免死锁</li>
-<li>ReentranLock可以获取各种锁的信息，可以灵活的实现多路通知</li>
-<li>synchronized操作的是Mark Word，lock锁操作的是Unsafe类的park方法</li>
+<li>调用<code>lock</code>方法后，必须调用<code>unlock</code>释放锁</li>
+<li>区分<code>synchronized</code>锁<ol>
+<li><code>synchronized</code>是关键字，而<code>ReentranLock</code>是类</li>
+<li><code>ReentranLock</code>可以对锁的等待时间进行设置，避免死锁</li>
+<li><code>ReentranLock</code>可以获取各种锁的信息，可以灵活的实现多路通知</li>
+<li><code>synchronized</code>操作的是<code>Mark Word</code>，<code>lock</code>锁操作的是<code>Unsafe</code>类的<code>park</code>方法</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>JMM—<code>Java Memory Model</code><ol>
 <li>主内存<ol>
-<li>存储Java实例对象</li>
+<li>存储<code>Java</code>实例对象</li>
 <li>包括成员变量，类信息，常量，静态变量等</li>
 <li>属于数据共享区域，多线程并发操作时会引发线程安全问题</li>
 </ol>
 </li>
 <li>工作内存<ol>
 <li>存储的是当前方法的所有本地变量信息，本地变量对其他线程不可见</li>
-<li>字节码行号指示器，Native方法信息</li>
+<li>字节码行号指示器，<code>Native</code>方法信息</li>
 <li>属于线程私有数据区域，不存在线程安全问题</li>
 </ol>
 </li>
-<li>区分Java内存划分<ol>
-<li>JMM描述的是一组规则，围绕原子性，有序性，可见性展开</li>
-<li>同Java内存相似，都存在共享区和私有区</li>
+<li>区分<code>Java</code>内存划分<ol>
+<li><code>JMM</code>描述的是一组规则，围绕原子性，有序性，可见性展开</li>
+<li>同<code>Java</code>内存相似，都存在共享区和私有区</li>
 <li>方法里的基本数据类型和本地变量直接存储在工作内存的栈帧结构中</li>
 <li>引用类型的本地变量：引用存储在工作内存中，实例存储在主内存中</li>
-<li>成员变量：static变量，类信息均会存储在主内存中</li>
+<li>成员变量：<code>static</code>变量，类信息均会存储在主内存中</li>
 </ol>
 </li>
 <li>指令重排序<ol>
 <li>在单线程情况下不能改变程序运行的结果</li>
 <li>存在数据依赖关系的不允许重排序</li>
-<li>无法通过Happens-before原则推导出来的，才能进行指令重排序<ol>
-<li>A操作的结果需要对B操作可见，则A和B存在happens-before关系</li>
-<li>happens-before的原则<ol>
+<li>无法通过<code>Happens-before</code>原则推导出来的，才能进行指令重排序<ol>
+<li><code>A</code>操作的结果需要对<code>B</code>操作可见，则<code>A</code>和<code>B</code>存在<code>happens-before</code>关系</li>
+<li><code>happens-before</code>的原则<ol>
 <li>程序次序规则：一个线程内，按照代码顺序，先写的代码先执行</li>
-<li>锁定规则：一个unLock操作优先后面对同一个锁的lock操作</li>
-<li>Volatile变量规则：一个变量的写操作优先于后面对这个变量的读操作</li>
-<li>传递规则：如果A操作优于B操作，B操作优于C操作，那么A操作优于C操作</li>
-<li>线程启动规则：Thread对象的start方法优先执行在该线程的每一个动作之前</li>
-<li>线程中断规则：对线程interrupt方法的调用优于被中断线程的代码检测到中断事件前发生</li>
+<li>锁定规则：一个<code>unLock</code>操作优先后面对同一个锁的<code>lock</code>操作</li>
+<li><code>Volatile</code>变量规则：一个变量的写操作优先于后面对这个变量的读操作</li>
+<li>传递规则：如果<code>A</code>操作优于<code>B</code>操作，<code>B</code>操作优于<code>C</code>操作，那么<code>A</code>操作优于<code>C</code>操作</li>
+<li>线程启动规则：<code>Thread</code>对象的<code>start</code>方法优先执行在该线程的每一个动作之前</li>
+<li>线程中断规则：对线程<code>interrupt</code>方法的调用优于被中断线程的代码检测到中断事件前发生</li>
 <li>线程终结规则：线程中所有的操作都优于线程终止检测事件</li>
-<li>对象终结规则：一个对象的初始化完成优于其finalize方法执行</li>
+<li>对象终结规则：一个对象的初始化完成优于其<code>finalize</code>方法执行</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 </li>
-<li>Volatile<ol>
-<li>JVM提供轻量级同步机制</li>
-<li>由Volatile修饰的共享变量对所有线程总是可见的</li>
+<li><code>Volatile</code><ol>
+<li><code>JVM</code>提供轻量级同步机制</li>
+<li>由<code>Volatile</code>修饰的共享变量对所有线程总是可见的</li>
 <li>禁止指令的重排序优化<ol>
 <li>内存屏障<ol>
 <li>保证特定操作的执行顺序</li>
@@ -980,34 +980,34 @@
 </ol>
 </li>
 <li>通过插入内存屏障指令来禁止在内存屏障前后的指令执行重排序优化</li>
-<li>强制刷出CPU的缓存数据，因此在cpu上的任何线程都能读取到这些数据的最新版本</li>
+<li>强制刷出<code>CPU</code>的缓存数据，因此在<code>cpu</code>上的任何线程都能读取到这些数据的最新版本</li>
 </ol>
 </li>
 <li>可见性分析<ol>
-<li>定义一个Volatile变量时，JMM会把该线程对应的工作内存中的共享变量刷新到主内存中</li>
-<li>读取一个Volatile变量时，JMM会把该线程对应的工作内存置为无效</li>
+<li>定义一个<code>Volatile</code>变量时，<code>JMM</code>会把该线程对应的工作内存中的共享变量刷新到主内存中</li>
+<li>读取一个<code>Volatile</code>变量时，<code>JMM</code>会把该线程对应的工作内存置为无效</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>Volatile和synchronized的区别<ol>
-<li>Volatile本质是告知JVM当前变量在寄存器(工作内存)中的值不确定需要从主内存中读取，synchronized只是锁定当前变量</li>
-<li>Volatile仅用于变量级别，synchronized可以用在变量，方法，类上</li>
-<li>Volatile不会造成线程阻塞，synchronized会造成线程阻塞</li>
-<li>Volatile标记的变量不会被编译器优化，synchronized标记的变量会被编译器优化</li>
+<li><code>Volatile</code>和<code>synchronized</code>的区别<ol>
+<li><code>Volatile</code>本质是告知<code>JVM</code>当前变量在寄存器(工作内存)中的值不确定需要从主内存中读取，<code>synchronized</code>只是锁定当前变量</li>
+<li><code>Volatile</code>仅用于变量级别，<code>synchronized</code>可以用在变量，方法，类上</li>
+<li><code>Volatile</code>不会造成线程阻塞，<code>synchronized</code>会造成线程阻塞</li>
+<li><code>Volatile</code>标记的变量不会被编译器优化，<code>synchronized</code>标记的变量会被编译器优化</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>CAS(乐观所锁)—一种高效实现线程安全性的方法<ol>
+<li><code>CAS(</code>乐观所锁)—一种高效实现线程安全性的方法<ol>
 <li>支持原子更新操作，适用于计数器，序列发生器等场景</li>
-<li>属于乐观锁机制，号称lock-free</li>
-<li>CAS操作失败 后开发者决定是否继续尝试，还是执行别的操作</li>
+<li>属于乐观锁机制，号称<code>lock-free</code></li>
+<li><code>CAS</code>操作失败 后开发者决定是否继续尝试，还是执行别的操作</li>
 <li>包含三个操作数：内存位置，预期原值和新值</li>
 <li>缺点<ol>
 <li>若循环时间长，则开销大</li>
 <li>只能保证一个共享变量的原子操作</li>
-<li>ABA问题—一个变量A改变到B未被检测出来，导致两次读取的值都是A—通过AtomicStampedReference类改变</li>
+<li><code>ABA</code>问题—一个变量<code>A</code>改变到<code>B</code>未被检测出来，导致两次读取的值都是<code>A</code>—通过<code>AtomicStampedReference</code>类改变</li>
 </ol>
 </li>
 </ol>
@@ -1015,10 +1015,10 @@
 </ol>
 </li>
 <li>线程池<ol>
-<li>Executor接口<ol>
-<li>Executor：运行新任务的简单接口，将任务提交和任务执行细节解耦</li>
-<li>ExecutorService：具备管理执行器和任务生命周期的方法，提交任务 机制更完善</li>
-<li>SchduledExecutorService：支持Future和定时任务</li>
+<li><code>Executor</code>接口<ol>
+<li><code>Executor</code>：运行新任务的简单接口，将任务提交和任务执行细节解耦</li>
+<li><code>ExecutorService</code>：具备管理执行器和任务生命周期的方法，提交任务 机制更完善</li>
+<li><code>SchduledExecutorService</code>：支持<code>Future</code>和定时任务</li>
 </ol>
 </li>
 <li>5种不同场景的线程池创建<ol>
@@ -1026,17 +1026,17 @@
 <li><code>newCachedThreadPool()</code>：短时间处理大量工作任务的线程池</li>
 <li><code>newSingleThreadExecutor()</code>：创建唯一的工作线程来执行任务，如果该线程一结束，会有另一个线程取代它</li>
 <li><code>newSingleThreadScheduledExecutor()</code>和<code>newScheduledThreadExecutor(int corePoolSize)</code>：定时或者周期性的工作调度线程池，两个的区别在于单一工作线程还是多线程</li>
-<li><code>newWorkStealingPool()</code>：内部构建ForkJoinPool，利用working-stealing算法，并行的执行任务，不保证处理顺序<ol>
-<li>Fork/Join框架<ol>
+<li><code>newWorkStealingPool()</code>：内部构建<code>ForkJoinPool</code>，利用<code>working-stealing</code>算法，并行的执行任务，不保证处理顺序<ol>
+<li><code>Fork/Join</code>框架<ol>
 <li>把大任务分割为有限的小任务执行，把每个小 任务的执行结果汇总得到大任务结果的框架</li>
 </ol>
 </li>
-<li>work-stealing算法：某个线程从其他队列里窃取任务来执行</li>
+<li><code>work-stealing</code>算法：某个线程从其他队列里窃取任务来执行</li>
 </ol>
 </li>
 <li>确定线程池的大小<ol>
-<li>CPU密集型：线程数=核数+1</li>
-<li>IO密集型：线程数=核数*（1+平均等待时间/平均工作时间）</li>
+<li><code>CPU</code>密集型：线程数=核数+1</li>
+<li><code>IO</code>密集型：线程数=核数*（1+平均等待时间/平均工作时间）</li>
 </ol>
 </li>
 </ol>
@@ -1057,16 +1057,16 @@
 <li><code>CallerRunsPolicy</code>：用调用者所在的线程来执行任务，并执行当前任务</li>
 <li><code>DiscardOldPolicy</code>：丢弃队列中最靠前的任务，并执行当前任务</li>
 <li><code>DiscardPolicy</code>：直接丢弃任务</li>
-<li>通过实现RejectedExecutorHandler接口来自定义Handler</li>
+<li>通过实现<code>RejectedExecutorHandler</code>接口来自定义<code>Handler</code></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>executor流程<ol>
-<li>如果线程数少于corePoolSize，则直接创建新线程来执行任务，即使线程池中其他线程是空闲的</li>
-<li>如果线程池中的线程数量大于等于corePoolSize而小于maximumPoolSize，只有当workQueue满时才去创建新线程处理任务</li>
-<li>如果corePoolSize和maximumPoolSize值相同，则创建的线程池大小固定的，这是如果有新任务，若workQueue未满，则将请求放入workQueue中，等待有空闲的线程去从workQueue中取出任务并执行</li>
-<li>如果运行的线程数大于等于maximumPoolSize，这时如果workQueue已满，则通过Handler所指定的策略来处理任务</li>
+<li><code>executor</code>流程<ol>
+<li>如果线程数少于<code>corePoolSize</code>，则直接创建新线程来执行任务，即使线程池中其他线程是空闲的</li>
+<li>如果线程池中的线程数量大于等于<code>corePoolSize</code>而小于<code>maximumPoolSize</code>，只有当<code>workQueue</code>满时才去创建新线程处理任务</li>
+<li>如果<code>corePoolSize</code>和<code>maximumPoolSize</code>值相同，则创建的线程池大小固定的，这是如果有新任务，若<code>workQueue</code>未满，则将请求放入<code>workQueue</code>中，等待有空闲的线程去从<code>workQueue</code>中取出任务并执行</li>
+<li>如果运行的线程数大于等于<code>maximumPoolSize</code>，这时如果<code>workQueue</code>已满，则通过<code>Handler</code>所指定的策略来处理任务</li>
 </ol>
 </li>
 <li>线程池的状态<ol>
@@ -1083,27 +1083,27 @@
 </li>
 </ol>
 <h2 id="4-JVM"><a href="#4-JVM" class="headerlink" title="4. JVM"></a>4. JVM</h2><ol>
-<li><p>Java跨平台原理</p>
+<li><p><code>Java</code>跨平台原理</p>
 <ul>
-<li>基于不同平台的JVM实现，即在不同平台安装对应的JDK就能运行Java程序</li>
+<li>基于不同平台的<code>JVM</code>实现，即在不同平台安装对应的<code>JDK</code>就能运行<code>Java</code>程序</li>
 </ul>
 </li>
-<li><p>Java反射</p>
+<li><p><code>Java</code>反射</p>
 <ul>
 <li>动态获取任意类，对象的属性和方法</li>
-<li>这种在运行状态中动态获取信息以及调用对象方法的特性称为Java的反射机制</li>
-<li>API：getDeclaredMethod(getMethod)：接收方法名，方法名对应的字节码对象</li>
-<li>本质：把Java类中的方法和属性映射为Java对象</li>
+<li>这种在运行状态中动态获取信息以及调用对象方法的特性称为<code>Java</code>的反射机制</li>
+<li><code>API</code>：<code>getDeclaredMethod(getMethod)</code>：接收方法名，方法名对应的字节码对象</li>
+<li>本质：把<code>Java</code>类中的方法和属性映射为<code>Java</code>对象</li>
 </ul>
 </li>
 <li><p>类加载机制</p>
 <ul>
-<li>虚拟机将class文件加载进内存的行为</li>
+<li>虚拟机将<code>class</code>文件加载进内存的行为</li>
 <li>加载流程<ul>
-<li>通过ClassLoader加载class字节码文件，生成class对象</li>
-<li>检查class的正确性和安全性</li>
+<li>通过<code>ClassLoader</code>加载<code>class</code>字节码文件，生成<code>class</code>对象</li>
+<li>检查<code>class</code>的正确性和安全性</li>
 <li>为变量分配内存空间和设置初始值</li>
-<li>JVM常量池中的符号引用转为直接引用</li>
+<li><code>JVM</code>常量池中的符号引用转为直接引用</li>
 <li>执行类变量赋值和静态代码块</li>
 </ul>
 </li>
@@ -1113,13 +1113,13 @@
 </ul>
 </li>
 <li>四种类加载器<ul>
-<li>启动类加载器：用于加载Java的核心类库</li>
-<li>扩展类加载器：用于加载Java的扩展库</li>
-<li>系统类加载器：根据Java的类路径来加载Java类</li>
-<li>用户自定义类加载器：通过继承Classloader类的方式实现</li>
+<li>启动类加载器：用于加载<code>Java</code>的核心类库</li>
+<li>扩展类加载器：用于加载<code>Java</code>的扩展库</li>
+<li>系统类加载器：根据<code>Java</code>的类路径来加载<code>Java</code>类</li>
+<li>用户自定义类加载器：通过继承<code>Classloader</code>类的方式实现</li>
 </ul>
 </li>
-<li>LoaderClass和forName<ul>
+<li><code>LoaderClass</code>和<code>forName</code><ul>
 <li>在运行时都能知道该类的属性和方法</li>
 </ul>
 </li>
@@ -1130,19 +1130,19 @@
 <li>线程私有<ol>
 <li>虚拟机栈，本地方法栈，程序计数器<ol>
 <li>虚拟机栈<ol>
-<li>Java方法执行的基础</li>
+<li><code>Java</code>方法执行的基础</li>
 <li>包含多个栈帧(栈帧用于存储局部变量表，操作数栈，动态链接，方法出口)</li>
 </ol>
 </li>
 <li>本地方法栈<ol>
-<li>和虚拟机栈类似，主要用于标注native方法</li>
+<li>和虚拟机栈类似，主要用于标注<code>native</code>方法</li>
 </ol>
 </li>
 <li>程序计数器<ol>
 <li>当前线程所执行的字节码行号指示器(逻辑指示器)</li>
 <li>改变计数器的值来选取下一条所需执行的字节码指令</li>
 <li>和线程是一对一关系(即线程有)</li>
-<li>对Java方法计数，如果是native方法则计数器值undefined</li>
+<li>对<code>Java</code>方法计数，如果是<code>native</code>方法则计数器值<code>undefined</code></li>
 </ol>
 </li>
 </ol>
@@ -1152,21 +1152,21 @@
 <li>线程共享<ol>
 <li>堆<ol>
 <li>对象实例的分配区域</li>
-<li>GC管理的主要区域</li>
-<li>JDK7以后常量池存在于堆中，方便GC(之前存在于永久代中，浪费内存)</li>
+<li><code>GC</code>管理的主要区域</li>
+<li>JDK7以后常量池存在于堆中，方便<code>GC(</code>之前存在于永久代中，浪费内存)</li>
 </ol>
 </li>
-<li>元空间(MetaSpace)和永久代(PermGen)—是方法区的实现<ol>
-<li>都是用来存储class的相关信息</li>
-<li>元空间使用的本地内存，而永久代使用的是JVM内存，所以元空间替代了永久代</li>
+<li>元空间(<code>MetaSpace</code>)和永久代(<code>PermGen)</code>—是方法区的实现<ol>
+<li>都是用来存储<code>class</code>的相关信息</li>
+<li>元空间使用的本地内存，而永久代使用的是<code>JVM</code>内存，所以元空间替代了永久代</li>
 <li>字符串常量池存在于永久代中，容易出现性能问题和内存溢出</li>
 <li>类和方法的信息大小难以确定，给永久代的大小指定带来困难</li>
-<li>永久代为GC带来不必要的复杂性</li>
+<li>永久代为<code>GC</code>带来不必要的复杂性</li>
 </ol>
 </li>
 <li>堆和栈的区别<ol>
 <li>联系：引用对象，数组时，栈里定义变量保存在堆中的地址</li>
-<li>管理方式：栈可以自动释放，堆需要GC</li>
+<li>管理方式：栈可以自动释放，堆需要<code>GC</code></li>
 <li>空间：栈比堆小</li>
 <li>碎片：栈内存产生的碎片远小于堆</li>
 <li>分配方式：栈支持静态和动态分配，而堆仅支持动态分配</li>
@@ -1177,25 +1177,25 @@
 </li>
 </ol>
 </li>
-<li><p>GC机制</p>
+<li><p><code>GC</code>机制</p>
 <ol>
 <li>没有被其他对象引用时，就判定为垃圾</li>
 <li>垃圾判定算法<ol>
 <li>引用计数法<ol>
 <li>通过判断对象的引用数量来决定对象是否可以被回收</li>
-<li>为每个对象创建一个引用计数器，被引用的计数器值+1，完成引用后计数器值-1</li>
-<li>当引用计数器值为0时，就认定该对象为垃圾</li>
+<li>为每个对象创建一个引用计数器，被引用的计数器值<code>+1</code>，完成引用后计数器值<code>-1</code></li>
+<li>当引用计数器值为<code>0</code>时，就认定该对象为垃圾</li>
 <li>优点：执行效率高，程序执行受影响小</li>
 <li>缺点：无法检测出循环引用的情况，导致内存泄漏(子类和父类之间循环引用，计数器值就没有为0的情况)</li>
 </ol>
 </li>
 <li>可达性分析算法—基于图论<ol>
 <li>判断对象的引用链是否可达，不可达就认定为垃圾</li>
-<li>GC Root对象<ol>
+<li><code>GC Root</code>对象<ol>
 <li>虚拟机栈中引用的对象(栈帧中的本地变量表)</li>
 <li>方法区中常量引用的对象</li>
 <li>方法区中静态属性引用的对象</li>
-<li>本地方法栈中JNI(native方法)引用的对象</li>
+<li>本地方法栈中<code>JNI</code>(<code>native</code>方法)引用的对象</li>
 <li>活跃线程引用的对象</li>
 </ol>
 </li>
@@ -1233,20 +1233,20 @@
 <li>JDK8以前分为年轻代，老年代，永久代；JDK8开始取消永久代</li>
 <li><code>Minor GC</code>发生在年轻代中的收集动作，采用的是复制算法<ol>
 <li>尽可能快速的收集哪些生命周期短的对象</li>
-<li>主要分为Eden区和两个Survivor区(包含一个from区和to区)[Eden:from:to=8:1:1]</li>
-<li>每次触发GC后存活的对象年龄值+1，默认是15岁后进入老年代</li>
+<li>主要分为<code>Eden</code>区和两个<code>Survivor</code>区(包含一个<code>from</code>区和<code>to</code>区)[<code>Eden:from:to=8:1:1</code>]</li>
+<li>每次触发<code>GC</code>后存活的对象年龄值<code>+1</code>，默认是<code>15</code>岁后进入老年代</li>
 </ol>
 </li>
 <li><code>Full GC</code><ol>
-<li>经历一定次数(默认是15次)的Minor GC后依然存活的对象开始进入老年代</li>
-<li>Survivor区存放不下的大对象直接进入老年代</li>
+<li>经历一定次数(默认是15次)的<code>Minor GC</code>后依然存活的对象开始进入老年代</li>
+<li><code>Survivor</code>区存放不下的大对象直接进入老年代</li>
 <li>发生在老年代的收集动作，存放生命周期较长的对象；采用标记-清除算法和标记-整理算法</li>
-<li>触发Full GC<ol>
+<li>触发<code>Full GC</code><ol>
 <li>老年代和永久代空间不足</li>
-<li>CMS GC时出现promotion failed，concurrent mode failure</li>
-<li>Minor GC升级老年代的平均大小大于老年代的剩余空间</li>
-<li>调用System.gc()方法—只是提醒虚拟机需要在这里进行回收，具体的回收操作由虚拟机自己决定</li>
-<li>通过RMI来进行RPC或管理JDK引用，默认每1小时进行一次Full GC</li>
+<li><code>CMS GC</code>时出现promotion failed，concurrent mode failure</li>
+<li><code>Minor GC</code>升级老年代的平均大小大于老年代的剩余空间</li>
+<li>调用<code>System.gc()</code>方法—只是提醒虚拟机需要在这里进行回收，具体的回收操作由虚拟机自己决定</li>
+<li>通过<code>RMI</code>来进行<code>RPC</code>或管理<code>JDK</code>引用，默认每<code>1</code>小时进行一次<code>Full GC</code></li>
 </ol>
 </li>
 </ol>
@@ -1254,21 +1254,21 @@
 </ol>
 </li>
 <li>调优参数<ol>
-<li><code>-XX:SurvivorRatio</code>：设置Eden和Survivor的比值，默认是8:1</li>
+<li><code>-XX:SurvivorRatio</code>：设置<code>Eden</code>和<code>Survivor</code>的比值，默认是<code>8:1</code></li>
 <li><code>-XX:NewRatio</code>：设置老年代和年轻代内存大小的比例</li>
-<li><code>-XX:MaxTenuringThreshold</code>：对象从年轻代升级为老年代需要出发Minor GC的次数</li>
+<li><code>-XX:MaxTenuringThreshold</code>：对象从年轻代升级为老年代需要出发<code>Minor GC</code>的次数</li>
 </ol>
 </li>
 <li><code>Stop_the_World</code><ol>
-<li>JVM由于要执行GC而停止了应用程序的执行</li>
-<li>任何一种GC都会发生</li>
-<li>通过避免减少Stop_the_World的发生时间来提高程序性能</li>
+<li><code>JVM</code>由于要执行<code>GC</code>而停止了应用程序的执行</li>
+<li>任何一种<code>GC</code>都会发生</li>
+<li>通过避免减少<code>Stop_the_World</code>的发生时间来提高程序性能</li>
 </ol>
 </li>
 <li><code>Safepoint</code>(安全点)<ol>
-<li>触发GC的快照点</li>
+<li>触发<code>GC</code>的快照点</li>
 <li>分析过程中对象引用关系不会产生变化的点</li>
-<li>Safepoint可能点：方法调用，循环跳转，异常跳转等</li>
+<li><code>Safepoint</code>可能点：方法调用，循环跳转，异常跳转等</li>
 <li>要确保安全点数量适中</li>
 </ol>
 </li>
@@ -1276,87 +1276,87 @@
 </li>
 <li>垃圾收集器<ol>
 <li>新生代垃圾收集器<ol>
-<li>Serial收集器<ol>
+<li><code>Serial</code>收集器<ol>
 <li>单线程收集，进行垃圾收集时，必须暂停所有的工作线程</li>
-<li>简单高效，Client模式下默认的年轻代收集器</li>
+<li>简单高效，<code>Client</code>模式下默认的年轻代收集器</li>
 </ol>
 </li>
-<li>ParNew收集器<ol>
-<li>多线程收集器，其余和Serial相同</li>
-<li>单线程执行效率不如Serial，在多核环境下才有优势</li>
+<li><code>ParNew</code>收集器<ol>
+<li>多线程收集器，其余和<code>Serial</code>相同</li>
+<li>单线程执行效率不如<code>Serial</code>，在多核环境下才有优势</li>
 </ol>
 </li>
-<li>Parallel Scavenge收集器<ol>
+<li><code>Parallel Scavenge</code>收集器<ol>
 <li>更关注系统的吞吐量</li>
-<li>在多核执行才有优势，Server模式下默认的年轻代收集器</li>
+<li>在多核执行才有优势，<code>Server</code>模式下默认的年轻代收集器</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>老年代垃圾收集器<ol>
-<li>Serial Old收集器<ol>
+<li><code>Serial Old</code>收集器<ol>
 <li>单线程收集，进行垃圾收集时，必须暂停所有工作线程</li>
-<li>简单高效，Client模式下默认的老年代收集器</li>
+<li>简单高效，<code>Client</code>模式下默认的老年代收集器</li>
 </ol>
 </li>
-<li>Parallel Old收集器<ol>
+<li><code>Parallel Old</code>收集器<ol>
 <li>多线程，吞吐量优先</li>
 </ol>
 </li>
-<li>CMS收集器<ol>
-<li>初始标记：Stop_the_World</li>
+<li><code>CMS</code>收集器<ol>
+<li>初始标记：<code>Stop_the_World</code></li>
 <li>并发标记：并发追溯标记，程序不会停顿</li>
 <li>并发预清理：查找执行文件并发标记阶段从年轻代晋升老年代的对象</li>
-<li>重新标记：暂停虚拟机，扫描CMS堆中的剩余对象</li>
+<li>重新标记：暂停虚拟机，扫描<code>CMS</code>堆中的剩余对象</li>
 <li>并发清理：清理垃圾对象，程序不会停顿</li>
-<li>并发重置：重置CMS收集器的数据结构</li>
+<li>并发重置：重置<code>CMS</code>收集器的数据结构</li>
 </ol>
 </li>
-<li>Garbage First收集器<ol>
+<li><code>Garbage First</code>收集器<ol>
 <li>并发和并行</li>
 <li>分代收集</li>
 <li>空间整合</li>
 <li>可预测的停顿</li>
-<li>将Java堆内存划分为多个大小相等的Region</li>
+<li>将<code>Java</code>堆内存划分为多个大小相等的<code>Region</code></li>
 </ol>
 </li>
-<li>finalize方法</li>
-<li>Java中的强引用，软引用，弱引用，虚引用<ol>
+<li><code>finalize</code>方法</li>
+<li><code>Java</code>中的强引用，软引用，弱引用，虚引用<ol>
 <li>强引用<ol>
-<li>最普遍的引用，抛出OutMemoryError终止程序也不会回收具有强引用的对象</li>
-<li>通过将对象置为null来弱化其引用，使其被回收</li>
+<li>最普遍的引用，抛出<code>OutMemoryError</code>终止程序也不会回收具有强引用的对象</li>
+<li>通过将对象置为<code>null</code>来弱化其引用，使其被回收</li>
 </ol>
 </li>
 <li>软引用<ol>
 <li>对象处于有用但非必须的状态</li>
-<li>只有当空间不足时，GC会回收该引用对象的内存</li>
+<li>只有当空间不足时，<code>GC</code>会回收该引用对象的内存</li>
 <li>用来实现高速缓存</li>
 </ol>
 </li>
 <li>弱引用<ol>
 <li>非必须引用对象，比软引用更弱一些</li>
-<li>GC触发时会被回收</li>
-<li>被回收的几率不大，因为GC线程的优先级比较低</li>
+<li><code>GC</code>触发时会被回收</li>
+<li>被回收的几率不大，因为<code>GC</code>线程的优先级比较低</li>
 <li>适用于偶尔使用的对象</li>
 </ol>
 </li>
 <li>虚引用<ol>
 <li>不会决定对象的生命周期</li>
-<li>任何时候都可能会被GC</li>
+<li>任何时候都可能会被<code>GC</code></li>
 <li>用于跟踪垃圾回收器的回收活动，起到哨兵作用</li>
 <li>必须和引用队列联合使用</li>
 </ol>
 </li>
 <li>引用队列<ol>
 <li>没有实际的存储结构，存储逻辑依赖于内部节点之间的关系来表达</li>
-<li>存储关联被GC的软引用，弱引用，以及虚引用</li>
+<li>存储关联被<code>GC</code>的软引用，弱引用，以及虚引用</li>
 </ol>
 </li>
-<li>JVM调优<ol>
+<li><code>JVM</code>调优<ol>
 <li>调优参数含义<ol>
-<li>-Xss：表示每个虚拟机栈(堆栈)的大小</li>
-<li>-Xms：堆的初始值</li>
-<li>-Xmx：堆能达到的最大值(一般情况下将-Xms和-Xmx值设置相同，避免扩容时的内存抖动而影响程序运行时的稳定性)</li>
+<li><code>-Xss</code>：表示每个虚拟机栈(堆栈)的大小</li>
+<li><code>-Xms</code>：堆的初始值</li>
+<li><code>-Xmx</code>：堆能达到的最大值(一般情况下将<code>-Xms</code>和<code>-Xmx</code>值设置相同，避免扩容时的内存抖动而影响程序运行时的稳定性)</li>
 </ol>
 </li>
 <li>内存分配策略<ol>
@@ -1382,19 +1382,19 @@
 <ul>
 <li>死循环</li>
 <li>递归</li>
-<li>大对象太多，Java中的大对象是可以直接进入老年代的</li>
+<li>大对象太多，<code>Java</code>中的大对象是可以直接进入老年代的</li>
 </ul>
 </li>
 <li></li>
 </ol>
-<h2 id="5-MySQL"><a href="#5-MySQL" class="headerlink" title="5. MySQL"></a>5. MySQL</h2><ol>
+<h2 id="5-数据库"><a href="#5-数据库" class="headerlink" title="5. 数据库"></a>5. 数据库</h2><h3 id="5-1-MySQL"><a href="#5-1-MySQL" class="headerlink" title="5.1 MySQL"></a>5.1 MySQL</h3><ol>
 <li>关系型数据库<ul>
 <li>数据库模块<ul>
-<li>存储模块—OS文件系统(将数据持久化存储到硬盘，磁盘中)</li>
+<li>存储模块—<code>OS</code>文件系统(将数据持久化存储到硬盘，磁盘中)</li>
 <li>程序实例—用逻辑结构来映射物理结构<ul>
 <li>存储管理</li>
 <li>缓存机制</li>
-<li>sql解析模块</li>
+<li><code>sql</code>解析模块</li>
 <li>日志管理</li>
 <li>权限划分</li>
 <li>容灾机制</li>
@@ -1408,50 +1408,50 @@
 </li>
 <li>索引<ul>
 <li>作用：提高查询效率</li>
-<li>实例：主键，唯一键(id)，让数据具备一定区分性的字段等可以作为索引</li>
+<li>实例：主键，唯一键(<code>id</code>)，让数据具备一定区分性的字段等可以作为索引</li>
 <li>数据结构<ul>
 <li>生成索引建立二叉树进行二分查找</li>
-<li>生成索引建立B树结构进行查找</li>
-<li>生成索引建立B+树结构进行查找</li>
-<li>生成索引，建立hash结构进行查找</li>
+<li>生成索引建立<code>B</code>树结构进行查找</li>
+<li>生成索引建立<code>B+</code>树结构进行查找</li>
+<li>生成索引，建立<code>hash</code>结构进行查找</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>树结构介绍<ul>
 <li>二叉查找树<ul>
-<li>查询效率：O(logn)</li>
+<li>查询效率：<code>O(logn)</code></li>
 <li>左子树：左子树节点值均小于根节点值</li>
 <li>右子树：右子树节点值均大于根节点值</li>
-<li>注意：二叉树在有限次增删改之后会变成线性结构，此时查询效率为O(n)</li>
-<li>解决：利用树的旋转特性，将二叉树转为平衡二叉树，这样查询效率会维持在O(logn)</li>
-<li>平衡二叉树：大数据量情况下，由于每个节点只能有两个叶子节点，大大增加了树的层级和存储空间；会浪费大量的磁盘IO</li>
+<li>注意：二叉树在有限次增删改之后会变成线性结构，此时查询效率为<code>O(n)</code></li>
+<li>解决：利用树的旋转特性，将二叉树转为平衡二叉树，这样查询效率会维持在<code>O(logn)</code></li>
+<li>平衡二叉树：大数据量情况下，由于每个节点只能有两个叶子节点，大大增加了树的层级和存储空间；会浪费大量的磁盘<code>IO</code></li>
 </ul>
 </li>
-<li>B树<ul>
-<li>一种多路平衡查找树，每个节点最多有M个子节点，称为M阶B树，但至少有两个子节点</li>
-<li>查询效率O(logn)</li>
+<li><code>B</code>树<ul>
+<li>一种多路平衡查找树，每个节点最多有<code>M</code>个子节点，称为<code>M</code>阶<code>B</code>树，但至少有两个子节点</li>
+<li>查询效率<code>O(logn)</code></li>
 </ul>
 </li>
-<li>B+树<ul>
+<li><code>B+</code>树<ul>
 <li>每个叶子节点的指针数和关键字数相同，同阶的B+树比B树能存储更多的关键字</li>
 <li>优势<ul>
 <li>磁盘读写代价更低</li>
 <li>查询效率更为稳定</li>
-<li>更有利于数据库的扫描(B+树只需遍历所有的叶子节点就能对全部的关键字进行扫描)</li>
+<li>更有利于数据库的扫描(<code>B+</code>树只需遍历所有的叶子节点就能对全部的关键字进行扫描)</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Hash索引<ul>
-<li>根据Hash函数计算一次便能找到所需元素</li>
-<li>仅仅满足=，in等等值查询，不能使用范围查询</li>
-<li>不能进行排序操作，因为经过Hash运算后的值和运算前的键值对应，而查找是Hash索引对应的值，不能匹配到</li>
+<li><code>Hash</code>索引<ul>
+<li>根据<code>Hash</code>函数计算一次便能找到所需元素</li>
+<li>仅仅满足<code>=</code>，<code>in</code>等等值查询，不能使用范围查询</li>
+<li>不能进行排序操作，因为经过<code>Hash</code>运算后的值和运算前的键值对应，而查找是<code>Hash</code>索引对应的值，不能匹配到</li>
 <li>不能避免全表 扫描</li>
 </ul>
 </li>
-<li>BitMap<ul>
-<li>仅Oracle支持</li>
+<li><code>BitMap</code><ul>
+<li>仅<code>Oracle</code>支持</li>
 <li>锁的粒度较大，新增和修改操作时，在同一位图的数据操作都会被阻塞</li>
 </ul>
 </li>
@@ -1462,43 +1462,43 @@
 <li>稀疏索引：只为索引码的某些值建立索引项</li>
 </ul>
 </li>
-<li>InnoDB<ul>
+<li><code>InnoDB</code><ul>
 <li>若一个主键被定义，则该主键则作为密集索引</li>
 <li>若无主键定义，则该表第一个唯一非空索引值作为密集索引</li>
-<li>若无以上，innodb内部会生成一个隐藏主键(密集索引)</li>
-<li>数据和索引是存储在一起的，MyIsAM数据和索引是分开的</li>
+<li>若无以上，<code>innodb</code>内部会生成一个隐藏主键(密集索引)</li>
+<li>数据和索引是存储在一起的，<code>MyIsAM</code>数据和索引是分开的</li>
 </ul>
 </li>
 <li>优化步骤<ol>
-<li>根据慢查询日志定位慢查询sql<ol>
+<li>根据慢查询日志定位慢查询<code>sql</code><ol>
 <li>变量<ol>
-<li>慢查询日志：slow_query_log</li>
-<li>慢查询文件路径：slow_query_log_file</li>
-<li>慢查询时间：long_query_time</li>
-<li>开启慢查询日志：set global slow_query_log = on;</li>
+<li>慢查询日志：<code>slow_query_log</code></li>
+<li>慢查询文件路径：<code>slow_query_log_file</code></li>
+<li>慢查询时间：<code>long_query_time</code></li>
+<li>开启慢查询日志：<code>set global slow_query_log = on;</code></li>
 </ol>
 </li>
 <li>状态<ol>
-<li>slow_queries：慢查询数量</li>
+<li><code>slow_queries</code>：慢查询数量</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>使用explain等工具分析 sql<ol>
-<li>type：查找数据行的方式，index(索引)&gt;all(全表扫描)</li>
-<li>extra：Using filesort和Using temporary意味着不走索引，应该进行优化</li>
+<li>使用<code>explain</code>等工具分析 <code>sql</code><ol>
+<li><code>type</code>：查找数据行的方式，<code>index</code>(索引)&gt;all(全表扫描)</li>
+<li><code>extra</code>：<code>Using filesort</code>和<code>Using temporary</code>意味着不走索引，应该进行优化</li>
 </ol>
 </li>
-<li>修改sql或者尽量让sql走索引<ol>
-<li>修改sql走索引</li>
+<li>修改<code>sql</code>或者尽量让<code>sql</code>走索引<ol>
+<li>修改<code>sql</code>走索引</li>
 <li>为查询字段添加索引</li>
 </ol>
 </li>
 </ol>
 </li>
 <li>原则<ul>
-<li>最左前缀匹配原则，mysql会一直向右匹配，直到范围限定，如果范围之间有索引，则只有第一个条件会走索引，其他不会走索引</li>
-<li>=和in查询无需考虑索引顺序</li>
+<li>最左前缀匹配原则，<code>mysql</code>会一直向右匹配，直到范围限定，如果范围之间有索引，则只有第一个条件会走索引，其他不会走索引</li>
+<li><code>=</code>和<code>in</code>查询无需考虑索引顺序</li>
 </ul>
 </li>
 </ol>
@@ -1506,10 +1506,10 @@
 <ol>
 <li><p>锁</p>
 <ul>
-<li><p>MyIsAM和InnoDB锁的区别</p>
+<li><p><code>MyIsAM</code>和<code>InnoDB</code>锁的区别</p>
 <ul>
-<li>MyIsAM默认使用表级锁，不支持行级锁</li>
-<li>InnoDB默认使用行级锁，也支持表级锁</li>
+<li><code>MyIsAM</code>默认使用表级锁，不支持行级锁</li>
+<li><code>InnoDB</code>默认使用行级锁，也支持表级锁</li>
 </ul>
 </li>
 <li><p>排他锁和共享锁的区别</p>
@@ -1535,15 +1535,15 @@
 </li>
 <li><p>乐观锁和悲观锁</p>
 </li>
-<li><p>MyIsAM和InnoDB使用场景</p>
+<li><p><code>MyIsAM</code>和<code>InnoDB</code>使用场景</p>
 <ul>
-<li>MyIsAM<ul>
-<li>频繁的执行全表count语句</li>
+<li><code>MyIsAM</code><ul>
+<li>频繁的执行全表<code>count</code>语句</li>
 <li>对数据进行增删频率不高，查询频率非常高</li>
 <li>没有事务</li>
 </ul>
 </li>
-<li>InnoDB<ul>
+<li><code>InnoDB</code><ul>
 <li>数据增删改查的频率都非常频繁</li>
 <li>可靠性要求比较高，要求支持事务</li>
 </ul>
@@ -1552,20 +1552,20 @@
 </li>
 <li><p>当前读和快照读</p>
 </li>
-<li><p>RC，RR级别下的InnoDB非阻塞读实现</p>
+<li><p><code>RC</code>，<code>RR</code>级别下的<code>InnoDB</code>非阻塞读实现</p>
 <ul>
-<li>RR避免幻读，加行锁+Gap锁(gap锁用于非唯一索引和不走索引时)</li>
+<li><code>RR</code>避免幻读，加行锁<code>+Gap</code>锁(<code>gap</code>锁用于非唯一索引和不走索引时)</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>事务的四大特性</p>
 <ul>
-<li>ACID</li>
+<li><code>ACID</code></li>
 <li>原子性，一致性，隔离性，持久性</li>
 <li>隔离级别<ul>
-<li>读已提交(RC)—解决脏读：一个事物读到另一个事务未提交的数据</li>
-<li>可重复读(RR)—解决不重复读：一个数据前后两次读到的数据不一致</li>
+<li>读已提交(<code>RC</code>)—解决脏读：一个事物读到另一个事务未提交的数据</li>
+<li>可重复读(<code>RR</code>)—解决不重复读：一个数据前后两次读到的数据不一致</li>
 <li>串行化—解决幻读：一个事物读到自己未提交的事务</li>
 </ul>
 </li>
@@ -1582,24 +1582,24 @@
 <li>乐观锁：认为一般不会发生冲突，只有在更新数据时才会进行检测，如果冲突就返回错误信息(时间戳或数据版本)</li>
 </ol>
 </li>
-<li><p>RC</p>
+<li><p><code>RC</code></p>
 <ol>
-<li>Oracle默认的提交方式</li>
+<li><code>Oracle</code>默认的提交方式</li>
 <li>实现快照读(非阻塞读)<ol>
-<li>数据行必须有DB_TRX_ID，DB_ROLL_PTR，DB_ROW_ID字段</li>
-<li>undo日志</li>
-<li>read view</li>
+<li>数据行必须有<code>DB_TRX_ID</code>，<code>DB_ROLL_PTR</code>，<code>DB_ROW_ID</code>字段</li>
+<li><code>undo</code>日志</li>
+<li><code>read view</code></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><p>RR</p>
+<li><p><code>RR</code></p>
 <ol>
-<li>MySQL默认的提交方式</li>
-<li>行锁+gap锁</li>
-<li>gap锁<ol>
-<li>精确查找的时候，所有记录都有对应不会加gap锁</li>
-<li>where条件部分命中，会加gap锁</li>
+<li><code>MySQL</code>默认的提交方式</li>
+<li>行锁<code>+gap</code>锁</li>
+<li><code>gap</code>锁<ol>
+<li>精确查找的时候，所有记录都有对应不会加<code>gap</code>锁</li>
+<li><code>where</code>条件部分命中，会加<code>gap</code>锁</li>
 <li>用于非唯一索引或不走索引的当前读中</li>
 </ol>
 </li>
@@ -1607,177 +1607,20 @@
 </li>
 <li><p>关键语法</p>
 <ul>
-<li>Group by<ul>
-<li>Select语句中的列名必须为分组用到的列或列函数</li>
+<li><code>Group by</code><ul>
+<li><code>Select</code>语句中的列名必须为分组用到的列或列函数</li>
 <li>只能是针对同一张表的字段进行分组</li>
 </ul>
 </li>
-<li>having<ul>
-<li>通常和Group By一起使用，where过滤行，having过滤组</li>
-<li>如果省略了where，having的作用和where相同</li>
+<li><code>having</code><ul>
+<li>通常和<code>Group By</code>一起使用，<code>where</code>过滤行，<code>having</code>过滤组</li>
+<li>如果省略了<code>where</code>，<code>having</code>的作用和<code>where</code>相同</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="6-Redis"><a href="#6-Redis" class="headerlink" title="6. Redis"></a>6. Redis</h2><ul>
-<li>缓存中间件<ul>
-<li>Memcache：代码层次类似于Hash<ul>
-<li>支持简单的数据类型</li>
-<li>不支持数据持久化存储和主从复制，以及分片</li>
-</ul>
-</li>
-<li>Redis<ul>
-<li>数据类型丰富</li>
-<li>支持数据磁盘持久化和主从复制，以及分片</li>
-<li>每秒100000+QPS，QPS即每秒内查询次数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>为什么Redis速度快<ul>
-<li>完全基于内存，没有磁盘IO操作，执行效率高</li>
-<li>数据结构简单，对数据操作也简单</li>
-<li>采用单线程也能处理高并发，多核也可以启动多实例</li>
-<li>使用多了IO复用模型，即非阻塞式IO，采用多路复用函数</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>数据类型<ul>
-<li><code>String</code>：基本数据类型，二进制安全</li>
-<li><code>Hash：String</code>组成的字典，适合存储对象</li>
-<li><code>List</code>：列表，按照String元素插入顺序排序</li>
-<li><code>Set：String</code>元素组成的无序集合，通过Hash表现，不允许重复</li>
-<li><code>Sorted Set</code>：通过分数类为集合中的成员进行从小到大的排序</li>
-<li><code>HyperLogLog</code>：用于支持存储地理位置信息</li>
-</ul>
-</li>
-<li>大数据查询固定前缀的key<ul>
-<li>使用scan count match key*</li>
-</ul>
-</li>
-<li>分布式锁<ul>
-<li>面临问题<ul>
-<li>互斥性</li>
-<li>安全性</li>
-<li>死锁</li>
-<li>容错</li>
-</ul>
-</li>
-<li>解决<ul>
-<li>使用set方法设置键的过期时间并给键添加一个随机字符，避免键集中过期时造成的卡顿</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>异步队列<ul>
-<li>使用List做为队列，RPush产生消息，LPop消费消息<ul>
-<li>缺点：没有等待队列有值就进行消费</li>
-<li>解决<ol>
-<li>通过应用层引入Sleep机制调用LPop重新消费</li>
-<li>阻塞直到队列有消息或者超时；缺点：只能提供一个消费者消费</li>
-<li>主题订阅模式；缺点：无法保证消息可达性</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>持久化方式<ul>
-<li>RDB<ul>
-<li>保存某个时间点的全部数据快照方式，文件小，恢复快，数据丢失风险大</li>
-<li>触发<ul>
-<li>redis.conf文件配置的save m n定时触发</li>
-<li>主从复制，主节点自动触发</li>
-<li>执行Debug Reload时</li>
-<li>执行Shutdown时</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>AOF<ul>
-<li>保存到写状态，文件可读，适合保存增量数据；数据丢失风险小，但文件呢体积较大，恢复时间较长</li>
-</ul>
-</li>
-<li>解决：混合模式—RDB做镜像的全量持久化，而AOF做增量的持久化</li>
-</ul>
-</li>
-<li>主从同步<ul>
-<li>Pipeline：批量执行Redis指令，节省多次IO往返的时间</li>
-<li>同步原理 <ul>
-<li>从节点发送同步命令到主节点</li>
-<li>主节点启动一个后台进程，将Redis中的数据快照保存到文件中</li>
-<li>主节点将保存数据快照期间接收到的写命令缓存起来</li>
-<li>主节点完成文件操作后，将该文件发送给从节点</li>
-<li>使用新的AOF文件替换旧的AOF文件</li>
-<li>主节点将这期间收集的增量命令发送给从节点</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>集群<ul>
-<li>哨兵<ul>
-<li>主从复制的基石，由哨兵们监控集群状态，主节点宕机后根据定义规则选举新的主节点，保证系统的运行</li>
-</ul>
-</li>
-<li>流言协议：在杂乱无章中寻求一致；用于主从切换<ul>
-<li>消息节点向其他节点随机发送消息，最终消息会趋于一致性</li>
-</ul>
-</li>
-<li>原理<ul>
-<li>分片：按照一定规则划分数据，分散存储在多个节点上</li>
-<li>获取：一致性哈希算法，对2^32取模，将hash值空间组成虚拟环</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="7-MongoDB"><a href="#7-MongoDB" class="headerlink" title="7. MongoDB"></a>7. MongoDB</h2><h2 id="8-Mybatis"><a href="#8-Mybatis" class="headerlink" title="8. Mybatis"></a>8. Mybatis</h2><h2 id="9-Spring"><a href="#9-Spring" class="headerlink" title="9. Spring"></a>9. Spring</h2><ol>
-<li>IOC<ol>
-<li>控制反转IOC：Spring最核心的部分，主要是用来创建对象</li>
-<li>依赖注入DI：把第层类作为参数传递给上层类，实现上层对下层的”控制”<ol>
-<li>是IOC的一种特殊实现</li>
-<li>Setter</li>
-<li>Interface</li>
-<li>Constructor</li>
-<li>Annotation</li>
-</ol>
-</li>
-<li>依赖查找DL：IOC的另一种实现</li>
-<li>优势<ol>
-<li>避免在各处使用new来创建类，并且可以做到统一维护</li>
-<li>创建实例的时候不需要了解其中的细节</li>
-</ol>
-</li>
-<li>功能<ol>
-<li>自动装配</li>
-<li>支持集合</li>
-<li>指定初始化方法和销毁方法</li>
-<li>支持回调方法</li>
-</ol>
-</li>
-<li>核心接口<ol>
-<li>BeanDefinition：主要用来描述Bean的定义</li>
-<li>BeanDefinitionRegistry：提供向IOC容器注册BeanDefinition对象的方法</li>
-<li>BeanFactory：Spring最核心的接口<ol>
-<li>提供IOC的配置机制</li>
-<li>包含Bean的各种定义，便于实例化Bean</li>
-<li>建立Bean之间的依赖关系</li>
-<li>Bean生命周期的控制</li>
-</ol>
-</li>
-<li>ApplicationContext<ol>
-<li>继承BeanFactory接口，能够管理和装配Bean</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>AOP</li>
-</ol>
-<h2 id="10-SpringMVC"><a href="#10-SpringMVC" class="headerlink" title="10. SpringMVC"></a>10. SpringMVC</h2><h2 id="11-Dubbo-zookeeper"><a href="#11-Dubbo-zookeeper" class="headerlink" title="11. Dubbo+zookeeper"></a>11. Dubbo+zookeeper</h2><h2 id="12-SpringCloud"><a href="#12-SpringCloud" class="headerlink" title="12. SpringCloud"></a>12. SpringCloud</h2><h2 id="13-网络基础"><a href="#13-网络基础" class="headerlink" title="13. 网络基础"></a>13. 网络基础</h2><ol>
+<h3 id="5-2-Oracle"><a href="#5-2-Oracle" class="headerlink" title="5.2 Oracle"></a>5.2 Oracle</h3><h2 id="6-服务器"><a href="#6-服务器" class="headerlink" title="6. 服务器"></a>6. 服务器</h2><h3 id="6-1-网络基础"><a href="#6-1-网络基础" class="headerlink" title="6.1 网络基础"></a>6.1 网络基础</h3><h4 id="6-1-1-基础概念"><a href="#6-1-1-基础概念" class="headerlink" title="6.1.1 基础概念"></a>6.1.1 基础概念</h4><ol>
 <li><p>OSI网络基础</p>
 <ul>
 <li><p>七层模型</p>
@@ -1841,6 +1684,10 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>UDP和TCP</p>
+<ol>
 <li><p>UDP</p>
 <ul>
 <li>特点<ul>
@@ -1883,8 +1730,10 @@
 <li>保证TCP的流控特性</li>
 </ul>
 </li>
-</ul>
+</ol>
 </li>
+</ol>
+<h4 id="6-1-2-HTTP和HTTPS"><a href="#6-1-2-HTTP和HTTPS" class="headerlink" title="6.1.2 HTTP和HTTPS"></a>6.1.2 HTTP和HTTPS</h4><ol>
 <li><p>HTTP</p>
 <ul>
 <li><p>特点</p>
@@ -1993,21 +1842,677 @@
 </tr>
 </tbody></table>
 </li>
-<li><p>socket</p>
+</ol>
+<h4 id="6-1-3-其他"><a href="#6-1-3-其他" class="headerlink" title="6.1.3 其他"></a>6.1.3 其他</h4><ol>
+<li><p><code>socket</code></p>
 <blockquote>
 <p>是TCP/IP协议的抽象，是操作系统对外开放的接口</p>
 </blockquote>
 </li>
-<li><p>Linux</p>
+<li><p><code>Linux</code></p>
 <ol>
-<li>查找指定文件：find path [options] params</li>
-<li>查找符合条件的文本：grep [options] pattern file</li>
-<li>对文件内容进行统计：awk [options] cmd file</li>
-<li>批量替换文档内容：sed [options] ‘sed command’ filename</li>
+<li>查找指定文件：<code>find path [options] params</code></li>
+<li>查找符合条件的文本：<code>grep [options] pattern file</code></li>
+<li>对文件内容进行统计：<code>awk [options] cmd file</code></li>
+<li>批量替换文档内容：<code>sed [options] &#39;sed command&#39; filename</code></li>
 </ol>
 </li>
 </ol>
+<h3 id="6-2-Nginx"><a href="#6-2-Nginx" class="headerlink" title="6.2 Nginx"></a>6.2 Nginx</h3><ol>
+<li><p>项目规模</p>
+<ol>
+<li>2-3人团队，用户量100-500</li>
+<li>5-10人团队，用户量1000-10000</li>
+<li>20-30人团队，用户量5w-50w</li>
+<li>50-100人团队，用户量百万级</li>
+<li>100+人团队，用户量千万级</li>
+<li>1000+人团队，用户量亿级</li>
+</ol>
+</li>
+<li><p>单体架构</p>
+<ul>
+<li>优点<ul>
+<li>小团队即可完成开发</li>
+<li>迭代周期短，开发速度快</li>
+<li>打包方便，运维简单</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>单节点宕机造成所有服务不可用</li>
+<li>耦合度太高(迭代，测试，部署)</li>
+<li>单节点并发能力有限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>集群</p>
+<blockquote>
+<p>多服务器共同实现同一个业务</p>
+</blockquote>
+<ol>
+<li><p>特点</p>
+<ol>
+<li>计算器<strong>群体</strong>构成整个业务系统</li>
+<li>这个<strong>群体</strong>构成一个整体，不能独立存在</li>
+<li><strong>人多力量大</strong>，群体提升并发与可用性</li>
+</ol>
+</li>
+<li><p>优点</p>
+<ol>
+<li>高性能</li>
+<li>高可用</li>
+<li>高扩展性</li>
+</ol>
+</li>
+<li><p>TIP</p>
+<ol>
+<li><p>用户会话</p>
+<blockquote>
+<p>多个服务器之间会话不共享，所以要使用分布式会话</p>
+</blockquote>
+</li>
+<li><p>定时任务</p>
+<blockquote>
+<p>所有的计算机节点，在定时时刻做一些通用事务</p>
+</blockquote>
+</li>
+<li><p>内网互通是保持集群的前提</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>分布式</p>
+<blockquote>
+<p>每一个计算机节点都实现的业务不同</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="6-2-1-Nginx入门"><a href="#6-2-1-Nginx入门" class="headerlink" title="6.2.1 Nginx入门"></a>6.2.1 Nginx入门</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>一个高性能的HTTP和反向代理的web服务器；也提供IMAP/POP3/SMTP服务 </p>
+</blockquote>
+</li>
+<li><p>应用</p>
+<ol>
+<li>主要用于反向代理</li>
+<li>静态资源部署</li>
+</ol>
+</li>
+<li><p>正向代理</p>
+<ol>
+<li><p>用户请求–&gt;代理服务器–&gt;目标服务器；目标服务器–&gt;用户</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/03.%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86.png" alt="正向代理"></p>
+</li>
+</ol>
+</li>
+<li><p>反向代理</p>
+<blockquote>
+<p>用户请求目标服务器，由反向代理服务器决定访问那个目标资源IP</p>
+</blockquote>
+<ol>
+<li><p>示意</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/04.%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png" alt="04.反向代理"></p>
+</li>
+<li><p>官网</p>
+<blockquote>
+<p>nginx.org；选择stale version进行对应系统版本下载</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>Nginx进程模型</p>
+<ol>
+<li>master进程：主进程；主要用于管理一些worker进程</li>
+<li>worker进程：工作进程</li>
+</ol>
+</li>
+<li><p>worker抢占机制</p>
+<blockquote>
+<p>master主进程监听80端口，由一个master主进程fork了三个worker进程；三个worker进程会抢占一个accept_mutex(互斥锁)，这个锁和Client请求对应；那个worker抢到了accept_mutex锁，那个进程去处理用户请求</p>
+</blockquote>
+</li>
+<li><p>事件处理</p>
+<ol>
+<li><p>传统方式</p>
+<blockquote>
+<p>同步阻塞请求模型</p>
+</blockquote>
+</li>
+<li><p>nginx事件处理</p>
+<blockquote>
+<p>异步非阻塞模型；即多路复用器</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>Nginx配置文件</p>
+<ol>
+<li><p>配置结构</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/05.%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%84.png" alt="配置结构"></p>
+</li>
+<li><p>配置文件(由指令块组成)</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 工作进程worker的用户名称</span>
+<span class="token attr-name">user</span> <span class="token attr-value"> nobody;</span>
+<span class="token comment" spellcheck="true"># worker进程数目</span>
+<span class="token attr-name">worker_processes</span> <span class="token attr-value"> 1;</span>
 
+<span class="token comment" spellcheck="true"># 默认错误日志；路径 日志级别；nginx日志级别：debug，Info，notice，warn，error，crit</span>
+<span class="token attr-name">error_log</span> <span class="token attr-value"> logs/error.log;</span>
+<span class="token comment" spellcheck="true"># error_log  logs/error.log  notice;</span>
+<span class="token comment" spellcheck="true">#error_log  logs/error.log  info;</span>
+
+<span class="token comment" spellcheck="true"># nginx进程号</span>
+<span class="token attr-name">pid</span> <span class="token attr-value">       logs/nginx.pid;</span>
+
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>  events &#123;
+      # 默认使用epoll
+      use epoll;
+      # 每个worker允许连接的客户端最大连接数
+      worker_connections  1024;
+  &#125;
+
+
+  http &#123;
+      # 包含的外部文件
+      include       mime.types;
+      # 默认的type类型
+      default_type  application/octet-stream;
+
+      #log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+      #                  &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+      #                  &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+
+      #access_log  logs/access.log  main;
+
+      # 用于文件的高效传输，默认打开
+      sendfile        on;
+      # 配合sendfile进行高效传输，等数据包到一定大小在进行传输
+      tcp_nopush     on;
+
+      # 客户端连接服务器的超时时间，以s为单位；keepalive_timeout  0;
+      keepalive_timeout  65;
+
+      # 使用gzip技术压缩，提高传输速率，节约带宽
+      gzip  on;
+      # 限制最小压缩，小于1字节的不会被压缩
+      gzip_min_length 1;
+      # 定义压缩级别(即压缩比，文件越大，压缩越多，但是CPU使用会越多)；取值范围1-9
+      gzip_comp_level 3;
+      # 定义文件压缩的类型
+      gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application//x-httpd-php image/jpg image/gif image/png application/json
+      # 虚拟主机
+      server &#123;
+          # 监听端口号
+          listen       80;
+          # 监听的域名
+          server_name  localhost;
+
+          #charset koi8-r;
+
+          #access_log  logs/host.access.log  main;
+
+          # 路由
+          location / &#123;
+              root   html;
+              index  index.html index.htm;
+          &#125;
+
+          #error_page  404              /404.html;
+
+          # redirect server error pages to the static page /50x.html
+          # 默认错误页面
+          error_page   500 502 503 504  /50x.html;
+          location = /50x.html &#123;
+              root   html;
+          &#125;
+
+          # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+          #
+          #location ~ \.php$ &#123;
+          #    proxy_pass   http://127.0.0.1;
+          #&#125;
+
+          # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+          #
+          #location ~ \.php$ &#123;
+          #    root           html;
+          #    fastcgi_pass   127.0.0.1:9000;
+          #    fastcgi_index  index.php;
+          #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+          #    include        fastcgi_params;
+          #&#125;
+
+          # deny access to .htaccess files, if Apache&#39;s document root
+          # concurs with nginx&#39;s one
+          #
+          #location ~ /\.ht &#123;
+          #    deny  all;
+          #&#125;
+      &#125;
+
+
+      # another virtual host using mix of IP-, name-, and port-based configuration
+      #
+      #server &#123;
+      #    listen       8000;
+      #    listen       somename:8080;
+      #    server_name  somename  alias  another.alias;
+
+      #    location / &#123;
+      #        root   html;
+      #        index  index.html index.htm;
+      #    &#125;
+      #&#125;
+
+
+      # HTTPS server
+      #
+      #server &#123;
+      #    listen       443 ssl;
+      #    server_name  localhost;
+
+      #    ssl_certificate      cert.pem;
+      #    ssl_certificate_key  cert.key;
+
+      #    ssl_session_cache    shared:SSL:1m;
+      #    ssl_session_timeout  5m;
+
+      #    ssl_ciphers  HIGH:!aNULL:!MD5;
+      #    ssl_prefer_server_ciphers  on;
+
+      #    location / &#123;
+      #        root   html;
+      #        index  index.html index.htm;
+      #    &#125;
+      #&#125;
+
+  &#125;
+  ```</code></pre>
+<ol start="9">
+<li><p>nginx命令</p>
+<ol>
+<li><code>./nginx -s stop</code>：暴力退出，无论此时nginx是否被响应，都予停止</li>
+<li><code>./nginx -s quit</code>：优雅退出，停止分发新请求，已有连接完成传输时退出；适用于http协议</li>
+<li><code>./nginx -t</code>：检测配置文件修改是否正确命令，正确则显示OK</li>
+<li><code>./nginx -v</code>：小v，查看nginx版本号</li>
+<li><code>./nginx -V</code>：大V，展示版本号，gcc编译环境等具体信息</li>
+<li><code>./nginx -h</code>：查看帮助信息</li>
+</ol>
+</li>
+<li><p>日志切割</p>
+<ol>
+<li><p>手动—创建如下<code>shell</code>脚本(放在/usr/local/nginx/sbin/目录下)</p>
+<pre class=" language-shell"><code class="language-shell">#!/bin/bash
+LOG_PATH="/var/log/nginx/"
+RECORD_TIME=$(date -d "yesterday" +%Y-%m-%d+%H:%M)
+PID=/var/run/nginx/nginx.pid
+mv ${LOG_PATH}/access.log ${LOG_PATH}/access.${RECORD_TIME}.log
+mv ${LOG_PATH}/error.log ${LOG_PATH}/error.${RECORD_TIME}.log
+#向Nginx主进程发送信号，用于重新打开日志文件
+kill -USR1 `cat $PID`</code></pre>
+</li>
+<li><p>自动</p>
+<ol>
+<li><p>安装插件</p>
+<p><code>yum install crontabs</code></p>
+</li>
+<li><p>使用<code>crontabs -e</code>添加任务，使用<code>crontabs -l</code>查看任务</p>
+<p><code>*/1 * * * * /usr/local/nginx/sbin/cut_my_log.sh</code></p>
+</li>
+<li><p>重启定时任务</p>
+<p><code>service crond restart</code></p>
+</li>
+</ol>
+</li>
+<li><p>常用命令</p>
+<pre class=" language-shell"><code class="language-shell">service crond start # 启动服务
+service crond stop # 关闭服务
+service crond restart # 重启服务
+service crond reload # 重新载入配置
+crontab -e # 编辑任务
+crontab -l # 查看任务列表</code></pre>
+</li>
+<li><p>Cron表达式</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>分</th>
+<th>时</th>
+<th>日</th>
+<th>月</th>
+<th>星期</th>
+<th>年(可选)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>取值范围</td>
+<td>0-59</td>
+<td>0-23</td>
+<td>1-31</td>
+<td>1-12</td>
+<td>1-7</td>
+<td>2019/2020/2021</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+<li><p>location匹配规则</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 空格 ：默认匹配，普通匹配</span>
+<span class="token attr-name">location</span> <span class="token attr-value">/ {</span>
+<span class="token attr-name">    root</span> <span class="token attr-value">/home;</span>
+}
+
+<span class="token comment" spellcheck="true"># = ：精确匹配</span>
+<span class="token attr-name">location</span> <span class="token punctuation">=</span> <span class="token attr-value">/imooc/img/face1.png {</span>
+<span class="token attr-name">    root</span> <span class="token attr-value">/home;</span>
+}
+
+<span class="token comment" spellcheck="true"># ~* ：匹配正则表达式，不区分大小写；符合图片的显示</span>
+<span class="token attr-name">location</span> <span class="token attr-value">~ \.(GIF|jpg|png|jpeg) {</span>
+<span class="token attr-name">    root</span> <span class="token attr-value">/home;</span>
+}
+
+<span class="token comment" spellcheck="true"># ~ ：匹配正则表达式，区分大小写；GIF必须大写才能匹配到</span>
+<span class="token attr-name">location</span> <span class="token attr-value">~ \.(GIF|jpg|png|jpeg) {</span>
+<span class="token attr-name">    root</span> <span class="token attr-value">/home;</span>
+}
+
+<span class="token comment" spellcheck="true"># ^~ ：以某个字符路径开头</span>
+<span class="token attr-name">location</span> <span class="token attr-value">^~ /imooc/img {</span>
+<span class="token attr-name">    root</span> <span class="token attr-value">/home;</span>
+}</code></pre>
+</li>
+<li><p>Nginx跨域</p>
+<blockquote>
+<p>由于浏览器的同源策略限制，不同域名之间资源不共享。</p>
+</blockquote>
+<ol>
+<li><p>CORS跨域资源共享</p>
+<ol>
+<li>cross origin resource sharing</li>
+<li>允许浏览器进行跨域资源访问</li>
+</ol>
+</li>
+<li><p>实现方式</p>
+<ol>
+<li><p>jsonp</p>
+</li>
+<li><p>SpringBoot Cors</p>
+</li>
+<li><p>Nginx</p>
+<blockquote>
+<p>服务器端不存在浏览器的同源策略限制(原理)</p>
+</blockquote>
+<p>实现</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">server</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">    # 监听端口号</span>
+<span class="token attr-name">    listen</span> <span class="token attr-value">      80;</span>
+<span class="token comment" spellcheck="true">    # 监听的域名</span>
+<span class="token attr-name">    server_name</span> <span class="token attr-value"> localhost;</span>
+<span class="token comment" spellcheck="true">    #允许跨域请求的域，*代表所有</span>
+<span class="token attr-name">    add_header</span> <span class="token attr-value">'Access-Control-Allow-Origin' *;</span>
+<span class="token comment" spellcheck="true">    #允许带上cookie请求</span>
+<span class="token attr-name">    add_header</span> <span class="token attr-value">'Access-Control-Allow-Credentials' 'true';</span>
+<span class="token comment" spellcheck="true">    #允许请求的方法，比如 GET/POST/PUT/DELETE</span>
+<span class="token attr-name">    add_header</span> <span class="token attr-value">'Access-Control-Allow-Methods' *;</span>
+<span class="token comment" spellcheck="true">    #允许请求的header</span>
+<span class="token attr-name">    add_header</span> <span class="token attr-value">'Access-Control-Allow-Headers' *;</span>
+}</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>静态资源防盗链</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">server</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">    # 监听端口号</span>
+<span class="token attr-name">    listen</span> <span class="token attr-value">      80;</span>
+<span class="token comment" spellcheck="true">    # 监听的域名</span>
+<span class="token attr-name">    server_name</span> <span class="token attr-value"> localhost;</span>
+<span class="token comment" spellcheck="true">    #对源站点验证；非mjh一级域名下的网站资源不共享</span>
+<span class="token attr-name">    valid_referers</span> <span class="token attr-value">*.mjh.com;</span>
+<span class="token comment" spellcheck="true">    #非法引入会进入下方判断</span>
+<span class="token attr-name">    if</span> <span class="token attr-value">($invalid_referer) {</span>
+<span class="token attr-name">        return</span> <span class="token attr-value">404;</span>
+    }
+}</code></pre>
+</li>
+<li><p>Nginx模块体系</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/06.Nginx%E6%A8%A1%E5%9D%97%E4%BD%93%E7%B3%BB.png" alt="Nginx模块体系"></p>
+</li>
+</ol>
+<h4 id="6-2-2-Nginx集群与负载均衡"><a href="#6-2-2-Nginx集群与负载均衡" class="headerlink" title="6.2.2 Nginx集群与负载均衡"></a>6.2.2 Nginx集群与负载均衡</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>通过配置文件即可实现集群和负载均衡</p>
+</blockquote>
+</li>
+<li><p>负载均衡</p>
+<ol>
+<li><p>四层负载均衡</p>
+<ul>
+<li>F5：硬负载均衡</li>
+<li>LVS：四层负载均衡</li>
+<li>Haproxy：四层负载均衡</li>
+<li>Nginx：四层负载均衡</li>
+</ul>
+</li>
+<li><p>七层负载均衡</p>
+<ul>
+<li>Nginx：七层负载均衡</li>
+<li>Haproxy：七层负载均衡</li>
+<li>Apache：七层负载均衡</li>
+</ul>
+</li>
+<li><p>DNS地域负载均衡</p>
+<blockquote>
+<p>通过DNS服务器处理，采取就近原则进行访问</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>Nginx搭建Tomcat集群</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 配置上游服务器</span>
+<span class="token attr-name">upstream</span> <span class="token attr-value">tomcats {</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">192.168.1.171;</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">192.168.1.172;</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">192.168.1.173;</span>
+}
+
+<span class="token comment" spellcheck="true"># 配置Nginx代理</span>
+<span class="token attr-name">server</span> <span class="token attr-value">{</span>
+<span class="token attr-name">    listen</span> <span class="token attr-value">80;</span>
+<span class="token attr-name">    server_name</span> <span class="token attr-value">www.tomcats.com;</span>
+
+<span class="token attr-name">    location</span> <span class="token attr-value">/ {</span>
+<span class="token attr-name">        proxy_pass</span> <span class="token attr-value">http://tomcats;</span>
+    }
+}</code></pre>
+</li>
+<li><p>使用JMeter测试单机和集群的并发异常率</p>
+<ol>
+<li><p>单机版5000次并发访问数据</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/07.%E5%8D%95%E6%9C%BA%E7%89%885000%E6%AC%A1%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE.png" alt="单机版5000次并发访问数据"></p>
+</li>
+<li><p>单机版2w次并发访问数据</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/08.%E5%8D%95%E6%9C%BA%E7%89%8820000%E6%AC%A1%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE.png" alt="1620222880848"></p>
+</li>
+<li><p>集群(2台内网Tomcat)并发访问数据</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/09.%E9%9B%86%E7%BE%A4%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE.png" alt="集群并发访问数据"></p>
+</li>
+</ol>
+</li>
+<li><p>负载均衡策略</p>
+<p>看到2-10</p>
+</li>
+</ol>
+<h4 id="6-2-3-Nginx高可用"><a href="#6-2-3-Nginx高可用" class="headerlink" title="6.2.3 Nginx高可用"></a>6.2.3 Nginx高可用</h4><h2 id="7-Redis"><a href="#7-Redis" class="headerlink" title="7. Redis"></a>7. Redis</h2><ul>
+<li>缓存中间件<ul>
+<li><code>Memcache</code>：代码层次类似于<code>Hash</code><ul>
+<li>支持简单的数据类型</li>
+<li>不支持数据持久化存储和主从复制，以及分片</li>
+</ul>
+</li>
+<li><code>Redis</code><ul>
+<li>数据类型丰富</li>
+<li>支持数据磁盘持久化和主从复制，以及分片</li>
+<li>每秒100000+QPS，QPS即每秒内查询次数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>为什么Redis速度快<ul>
+<li>完全基于内存，没有磁盘IO操作，执行效率高</li>
+<li>数据结构简单，对数据操作也简单</li>
+<li>采用单线程也能处理高并发，多核也可以启动多实例</li>
+<li>使用多了IO复用模型，即非阻塞式IO，采用多路复用函数</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>数据类型<ul>
+<li><code>String</code>：基本数据类型，二进制安全</li>
+<li><code>Hash：String</code>组成的字典，适合存储对象</li>
+<li><code>List</code>：列表，按照String元素插入顺序排序</li>
+<li><code>Set：String</code>元素组成的无序集合，通过Hash表现，不允许重复</li>
+<li><code>Sorted Set</code>：通过分数类为集合中的成员进行从小到大的排序</li>
+<li><code>HyperLogLog</code>：用于支持存储地理位置信息</li>
+</ul>
+</li>
+<li>大数据查询固定前缀的<code>key</code><ul>
+<li>使用<code>scan count match key*</code></li>
+</ul>
+</li>
+<li>分布式锁<ul>
+<li>面临问题<ul>
+<li>互斥性</li>
+<li>安全性</li>
+<li>死锁</li>
+<li>容错</li>
+</ul>
+</li>
+<li>解决<ul>
+<li>使用<code>set</code>方法设置键的过期时间并给键添加一个随机字符，避免键集中过期时造成的卡顿</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步队列<ul>
+<li>使用<code>List</code>做为队列，<code>RPush</code>产生消息，<code>LPop</code>消费消息<ul>
+<li>缺点：没有等待队列有值就进行消费</li>
+<li>解决<ol>
+<li>通过应用层引入<code>Sleep</code>机制调用<code>LPop</code>重新消费</li>
+<li>阻塞直到队列有消息或者超时；缺点：只能提供一个消费者消费</li>
+<li>主题订阅模式；缺点：无法保证消息可达性</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>持久化方式<ul>
+<li><code>RDB</code><ul>
+<li>保存某个时间点的全部数据快照方式，文件小，恢复快，数据丢失风险大</li>
+<li>触发<ul>
+<li><code>redis.conf</code>文件配置的<code>save m n</code>定时触发</li>
+<li>主从复制，主节点自动触发</li>
+<li>执行<code>Debug Reload</code>时</li>
+<li>执行<code>Shutdown</code>时</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>AOF</code><ul>
+<li>保存到写状态，文件可读，适合保存增量数据；数据丢失风险小，但文件呢体积较大，恢复时间较长</li>
+</ul>
+</li>
+<li>解决：混合模式—<code>RDB</code>做镜像的全量持久化，而<code>AOF</code>做增量的持久化</li>
+</ul>
+</li>
+<li>主从同步<ul>
+<li><code>Pipeline</code>：批量执行<code>Redis</code>指令，节省多次<code>IO</code>往返的时间</li>
+<li>同步原理 <ul>
+<li>从节点发送同步命令到主节点</li>
+<li>主节点启动一个后台进程，将<code>Redis</code>中的数据快照保存到文件中</li>
+<li>主节点将保存数据快照期间接收到的写命令缓存起来</li>
+<li>主节点完成文件操作后，将该文件发送给从节点</li>
+<li>使用新的<code>AOF</code>文件替换旧的<code>AOF</code>文件</li>
+<li>主节点将这期间收集的增量命令发送给从节点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>集群<ul>
+<li>哨兵<ul>
+<li>主从复制的基石，由哨兵们监控集群状态，主节点宕机后根据定义规则选举新的主节点，保证系统的运行</li>
+</ul>
+</li>
+<li>流言协议：在杂乱无章中寻求一致；用于主从切换<ul>
+<li>消息节点向其他节点随机发送消息，最终消息会趋于一致性</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>分片：按照一定规则划分数据，分散存储在多个节点上</li>
+<li>获取：一致性哈希算法，对<code>2^32</code>取模，将<code>hash</code>值空间组成虚拟环</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-MongoDB"><a href="#7-MongoDB" class="headerlink" title="7. MongoDB"></a>7. MongoDB</h2><h2 id="8-Mybatis"><a href="#8-Mybatis" class="headerlink" title="8. Mybatis"></a>8. Mybatis</h2><h2 id="9-Spring"><a href="#9-Spring" class="headerlink" title="9. Spring"></a>9. Spring</h2><ol>
+<li>IOC<ol>
+<li>控制反转IOC：Spring最核心的部分，主要是用来创建对象</li>
+<li>依赖注入DI：把第层类作为参数传递给上层类，实现上层对下层的”控制”<ol>
+<li>是IOC的一种特殊实现</li>
+<li>Setter</li>
+<li>Interface</li>
+<li>Constructor</li>
+<li>Annotation</li>
+</ol>
+</li>
+<li>依赖查找DL：IOC的另一种实现</li>
+<li>优势<ol>
+<li>避免在各处使用new来创建类，并且可以做到统一维护</li>
+<li>创建实例的时候不需要了解其中的细节</li>
+</ol>
+</li>
+<li>功能<ol>
+<li>自动装配</li>
+<li>支持集合</li>
+<li>指定初始化方法和销毁方法</li>
+<li>支持回调方法</li>
+</ol>
+</li>
+<li>核心接口<ol>
+<li>BeanDefinition：主要用来描述Bean的定义</li>
+<li>BeanDefinitionRegistry：提供向IOC容器注册BeanDefinition对象的方法</li>
+<li>BeanFactory：Spring最核心的接口<ol>
+<li>提供IOC的配置机制</li>
+<li>包含Bean的各种定义，便于实例化Bean</li>
+<li>建立Bean之间的依赖关系</li>
+<li>Bean生命周期的控制</li>
+</ol>
+</li>
+<li>ApplicationContext<ol>
+<li>继承BeanFactory接口，能够管理和装配Bean</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>AOP</li>
+</ol>
+<h2 id="10-SpringMVC"><a href="#10-SpringMVC" class="headerlink" title="10. SpringMVC"></a>10. SpringMVC</h2><h2 id="11-Dubbo-zookeeper"><a href="#11-Dubbo-zookeeper" class="headerlink" title="11. Dubbo+zookeeper"></a>11. Dubbo+zookeeper</h2><h2 id="12-SpringCloud"><a href="#12-SpringCloud" class="headerlink" title="12. SpringCloud"></a>12. SpringCloud</h2>
             </div>
             <hr/>
 
