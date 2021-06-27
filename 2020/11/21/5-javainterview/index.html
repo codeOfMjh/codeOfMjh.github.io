@@ -1387,7 +1387,7 @@
 </li>
 <li></li>
 </ol>
-<h2 id="5-数据库"><a href="#5-数据库" class="headerlink" title="5. 数据库"></a>5. 数据库</h2><h3 id="5-1-MySQL"><a href="#5-1-MySQL" class="headerlink" title="5.1 MySQL"></a>5.1 MySQL</h3><ol>
+<h2 id="5-数据库"><a href="#5-数据库" class="headerlink" title="5. 数据库"></a>5. 数据库</h2><h3 id="5-1-MySQL"><a href="#5-1-MySQL" class="headerlink" title="5.1 MySQL"></a>5.1 MySQL</h3><h4 id="5-1-1-基础"><a href="#5-1-1-基础" class="headerlink" title="5.1.1 基础"></a>5.1.1 基础</h4><ol>
 <li>关系型数据库<ul>
 <li>数据库模块<ul>
 <li>存储模块—<code>OS</code>文件系统(将数据持久化存储到硬盘，磁盘中)</li>
@@ -1620,7 +1620,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="5-2-Oracle"><a href="#5-2-Oracle" class="headerlink" title="5.2 Oracle"></a>5.2 Oracle</h3><h2 id="6-服务器"><a href="#6-服务器" class="headerlink" title="6. 服务器"></a>6. 服务器</h2><h3 id="6-1-网络基础"><a href="#6-1-网络基础" class="headerlink" title="6.1 网络基础"></a>6.1 网络基础</h3><h4 id="6-1-1-基础概念"><a href="#6-1-1-基础概念" class="headerlink" title="6.1.1 基础概念"></a>6.1.1 基础概念</h4><ol>
+<h4 id="5-1-2-数据库读写分离"><a href="#5-1-2-数据库读写分离" class="headerlink" title="5.1.2 数据库读写分离"></a>5.1.2 数据库读写分离</h4><h4 id="5-1-3-分库分表"><a href="#5-1-3-分库分表" class="headerlink" title="5.1.3 分库分表"></a>5.1.3 分库分表</h4><h4 id="5-1-4-数据库表全局唯一主键id"><a href="#5-1-4-数据库表全局唯一主键id" class="headerlink" title="5.1.4 数据库表全局唯一主键id"></a>5.1.4 数据库表全局唯一主键id</h4><h3 id="5-2-Oracle"><a href="#5-2-Oracle" class="headerlink" title="5.2 Oracle"></a>5.2 Oracle</h3><h2 id="6-服务器-主要用于集群"><a href="#6-服务器-主要用于集群" class="headerlink" title="6. 服务器(主要用于集群)"></a>6. 服务器(主要用于集群)</h2><h3 id="6-1-网络基础"><a href="#6-1-网络基础" class="headerlink" title="6.1 网络基础"></a>6.1 网络基础</h3><h4 id="6-1-1-基础概念"><a href="#6-1-1-基础概念" class="headerlink" title="6.1.1 基础概念"></a>6.1.1 基础概念</h4><ol>
 <li><p>OSI网络基础</p>
 <ul>
 <li><p>七层模型</p>
@@ -2781,26 +2781,362 @@ vrrp_instance VI_1 {
 <blockquote>
 <p>注意主节点和对应的备用节点的虚拟ip是相互对应的</p>
 </blockquote>
-<p>看到第4章</p>
 </li>
 </ul>
 </li>
+<li><p>操作流程</p>
+<ol>
+<li>上传keepAlived</li>
+<li>进入./configure目录</li>
+<li>make</li>
+<li>make install</li>
+<li>/etc/keepalived</li>
+<li>把keepAlived注册到系统服务</li>
 </ol>
-<h2 id="7-Redis"><a href="#7-Redis" class="headerlink" title="7. Redis"></a>7. Redis</h2><ul>
-<li>缓存中间件<ul>
+</li>
+</ol>
+<h4 id="6-2-5-LVS-负载均衡器"><a href="#6-2-5-LVS-负载均衡器" class="headerlink" title="6.2.5 LVS(负载均衡器)"></a>6.2.5 LVS(负载均衡器)</h4><ol>
+<li><p>概述(Linux Virtual Server)</p>
+<blockquote>
+<p>一个Linux操作系统上的虚拟服务；负载均衡项目</p>
+</blockquote>
+</li>
+<li><p>流程图</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/17.LVS%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.png" alt="LVS负载均衡"></p>
+</li>
+<li><p>LVS+Nginx组合</p>
+<ol>
+<li>LVS基于四层，工作效率高</li>
+<li>单个Nginx承受不不住压力，需要集群</li>
+<li>LVS充当集群的调度者</li>
+<li>Nginx接受请求来回，LVS可以只接受不响应</li>
+</ol>
+</li>
+<li><p>LVS模式</p>
+<ol>
+<li><p>NAT</p>
+<blockquote>
+<p>基于网络地址的转发</p>
+</blockquote>
+</li>
+<li><p>TUN</p>
+<blockquote>
+<p>IP隧道</p>
+</blockquote>
+</li>
+<li><p>DR模式</p>
+<blockquote>
+<p>直接路由</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>ARP</p>
+<ol>
+<li>arp-ignore：ARP响应级别(处理请求)<ol>
+<li><code>0</code>：只要本机配置了ip，就能响应请求</li>
+<li><code>1</code>：请求的目标地址达到对应的网络接口，才会响应请求</li>
+</ol>
+</li>
+<li>arp-announce：ARP通告行为(返回响应)<ol>
+<li><code>0</code>：本机上任何网路接口都向外通告，所有的网卡都能接受到通告</li>
+<li><code>1</code>：尽可能避免本网卡与不匹配的目标进行通告</li>
+<li><code>2</code>：只在本网卡通告</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>使用pvsadm配置集群规则</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/18.pvsadm%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%99.png" alt="pvsadm配置集群规则"></p>
+</li>
+<li><p>LVS持久化机制</p>
+</li>
+<li><p>keepAlived+LVS+Nginx配置master</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">global_defs</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">    # 路由id：当前安装keepalived的节点主机标识符，保证全局唯一(主备不同的地方)</span>
+<span class="token comment" spellcheck="true">    # 虚拟ip映射的真实ip</span>
+<span class="token attr-name">    router_id</span> <span class="token attr-value">LVS_151</span>
+}
+<span class="token attr-name">vrrp_instance</span> <span class="token attr-value">VI_1 {</span>
+<span class="token comment" spellcheck="true">    # 表示状态是MASTER主机还是备用机BACKUP(主备不同的地方)</span>
+<span class="token attr-name">    state</span> <span class="token attr-value">MASTER</span>
+<span class="token comment" spellcheck="true">    # 该实例绑定的网卡</span>
+<span class="token attr-name">    interface</span> <span class="token attr-value">ens33</span>
+<span class="token comment" spellcheck="true">    # 保证主备节点一致即可</span>
+<span class="token attr-name">    virtual_router_id</span> <span class="token attr-value">51</span>
+<span class="token comment" spellcheck="true">    # 权重，master权重一般高于backup，如果有多个，那就是选举，谁的权重高，谁就当选</span>
+<span class="token comment" spellcheck="true">    # (主备不同的地方)</span>
+<span class="token attr-name">    priority</span> <span class="token attr-value">100</span>
+<span class="token comment" spellcheck="true">    # 主备之间同步检查时间间隔，单位秒</span>
+<span class="token attr-name">    advert_int</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">    # 认证权限密码，防止非法节点进入</span>
+<span class="token attr-name">    authentication</span> <span class="token attr-value">{</span>
+<span class="token attr-name">        auth_type</span> <span class="token attr-value">PASS</span>
+<span class="token attr-name">        auth_pass</span> <span class="token attr-value">1111</span>
+    }
+<span class="token comment" spellcheck="true">    # 虚拟出来的ip，可以有多个（vip）；用户访问的IP地址</span>
+<span class="token attr-name">    virtual_ipaddress</span> <span class="token attr-value">{</span>
+        192.168.1.150
+    }
+}
+
+<span class="token comment" spellcheck="true"># 配置集群地址访问的IP+端口，端口和nginx保持一致，都是80</span>
+<span class="token attr-name">virtual_server</span> <span class="token attr-value">192.168.1.150 80 {</span>
+<span class="token comment" spellcheck="true">    # 健康检查的时间，单位：秒</span>
+<span class="token attr-name">    delay_loop</span> <span class="token attr-value">6</span>
+<span class="token comment" spellcheck="true">    # 配置负载均衡的算法，默认是轮询</span>
+<span class="token attr-name">    lb_algo</span> <span class="token attr-value">rr</span>
+<span class="token comment" spellcheck="true">    # 设置LVS的模式，NAT|TUN|DR</span>
+<span class="token attr-name">    lb_kind</span> <span class="token attr-value">DR</span>
+<span class="token comment" spellcheck="true">    # 设置会话持久化的时间</span>
+<span class="token attr-name">    persistence_timeout</span> <span class="token attr-value">5</span>
+<span class="token comment" spellcheck="true">    # 协议 -t</span>
+<span class="token attr-name">    protocol</span> <span class="token attr-value">TCP</span>
+
+<span class="token comment" spellcheck="true">    # 负载均衡的真实服务器，也就是nginx节点的具体ip地址</span>
+<span class="token attr-name">    real_server</span> <span class="token attr-value">192.168.1.171 80 {</span>
+<span class="token comment" spellcheck="true">        # 轮询的默认权重配比设置为1</span>
+<span class="token attr-name">        weight</span> <span class="token attr-value">1</span>
+<span class="token comment" spellcheck="true">        # 健康检查</span>
+<span class="token attr-name">        TCP_CHECK</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">            # 检查的80端口</span>
+<span class="token attr-name">            connect_port</span> <span class="token attr-value">80</span>
+<span class="token comment" spellcheck="true">            # 超时时间 2s</span>
+<span class="token attr-name">            connect_timeout</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 重试次数 2次</span>
+<span class="token attr-name">            nb_get_retry</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 间隔时间 3s</span>
+<span class="token attr-name">            delay_before_retry</span> <span class="token attr-value">3</span>
+        }
+    }
+
+<span class="token attr-name">    real_server</span> <span class="token attr-value">192.168.1.172 80 {</span>
+<span class="token attr-name">        weight</span> <span class="token attr-value">1</span>
+<span class="token comment" spellcheck="true">        # 健康检查</span>
+<span class="token attr-name">        TCP_CHECK</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">            # 检查的80端口</span>
+<span class="token attr-name">            connect_port</span> <span class="token attr-value">80</span>
+<span class="token comment" spellcheck="true">            # 超时时间 2s</span>
+<span class="token attr-name">            connect_timeout</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 重试次数 2次</span>
+<span class="token attr-name">            nb_get_retry</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 间隔时间 3s</span>
+<span class="token attr-name">            delay_before_retry</span> <span class="token attr-value">3</span>
+        }
+    }
+}</code></pre>
+</li>
+<li><p>keepAlived+LVS+Nginx配置backup</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">global_defs</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">    # 路由id：当前安装keepalived的节点主机标识符，保证全局唯一(主备不同的地方)</span>
+<span class="token comment" spellcheck="true">    # 虚拟ip映射的真实ip</span>
+<span class="token attr-name">    router_id</span> <span class="token attr-value">LVS_152</span>
+}
+<span class="token attr-name">vrrp_instance</span> <span class="token attr-value">VI_1 {</span>
+<span class="token comment" spellcheck="true">    # 表示状态是MASTER主机还是备用机BACKUP(主备不同的地方)</span>
+<span class="token attr-name">    state</span> <span class="token attr-value">BACKUP</span>
+<span class="token comment" spellcheck="true">    # 该实例绑定的网卡</span>
+<span class="token attr-name">    interface</span> <span class="token attr-value">ens33</span>
+<span class="token comment" spellcheck="true">    # 保证主备节点一致即可</span>
+<span class="token attr-name">    virtual_router_id</span> <span class="token attr-value">51</span>
+<span class="token comment" spellcheck="true">    # 权重，master权重一般高于backup，如果有多个，那就是选举，谁的权重高，谁就当选</span>
+<span class="token comment" spellcheck="true">    # (主备不同的地方)</span>
+<span class="token attr-name">    priority</span> <span class="token attr-value">50</span>
+<span class="token comment" spellcheck="true">    # 主备之间同步检查时间间隔，单位秒</span>
+<span class="token attr-name">    advert_int</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">    # 认证权限密码，防止非法节点进入</span>
+<span class="token attr-name">    authentication</span> <span class="token attr-value">{</span>
+<span class="token attr-name">        auth_type</span> <span class="token attr-value">PASS</span>
+<span class="token attr-name">        auth_pass</span> <span class="token attr-value">1111</span>
+    }
+<span class="token comment" spellcheck="true">    # 虚拟出来的ip，可以有多个（vip）；用户访问的IP地址</span>
+<span class="token attr-name">    virtual_ipaddress</span> <span class="token attr-value">{</span>
+        192.168.1.150
+    }
+}
+
+<span class="token comment" spellcheck="true"># 配置集群地址访问的IP+端口，端口和nginx保持一致，都是80</span>
+<span class="token attr-name">virtual_server</span> <span class="token attr-value">192.168.1.150 80 {</span>
+<span class="token comment" spellcheck="true">    # 健康检查的时间，单位：秒</span>
+<span class="token attr-name">    delay_loop</span> <span class="token attr-value">6</span>
+<span class="token comment" spellcheck="true">    # 配置负载均衡的算法，默认是轮询</span>
+<span class="token attr-name">    lb_algo</span> <span class="token attr-value">rr</span>
+<span class="token comment" spellcheck="true">    # 设置LVS的模式，NAT|TUN|DR</span>
+<span class="token attr-name">    lb_kind</span> <span class="token attr-value">DR</span>
+<span class="token comment" spellcheck="true">    # 设置会话持久化的时间</span>
+<span class="token attr-name">    persistence_timeout</span> <span class="token attr-value">5</span>
+<span class="token comment" spellcheck="true">    # 协议 -t</span>
+<span class="token attr-name">    protocol</span> <span class="token attr-value">TCP</span>
+
+<span class="token comment" spellcheck="true">    # 负载均衡的真实服务器，也就是nginx节点的具体ip地址</span>
+<span class="token attr-name">    real_server</span> <span class="token attr-value">192.168.1.171 80 {</span>
+<span class="token comment" spellcheck="true">        # 轮询的默认权重配比设置为1</span>
+<span class="token attr-name">        weight</span> <span class="token attr-value">1</span>
+<span class="token comment" spellcheck="true">        # 健康检查</span>
+<span class="token attr-name">        TCP_CHECK</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">            # 检查的80端口</span>
+<span class="token attr-name">            connect_port</span> <span class="token attr-value">80</span>
+<span class="token comment" spellcheck="true">            # 超时时间 2s</span>
+<span class="token attr-name">            connect_timeout</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 重试次数 2次</span>
+<span class="token attr-name">            nb_get_retry</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 间隔时间 3s</span>
+<span class="token attr-name">            delay_before_retry</span> <span class="token attr-value">3</span>
+        }
+    }
+
+<span class="token attr-name">    real_server</span> <span class="token attr-value">192.168.1.172 80 {</span>
+<span class="token attr-name">        weight</span> <span class="token attr-value">1</span>
+<span class="token comment" spellcheck="true">        # 健康检查</span>
+<span class="token attr-name">        TCP_CHECK</span> <span class="token attr-value">{</span>
+<span class="token comment" spellcheck="true">            # 检查的80端口</span>
+<span class="token attr-name">            connect_port</span> <span class="token attr-value">80</span>
+<span class="token comment" spellcheck="true">            # 超时时间 2s</span>
+<span class="token attr-name">            connect_timeout</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 重试次数 2次</span>
+<span class="token attr-name">            nb_get_retry</span> <span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">            # 间隔时间 3s</span>
+<span class="token attr-name">            delay_before_retry</span> <span class="token attr-value">3</span>
+        }
+    }
+}</code></pre>
+</li>
+</ol>
+<h2 id="7-分布式"><a href="#7-分布式" class="headerlink" title="7. 分布式"></a>7. 分布式</h2><h3 id="7-1-概述"><a href="#7-1-概述" class="headerlink" title="7.1 概述"></a>7.1 概述</h3><ol>
+<li><p>单体架构——<font color="red">一个人做多件事</font></p>
+</li>
+<li><p>分布式架构—<font color="red">多个人做多件事</font></p>
+</li>
+<li><p>集群—<font color="red">多个人做一件事</font></p>
+<blockquote>
+<p>不同的业务(功能模块)分散部署在不同的服务器；每个子系统负责一个或者多个不同的业务模块；各服务之间可以交互通信，设计是对用户透明的；发展为集群分布式系统架构</p>
+</blockquote>
+</li>
+<li><p>微服务是分布式的子集</p>
+</li>
+<li><p>优点</p>
+<ol>
+<li>业务解耦</li>
+<li>系统模块化，可重用化</li>
+<li>提升系统并发量</li>
+<li>优化运维部署效率</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>架构复杂，上手难</li>
+<li>部署多个子系统复杂</li>
+<li>系统之间通信耗时</li>
+<li>调试复杂</li>
+</ol>
+</li>
+<li><p>设计原则</p>
+<ol>
+<li>异步解耦</li>
+<li>幂等一致性</li>
+<li>拆分原则</li>
+<li>融合分布式中间件</li>
+<li>容错高可用</li>
+</ol>
+</li>
+<li><p>集群架构</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/19.%E9%9B%86%E7%BE%A4%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84.png" alt="集群高可用架构"></p>
+<ul>
+<li>存在问题：高访问量的时候，直接访问数据库性能低下；引入缓存来提高数据访问性能</li>
+</ul>
+</li>
+</ol>
+<h3 id="7-2-缓存中间件—Redis"><a href="#7-2-缓存中间件—Redis" class="headerlink" title="7.2 缓存中间件—Redis"></a>7.2 缓存中间件—Redis</h3><h4 id="7-2-1-概述"><a href="#7-2-1-概述" class="headerlink" title="7.2.1 概述"></a>7.2.1 概述</h4><ol>
+<li><p>图示</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://cdn.jsdelivr.net/gh/codeOfMjh/picgo@main/images/MK/architect/ChapterTwo/20.%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98%E4%B8%AD%E9%97%B4%E4%BB%B6.png" alt="分布式缓存中间件"></p>
+</li>
+<li><p>NoSQL</p>
+<ol>
+<li>用于大数据量存储</li>
+<li>水平(横向)扩展方便高效</li>
+<li>高性能读写</li>
+<li>高可用</li>
+<li>存数据，做缓存</li>
+</ol>
+</li>
+<li><p>NoSQL分类</p>
+<ol>
+<li>键值对数据库<ul>
 <li><code>Memcache</code>：代码层次类似于<code>Hash</code><ul>
 <li>支持简单的数据类型</li>
+<li>内存使用率高</li>
+<li>多核，多线程</li>
 <li>不支持数据持久化存储和主从复制，以及分片</li>
 </ul>
 </li>
 <li><code>Redis</code><ul>
 <li>数据类型丰富</li>
+<li>单线程，单核</li>
 <li>支持数据磁盘持久化和主从复制，以及分片</li>
 <li>每秒100000+QPS，QPS即每秒内查询次数</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>列存储数据库—Hbase，Cassandra</li>
+<li>文档型数据库—MongoDB，CouchDB</li>
+<li>图形数据库—Neo4J，FlockDB</li>
+</ol>
+</li>
+<li><p>分布式缓存优势</p>
+<ul>
+<li>提升读写速度</li>
+<li>降低数据库查询压力</li>
+<li>跨服务器缓存</li>
+<li>内存式缓存</li>
+</ul>
+</li>
+<li><p>Redis</p>
+<ol>
+<li>非关系型，分布式，开源，可水平扩展</li>
+<li>分布式缓存中间件</li>
+<li>key-value存储</li>
+<li>提供海量的数据存储访问</li>
+<li>数据存储在内存里，读写快</li>
+</ol>
+</li>
+</ol>
+<h4 id="7-2-2-数据类型"><a href="#7-2-2-数据类型" class="headerlink" title="7.2.2 数据类型"></a>7.2.2 数据类型</h4><ol>
+<li><p>String</p>
+<ul>
+<li>存放键值对</li>
+<li>操作：get，set，del</li>
+<li>设置过期时间：<code>EXPIRE age 30</code></li>
+<li>累加1：<code>incr num</code>==<code>num++</code></li>
+<li>累减1：<code>decr num</code>==<code>num--</code></li>
+<li>获取指定范围字符串：<code>getrange key start end</code></li>
+</ul>
+</li>
+<li><p>hash</p>
+<ul>
+<li>存放对象</li>
+</ul>
+</li>
+<li><p>list</p>
+<ul>
+<li>一个允许存放重复数据的列表对象</li>
+</ul>
+</li>
+<li><p>set</p>
+<ul>
+<li>一个不允许存放重复数据的列表对象</li>
+</ul>
+</li>
+<li><p>zset</p>
+<ul>
+<li>排序set列表对象</li>
+</ul>
+</li>
+<li><p>命令网址<code>redisdoc.com/index.html</code></p>
+</li>
+</ol>
+<p>看到2-1</p>
+<ul>
 <li>为什么Redis速度快<ul>
 <li>完全基于内存，没有磁盘IO操作，执行效率高</li>
 <li>数据结构简单，对数据操作也简单</li>
@@ -2899,7 +3235,7 @@ vrrp_instance VI_1 {
 </ul>
 </li>
 </ol>
-<h2 id="7-MongoDB"><a href="#7-MongoDB" class="headerlink" title="7. MongoDB"></a>7. MongoDB</h2><h2 id="8-Mybatis"><a href="#8-Mybatis" class="headerlink" title="8. Mybatis"></a>8. Mybatis</h2><h2 id="9-Spring"><a href="#9-Spring" class="headerlink" title="9. Spring"></a>9. Spring</h2><ol>
+<h3 id="7-3-分布式会话与单点登录"><a href="#7-3-分布式会话与单点登录" class="headerlink" title="7.3 分布式会话与单点登录"></a>7.3 分布式会话与单点登录</h3><h3 id="7-4-分布式搜索引擎Elasticsearch"><a href="#7-4-分布式搜索引擎Elasticsearch" class="headerlink" title="7.4 分布式搜索引擎Elasticsearch"></a>7.4 分布式搜索引擎Elasticsearch</h3><h3 id="7-5-分布式文件系统"><a href="#7-5-分布式文件系统" class="headerlink" title="7.5 分布式文件系统"></a>7.5 分布式文件系统</h3><h3 id="7-6-分布式消息队列"><a href="#7-6-分布式消息队列" class="headerlink" title="7.6 分布式消息队列"></a>7.6 分布式消息队列</h3><h3 id="7-7-分布式锁"><a href="#7-7-分布式锁" class="headerlink" title="7.7 分布式锁"></a>7.7 分布式锁</h3><h3 id="7-8-分布式事务与数据一致性"><a href="#7-8-分布式事务与数据一致性" class="headerlink" title="7.8 分布式事务与数据一致性"></a>7.8 分布式事务与数据一致性</h3><h3 id="7-9-接口幂等设计与分布式限流"><a href="#7-9-接口幂等设计与分布式限流" class="headerlink" title="7.9 接口幂等设计与分布式限流"></a>7.9 接口幂等设计与分布式限流</h3><h2 id="7-MongoDB"><a href="#7-MongoDB" class="headerlink" title="7. MongoDB"></a>7. MongoDB</h2><h2 id="8-Mybatis"><a href="#8-Mybatis" class="headerlink" title="8. Mybatis"></a>8. Mybatis</h2><h2 id="9-Spring"><a href="#9-Spring" class="headerlink" title="9. Spring"></a>9. Spring</h2><ol>
 <li>IOC<ol>
 <li>控制反转IOC：Spring最核心的部分，主要是用来创建对象</li>
 <li>依赖注入DI：把第层类作为参数传递给上层类，实现上层对下层的”控制”<ol>
