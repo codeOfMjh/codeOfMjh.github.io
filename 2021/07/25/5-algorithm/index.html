@@ -1815,70 +1815,64 @@
         <span class="token keyword">super</span><span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-</code></pre>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> pID <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> qID <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pID <span class="token operator">==</span> qID<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> id<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> pID<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> qID<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<pre><code>   @Override
-   public int find(int p) &#123;
-       return id[p];
-   &#125;
+<h4 id="4-1-2-quick-union"><a href="#4-1-2-quick-union" class="headerlink" title="4.1.2 quick union"></a>4.1.2 quick union</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>可以快速进行 union 操作，只需要修改一个节点的 id 值即可</p>
+<p>但是 find 操作开销很大，因为同一个连通分量的节点 id 值不同，id 值只是用来指向另一个节点。因此需要一直向上查找操作，直到找到最上层的节点</p>
+</blockquote>
+</li>
+<li><p>实现</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 这种方法可以快速进行 union 操作，但是 find 操作和树高成正比，最坏的情况下树的高度为节点的数目</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QuickUnionUF</span> <span class="token keyword">extends</span> <span class="token class-name">UF</span> <span class="token punctuation">{</span>
 
+    <span class="token keyword">public</span> <span class="token function">QuickUnionUF</span><span class="token punctuation">(</span><span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-   @Override
-   public void union(int p, int q) &#123;
-       int pID = find(p);
-       int qID = find(q);
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            p <span class="token operator">=</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-       if (pID == qID) &#123;
-           return;
-       &#125;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> pRoot <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> qRoot <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       for (int i = 0; i &lt; id.length; i++) &#123;
-           if (id[i] == pID) &#123;
-               id[i] = qID;
-           &#125;
-       &#125;
-   &#125;</code></pre>
-<p>   }</p>
-<pre><code>
-#### 4.1.2 quick union
-
-1. 概述
-
-&gt; 可以快速进行 union 操作，只需要修改一个节点的 id 值即可
-&gt;
-&gt; 但是 find 操作开销很大，因为同一个连通分量的节点 id 值不同，id 值只是用来指向另一个节点。因此需要一直向上查找操作，直到找到最上层的节点
-
-2. 实现
-
-```java
-// 这种方法可以快速进行 union 操作，但是 find 操作和树高成正比，最坏的情况下树的高度为节点的数目
-public class QuickUnionUF extends UF &#123;
-
-    public QuickUnionUF(int N) &#123;
-        super(N);
-    &#125;
-
-
-    @Override
-    public int find(int p) &#123;
-        while (p != id[p]) &#123;
-            p = id[p];
-        &#125;
-        return p;
-    &#125;
-
-
-    @Override
-    public void union(int p, int q) &#123;
-        int pRoot = find(p);
-        int qRoot = find(q);
-
-        if (pRoot != qRoot) &#123;
-            id[pRoot] = qRoot;
-        &#125;
-    &#125;
-&#125;</code></pre>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pRoot <span class="token operator">!=</span> qRoot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            id<span class="token punctuation">[</span>pRoot<span class="token punctuation">]</span> <span class="token operator">=</span> qRoot<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ol>
 <h4 id="4-1-3-加权quick-union"><a href="#4-1-3-加权quick-union" class="headerlink" title="4.1.3 加权quick union"></a>4.1.3 加权quick union</h4><ol>
 <li><p>概述</p>
 <blockquote>
@@ -1892,55 +1886,51 @@ public class QuickUnionUF extends UF &#123;
     <span class="token comment" spellcheck="true">// 保存节点的数量信息</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sz<span class="token punctuation">;</span>
 
-</code></pre>
+    <span class="token keyword">public</span> <span class="token function">WeightedQuickUnionUF</span><span class="token punctuation">(</span><span class="token keyword">int</span> N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>sz <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>sz<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            p <span class="token operator">=</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> j<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sz<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> sz<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+            sz<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+=</span> sz<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            id<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            sz<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> sz<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<pre><code>   public WeightedQuickUnionUF(int N) &#123;
-       super(N);
-       this.sz = new int[N];
-       for (int i = 0; i &lt; N; i++) &#123;
-           this.sz[i] = 1;
-       &#125;
-   &#125;
-
-
-   @Override
-   public int find(int p) &#123;
-       while (p != id[p]) &#123;
-           p = id[p];
-       &#125;
-       return p;
-   &#125;
-
-
-   @Override
-   public void union(int p, int q) &#123;
-
-       int i = find(p);
-       int j = find(q);
-
-       if (i == j) return;
-
-       if (sz[i] &lt; sz[j]) &#123;
-           id[i] = j;
-           sz[j] += sz[i];
-       &#125; else &#123;
-           id[j] = i;
-           sz[i] += sz[j];
-       &#125;
-   &#125;</code></pre>
-<p>   }</p>
-<pre><code>
-#### 4.1.4 路径压缩的加权 Quick Union
-
-1. 概述
-
-&gt; 在检查节点的同时将它们直接链接到根节点，只需要在 find 中添加一个循环即可
-
-2. 实现
-
-```java
-</code></pre>
+<h4 id="4-1-4-路径压缩的加权-Quick-Union"><a href="#4-1-4-路径压缩的加权-Quick-Union" class="headerlink" title="4.1.4 路径压缩的加权 Quick Union"></a>4.1.4 路径压缩的加权 Quick Union</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>在检查节点的同时将它们直接链接到根节点，只需要在 find 中添加一个循环即可</p>
+</blockquote>
+</li>
+<li><p>实现</p>
+<pre class=" language-java"><code class="language-java"></code></pre>
+</li>
+</ol>
 <h4 id="4-1-5-小结"><a href="#4-1-5-小结" class="headerlink" title="4.1.5 小结"></a>4.1.5 小结</h4><table>
 <thead>
 <tr>
@@ -1995,186 +1985,169 @@ public class QuickUnionUF extends UF &#123;
     <span class="token comment" spellcheck="true">// 元素数量</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-</code></pre>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> MyStack<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">push</span><span class="token punctuation">(</span>Item item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>N<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Item <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"stack is empty"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        Item item <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token operator">--</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 避免对象游离</span>
+        a<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> null<span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>N <span class="token operator">>=</span> a<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">resize</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> a<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>N <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> N <span class="token operator">&lt;=</span> a<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">resize</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 调整数组大小，使得栈具有伸缩性
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">resize</span><span class="token punctuation">(</span><span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Item<span class="token punctuation">[</span><span class="token punctuation">]</span> tmp <span class="token operator">=</span> <span class="token punctuation">(</span>Item<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            tmp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        a <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Iterator<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// 返回逆序遍历的迭代器</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Iterator</span><span class="token operator">&lt;</span>Item<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            <span class="token keyword">private</span> <span class="token keyword">int</span> i <span class="token operator">=</span> N<span class="token punctuation">;</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> Item <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> a<span class="token punctuation">[</span><span class="token operator">--</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<pre><code>   @Override
-   public MyStack&lt;Item&gt; push(Item item) &#123;
-       check();
-       a[N++] = item;
-       return this;
-   &#125;
+<h4 id="4-2-1-2-链表实现"><a href="#4-2-1-2-链表实现" class="headerlink" title="4.2.1.2 链表实现"></a>4.2.1.2 链表实现</h4><ol>
+<li><p>概述</p>
+<blockquote>
+<p>需要使用链表的头插法来实现，因为头插法中最后压入栈的元素在链表的开头，它的 next 指针指向前一个压入栈的元素</p>
+<p>在弹出元素时就可以通过 next 指针遍历到前一个压入栈的元素从而让这个元素成为新的栈顶元素</p>
+</blockquote>
+</li>
+<li><p>实现</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ListStack</span><span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token keyword">implements</span> <span class="token class-name">MyStack</span><span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token punctuation">{</span>
 
+    <span class="token keyword">private</span> Node top <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-   @Override
-   public Item pop() throws Exception &#123;
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+        Item item<span class="token punctuation">;</span>
+        Node next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-       if (isEmpty()) &#123;
-           throw new Exception(&quot;stack is empty&quot;);
-       &#125;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> MyStack<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">push</span><span class="token punctuation">(</span>Item item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-       Item item = a[--N];
+        Node newTop <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       check();
+        newTop<span class="token punctuation">.</span>item <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        newTop<span class="token punctuation">.</span>next <span class="token operator">=</span> top<span class="token punctuation">;</span>
 
-       // 避免对象游离
-       a[N] = null;
+        top <span class="token operator">=</span> newTop<span class="token punctuation">;</span>
 
-       return item;
-   &#125;
+        N<span class="token operator">++</span><span class="token punctuation">;</span>
 
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-   private void check() &#123;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Item <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
 
-       if (N &gt;= a.length) &#123;
-           resize(2 * a.length);
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"stack is empty"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-       &#125; else if (N &gt; 0 &amp;&amp; N &lt;= a.length / 4) &#123;
-           resize(a.length / 2);
-       &#125;
-   &#125;
+        Item item <span class="token operator">=</span> top<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
 
+        top <span class="token operator">=</span> top<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        N<span class="token operator">--</span><span class="token punctuation">;</span>
 
-   /**
-    * 调整数组大小，使得栈具有伸缩性
-    */
-   private void resize(int size) &#123;
+        <span class="token keyword">return</span> item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-       Item[] tmp = (Item[]) new Object[size];
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-       for (int i = 0; i &lt; N; i++) &#123;
-           tmp[i] = a[i];
-       &#125;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-       a = tmp;
-   &#125;
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Iterator<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Iterator</span><span class="token operator">&lt;</span>Item<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-   @Override
-   public boolean isEmpty() &#123;
-       return N == 0;
-   &#125;
+            <span class="token keyword">private</span> Node cur <span class="token operator">=</span> top<span class="token punctuation">;</span>
 
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> cur <span class="token operator">!=</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-   @Override
-   public int size() &#123;
-       return N;
-   &#125;
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> Item <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                Item item <span class="token operator">=</span> cur<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+                cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> item<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-
-   @Override
-   public Iterator&lt;Item&gt; iterator() &#123;
-
-       // 返回逆序遍历的迭代器
-       return new Iterator&lt;Item&gt;() &#123;
-
-           private int i = N;
-
-           @Override
-           public boolean hasNext() &#123;
-               return i &gt; 0;
-           &#125;
-
-           @Override
-           public Item next() &#123;
-               return a[--i];
-           &#125;
-       &#125;;
-
-   &#125;</code></pre>
-<p>   }</p>
-<pre><code>
-#### 4.2.1.2 链表实现
-
-1. 概述
-
-&gt; 需要使用链表的头插法来实现，因为头插法中最后压入栈的元素在链表的开头，它的 next 指针指向前一个压入栈的元素
-&gt;
-&gt; 在弹出元素时就可以通过 next 指针遍历到前一个压入栈的元素从而让这个元素成为新的栈顶元素
-
-2. 实现
-
-```java
-public class ListStack&lt;Item&gt; implements MyStack&lt;Item&gt; &#123;
-
-    private Node top = null;
-    private int N = 0;
-
-
-    private class Node &#123;
-        Item item;
-        Node next;
-    &#125;
-
-
-    @Override
-    public MyStack&lt;Item&gt; push(Item item) &#123;
-
-        Node newTop = new Node();
-
-        newTop.item = item;
-        newTop.next = top;
-
-        top = newTop;
-
-        N++;
-
-        return this;
-    &#125;
-
-
-    @Override
-    public Item pop() throws Exception &#123;
-
-        if (isEmpty()) &#123;
-            throw new Exception(&quot;stack is empty&quot;);
-        &#125;
-
-        Item item = top.item;
-
-        top = top.next;
-        N--;
-
-        return item;
-    &#125;
-
-
-    @Override
-    public boolean isEmpty() &#123;
-        return N == 0;
-    &#125;
-
-
-    @Override
-    public int size() &#123;
-        return N;
-    &#125;
-
-
-    @Override
-    public Iterator&lt;Item&gt; iterator() &#123;
-
-        return new Iterator&lt;Item&gt;() &#123;
-
-            private Node cur = top;
-
-
-            @Override
-            public boolean hasNext() &#123;
-                return cur != null;
-            &#125;
-
-
-            @Override
-            public Item next() &#123;
-                Item item = cur.item;
-                cur = cur.next;
-                return item;
-            &#125;
-        &#125;;
-
-    &#125;
-&#125;</code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ol>
 <h4 id="4-2-2-队列"><a href="#4-2-2-队列" class="headerlink" title="4.2.2 队列"></a>4.2.2 队列</h4><ol>
 <li><p>概述</p>
 <blockquote>
@@ -2202,114 +2175,101 @@ public class ListStack&lt;Item&gt; implements MyStack&lt;Item&gt; &#123;
     <span class="token keyword">private</span> Node last<span class="token punctuation">;</span>
     <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-</code></pre>
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+        Item item<span class="token punctuation">;</span>
+        Node next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> N<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> MyQueue<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">add</span><span class="token punctuation">(</span>Item item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Node newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        newNode<span class="token punctuation">.</span>item <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            last <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+            first <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            last<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+            last <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        N<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Item <span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"queue is empty"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        Node node <span class="token operator">=</span> first<span class="token punctuation">;</span>
+        first <span class="token operator">=</span> first<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        N<span class="token operator">--</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            last <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> node<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Iterator<span class="token operator">&lt;</span>Item<span class="token operator">></span> <span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Iterator</span><span class="token operator">&lt;</span>Item<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            Node cur <span class="token operator">=</span> first<span class="token punctuation">;</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> cur <span class="token operator">!=</span> null<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> Item <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                Item item <span class="token operator">=</span> cur<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+                cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> item<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<pre><code>   private class Node &#123;
-       Item item;
-       Node next;
-   &#125;
+<h3 id="4-3-符号表"><a href="#4-3-符号表" class="headerlink" title="4.3 符号表"></a>4.3 符号表</h3><ol>
+<li><p>概述</p>
+<blockquote>
+<p>符号表（Symbol Table）是一种存储键值对的数据结构，可以支持快速查找操作</p>
+<p>符号表分为有序和无序两种，有序符号表主要指支持 min()、max() 等根据键的大小关系来实现的操作</p>
+<p>有序符号表的键需要实现 Comparable 接口</p>
+</blockquote>
+</li>
+<li><p>无序符号表实现</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UnorderedST</span><span class="token operator">&lt;</span>Key<span class="token punctuation">,</span> Value<span class="token operator">></span> <span class="token punctuation">{</span>
 
+    <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   @Override
-   public boolean isEmpty() &#123;
-       return N == 0;
-   &#125;
+    Value <span class="token function">get</span><span class="token punctuation">(</span>Key key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span>Key key<span class="token punctuation">,</span> Value value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   @Override
-   public int size() &#123;
-       return N;
-   &#125;
-
-
-   @Override
-   public MyQueue&lt;Item&gt; add(Item item) &#123;
-
-       Node newNode = new Node();
-       newNode.item = item;
-       newNode.next = null;
-
-       if (isEmpty()) &#123;
-           last = newNode;
-           first = newNode;
-       &#125; else &#123;
-           last.next = newNode;
-           last = newNode;
-       &#125;
-
-       N++;
-       return this;
-   &#125;
-
-
-   @Override
-   public Item remove() throws Exception &#123;
-
-       if (isEmpty()) &#123;
-           throw new Exception(&quot;queue is empty&quot;);
-       &#125;
-
-       Node node = first;
-       first = first.next;
-       N--;
-
-       if (isEmpty()) &#123;
-           last = null;
-       &#125;
-
-       return node.item;
-   &#125;
-
-
-   @Override
-   public Iterator&lt;Item&gt; iterator() &#123;
-
-       return new Iterator&lt;Item&gt;() &#123;
-
-           Node cur = first;
-
-
-           @Override
-           public boolean hasNext() &#123;
-               return cur != null;
-           &#125;
-
-
-           @Override
-           public Item next() &#123;
-               Item item = cur.item;
-               cur = cur.next;
-               return item;
-           &#125;
-       &#125;;
-   &#125;</code></pre>
-<p>   }</p>
-<pre><code>
-### 4.3 符号表
-
-1. 概述
-
-&gt; 符号表（Symbol Table）是一种存储键值对的数据结构，可以支持快速查找操作
-&gt;
-&gt; 符号表分为有序和无序两种，有序符号表主要指支持 min()、max() 等根据键的大小关系来实现的操作
-&gt;
-&gt; 有序符号表的键需要实现 Comparable 接口
-
-2. 无序符号表实现
-
-```java
-public interface UnorderedST&lt;Key, Value&gt; &#123;
-
-    int size();
-
-    Value get(Key key);
-
-    void put(Key key, Value value);
-
-    void delete(Key key);
-&#125;</code></pre>
-<ol start="3">
+    <span class="token keyword">void</span> <span class="token function">delete</span><span class="token punctuation">(</span>Key key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
 <li><p>有序符号表实现</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">OrderedST</span><span class="token operator">&lt;</span>Key <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token operator">&lt;</span>Key<span class="token operator">></span><span class="token punctuation">,</span> Value<span class="token operator">></span> <span class="token punctuation">{</span>
 
