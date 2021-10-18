@@ -2798,7 +2798,72 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
-<h3 id="1-4-并发-amp-多线程"><a href="#1-4-并发-amp-多线程" class="headerlink" title="1.4 并发&amp;多线程"></a>1.4 并发&amp;多线程</h3><h4 id="1-4-1-运行时数据区域"><a href="#1-4-1-运行时数据区域" class="headerlink" title="1.4.1 运行时数据区域"></a>1.4.1 运行时数据区域</h4><ol>
+<h3 id="1-4-并发-amp-多线程"><a href="#1-4-并发-amp-多线程" class="headerlink" title="1.4 并发&amp;多线程"></a>1.4 并发&amp;多线程</h3><h4 id="1-4-1-使用线程"><a href="#1-4-1-使用线程" class="headerlink" title="1.4.1 使用线程"></a>1.4.1 使用线程</h4><ol>
+<li>实现 Runnable 接口</li>
+<li>实现 Callable 接口</li>
+<li>继承 Thread 类</li>
+<li>实现接口 VS 继承 Thread</li>
+</ol>
+<h4 id="1-4-2-基础线程机制"><a href="#1-4-2-基础线程机制" class="headerlink" title="1.4.2 基础线程机制"></a>1.4.2 基础线程机制</h4><ol>
+<li>Executor</li>
+<li>Daemon</li>
+<li>sleep()</li>
+<li>yield()</li>
+</ol>
+<h4 id="1-4-3-中断"><a href="#1-4-3-中断" class="headerlink" title="1.4.3 中断"></a>1.4.3 中断</h4><ol>
+<li>InterruptedException</li>
+<li>interrupted()</li>
+<li>Executor 的中断操作</li>
+</ol>
+<h4 id="1-4-4-互斥同步"><a href="#1-4-4-互斥同步" class="headerlink" title="1.4.4 互斥同步"></a>1.4.4 互斥同步</h4><ol>
+<li>synchronized</li>
+<li>ReentrantLock</li>
+<li>比较</li>
+<li>使用选择</li>
+</ol>
+<h4 id="1-4-5-线程之间的协作"><a href="#1-4-5-线程之间的协作" class="headerlink" title="1.4.5 线程之间的协作"></a>1.4.5 线程之间的协作</h4><ol>
+<li>join()</li>
+<li>wait() notify() notifyAll()</li>
+<li>await() signal() signalAll()</li>
+</ol>
+<h4 id="1-4-6-线程状态"><a href="#1-4-6-线程状态" class="headerlink" title="1.4.6 线程状态"></a>1.4.6 线程状态</h4><ol>
+<li>新建（NEW）</li>
+<li>可运行（RUNABLE）</li>
+<li>阻塞（BLOCKED）</li>
+<li>无限期等待（WAITING）</li>
+<li>限期等待（TIMED_WAITING）</li>
+<li>死亡（TERMINATED）</li>
+</ol>
+<h4 id="1-4-7-J-U-C-AQS"><a href="#1-4-7-J-U-C-AQS" class="headerlink" title="1.4.7 J.U.C - AQS"></a>1.4.7 J.U.C - AQS</h4><ol>
+<li>CountDownLatch</li>
+<li>CyclicBarrier</li>
+<li>Semaphore</li>
+</ol>
+<h4 id="1-4-8-J-U-C-其它组件"><a href="#1-4-8-J-U-C-其它组件" class="headerlink" title="1.4.8 J.U.C - 其它组件"></a>1.4.8 J.U.C - 其它组件</h4><ol>
+<li>FutureTask</li>
+<li>BlockingQueue</li>
+<li>ForkJoin</li>
+</ol>
+<h4 id="1-4-9-线程不安全示例"><a href="#1-4-9-线程不安全示例" class="headerlink" title="1.4.9 线程不安全示例"></a>1.4.9 线程不安全示例</h4><h4 id="1-4-10-Java-内存模型"><a href="#1-4-10-Java-内存模型" class="headerlink" title="1.4.10 Java 内存模型"></a>1.4.10 Java 内存模型</h4><ol>
+<li>主内存与工作内存</li>
+<li>内存间交互操作</li>
+<li>内存模型三大特性</li>
+<li>先行发生原则</li>
+</ol>
+<h4 id="1-4-11-线程安全"><a href="#1-4-11-线程安全" class="headerlink" title="1.4.11 线程安全"></a>1.4.11 线程安全</h4><ol>
+<li>不可变</li>
+<li>互斥同步</li>
+<li>非阻塞同步</li>
+<li>无同步方案</li>
+</ol>
+<h4 id="1-4-12-锁优化"><a href="#1-4-12-锁优化" class="headerlink" title="1.4.12 锁优化"></a>1.4.12 锁优化</h4><ol>
+<li>自旋锁</li>
+<li>锁消除</li>
+<li>锁粗化</li>
+<li>轻量级锁</li>
+<li>偏向锁</li>
+</ol>
+<h4 id="1-4-13-小结"><a href="#1-4-13-小结" class="headerlink" title="1.4.13 小结"></a>1.4.13 小结</h4><h3 id="1-5-虚拟机"><a href="#1-5-虚拟机" class="headerlink" title="1.5 虚拟机"></a>1.5 虚拟机</h3><h4 id="1-5-1-运行时数据区域"><a href="#1-5-1-运行时数据区域" class="headerlink" title="1.5.1 运行时数据区域"></a>1.5.1 运行时数据区域</h4><ol>
 <li>程序计数器</li>
 <li>Java 虚拟机栈</li>
 <li>本地方法栈</li>
@@ -2807,18 +2872,18 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>运行时常量池</li>
 <li>直接内存</li>
 </ol>
-<h4 id="1-4-2-垃圾收集"><a href="#1-4-2-垃圾收集" class="headerlink" title="1.4.2 垃圾收集"></a>1.4.2 垃圾收集</h4><ol>
+<h4 id="1-5-2-垃圾收集"><a href="#1-5-2-垃圾收集" class="headerlink" title="1.5.2 垃圾收集"></a>1.5.2 垃圾收集</h4><ol>
 <li>判断一个对象是否可被回收</li>
 <li>引用类型</li>
 <li>垃圾收集算法</li>
 <li>垃圾收集器</li>
 </ol>
-<h4 id="1-4-3-内存分配与回收策略"><a href="#1-4-3-内存分配与回收策略" class="headerlink" title="1.4.3 内存分配与回收策略"></a>1.4.3 内存分配与回收策略</h4><ol>
+<h4 id="1-5-3-内存分配与回收策略"><a href="#1-5-3-内存分配与回收策略" class="headerlink" title="1.5.3 内存分配与回收策略"></a>1.5.3 内存分配与回收策略</h4><ol>
 <li>Minor GC 和 Full GC</li>
 <li>内存分配策略</li>
 <li>Full GC 的触发条件</li>
 </ol>
-<h4 id="1-4-4-类加载机制"><a href="#1-4-4-类加载机制" class="headerlink" title="1.4.4 类加载机制"></a>1.4.4 类加载机制</h4><ol>
+<h4 id="1-5-4-类加载机制"><a href="#1-5-4-类加载机制" class="headerlink" title="1.5.4 类加载机制"></a>1.5.4 类加载机制</h4><ol>
 <li>类的生命周期</li>
 <li>类加载过程</li>
 <li>类初始化时机</li>
@@ -2826,37 +2891,6 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>类加载器分类</li>
 <li>双亲委派模型</li>
 <li>自定义类加载器实现</li>
-</ol>
-<h3 id="1-5-虚拟机"><a href="#1-5-虚拟机" class="headerlink" title="1.5 虚拟机"></a>1.5 虚拟机</h3><h4 id="1-5-1-概览"><a href="#1-5-1-概览" class="headerlink" title="1.5.1 概览"></a>1.5.1 概览</h4><h4 id="1-5-2-磁盘操作"><a href="#1-5-2-磁盘操作" class="headerlink" title="1.5.2 磁盘操作"></a>1.5.2 磁盘操作</h4><h4 id="1-5-3-字节操作"><a href="#1-5-3-字节操作" class="headerlink" title="1.5.3 字节操作"></a>1.5.3 字节操作</h4><ol>
-<li>实现文件复制</li>
-<li>装饰者模式</li>
-</ol>
-<h4 id="1-5-4-字符操作"><a href="#1-5-4-字符操作" class="headerlink" title="1.5.4 字符操作"></a>1.5.4 字符操作</h4><ol>
-<li>编码与解码</li>
-<li>String 的编码方式</li>
-<li>Reader 与 Writer</li>
-<li>实现逐行输出文本文件的内容</li>
-</ol>
-<h4 id="1-5-6-对象操作"><a href="#1-5-6-对象操作" class="headerlink" title="1.5.6 对象操作"></a>1.5.6 对象操作</h4><ol>
-<li>序列化</li>
-<li>Serializable</li>
-<li>transient</li>
-</ol>
-<h4 id="1-5-7-网络操作"><a href="#1-5-7-网络操作" class="headerlink" title="1.5.7 网络操作"></a>1.5.7 网络操作</h4><ol>
-<li>InetAddress</li>
-<li>URL</li>
-<li>Sockets</li>
-<li>Datagram</li>
-</ol>
-<h4 id="1-5-8-NIO"><a href="#1-5-8-NIO" class="headerlink" title="1.5.8 NIO"></a>1.5.8 NIO</h4><ol>
-<li>流与块</li>
-<li>通道与缓冲区</li>
-<li>缓冲区状态变量</li>
-<li>文件 NIO 实例</li>
-<li>选择器</li>
-<li>套接字 NIO 实例</li>
-<li>内存映射文件</li>
-<li>对比</li>
 </ol>
 <h2 id="2-数据库"><a href="#2-数据库" class="headerlink" title="2. 数据库"></a>2. 数据库</h2><h3 id="2-1-原理"><a href="#2-1-原理" class="headerlink" title="2.1 原理"></a>2.1 原理</h3><h4 id="2-1-1-事务"><a href="#2-1-1-事务" class="headerlink" title="2.1.1 事务"></a>2.1.1 事务</h4><ol>
 <li>概念</li>
@@ -3037,7 +3071,7 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>连接过程</li>
 <li>主从链</li>
 </ol>
-<h4 id="2-5-12-Sentinel"><a href="#2-5-12-Sentinel" class="headerlink" title="2.5.12 Sentinel"></a>2.5.12 Sentinel</h4><h4 id="2-5-13-分片"><a href="#2-5-13-分片" class="headerlink" title="2.5.13 分片"></a>2.5.13 分片</h4><h4 id="2-5-14-一个简单的论坛系统分析"><a href="#2-5-14-一个简单的论坛系统分析" class="headerlink" title="2.5.14 -一个简单的论坛系统分析"></a>2.5.14 -一个简单的论坛系统分析</h4><ol>
+<h4 id="2-5-12-Sentinel"><a href="#2-5-12-Sentinel" class="headerlink" title="2.5.12 Sentinel"></a>2.5.12 Sentinel</h4><h4 id="2-5-13-分片"><a href="#2-5-13-分片" class="headerlink" title="2.5.13 分片"></a>2.5.13 分片</h4><h4 id="2-5-14-一个简单的论坛系统分析"><a href="#2-5-14-一个简单的论坛系统分析" class="headerlink" title="2.5.14 一个简单的论坛系统分析"></a>2.5.14 一个简单的论坛系统分析</h4><ol>
 <li>文章信息</li>
 <li>点赞功能</li>
 <li>对文章进行排序</li>
@@ -3425,6 +3459,22 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 </li>
 </ol>
 <h3 id="6-3-内存管理"><a href="#6-3-内存管理" class="headerlink" title="6.3 内存管理"></a>6.3 内存管理</h3><ol>
+<li>虚拟内存</li>
+<li>分页系统地址映射</li>
+<li>页面置换算法<ol>
+<li>最佳</li>
+<li>最近最久未使用</li>
+<li>最近未使用</li>
+<li>先进先出</li>
+<li>第二次机会算法</li>
+<li>时钟</li>
+</ol>
+</li>
+<li>分段</li>
+<li>段页式</li>
+<li>分页与分段的比较</li>
+</ol>
+<h3 id="6-4-死锁"><a href="#6-4-死锁" class="headerlink" title="6.4 死锁"></a>6.4 死锁</h3><ol>
 <li>必要条件</li>
 <li>处理方法</li>
 <li>鸵鸟策略</li>
@@ -3448,22 +3498,6 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 </ol>
 </li>
 </ol>
-<h3 id="6-4-死锁"><a href="#6-4-死锁" class="headerlink" title="6.4 死锁"></a>6.4 死锁</h3><ol>
-<li>虚拟内存</li>
-<li>分页系统地址映射</li>
-<li>页面置换算法<ol>
-<li>最佳</li>
-<li>最近最久未使用</li>
-<li>最近未使用</li>
-<li>先进先出</li>
-<li>第二次机会算法</li>
-<li>时钟</li>
-</ol>
-</li>
-<li>分段</li>
-<li>段页式</li>
-<li>分页与分段的比较</li>
-</ol>
 <h3 id="6-5-设备管理"><a href="#6-5-设备管理" class="headerlink" title="6.5 设备管理"></a>6.5 设备管理</h3><ol>
 <li>磁盘结构</li>
 <li>磁盘调度算法<ol>
@@ -3479,7 +3513,7 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>目标文件</li>
 <li>动态链接</li>
 </ol>
-<h3 id="6-7-Linux"><a href="#6-7-Linux" class="headerlink" title="6.7 Linux"></a>6.7 Linux</h3><h4 id="6-7-1常用操作以及概念"><a href="#6-7-1常用操作以及概念" class="headerlink" title="6.7.1常用操作以及概念"></a>6.7.1常用操作以及概念</h4><ol>
+<h3 id="6-7-Linux"><a href="#6-7-Linux" class="headerlink" title="6.7 Linux"></a>6.7 Linux</h3><h4 id="6-7-1-常用操作以及概念"><a href="#6-7-1-常用操作以及概念" class="headerlink" title="6.7.1 常用操作以及概念"></a>6.7.1 常用操作以及概念</h4><ol>
 <li>快捷键</li>
 <li>求助</li>
 <li>关机</li>
@@ -3491,15 +3525,15 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>GNU</li>
 <li>开源协议</li>
 </ol>
-<h4 id="6-7-2磁盘"><a href="#6-7-2磁盘" class="headerlink" title="6.7.2磁盘"></a>6.7.2磁盘</h4><ol>
+<h4 id="6-7-2-磁盘"><a href="#6-7-2-磁盘" class="headerlink" title="6.7.2 磁盘"></a>6.7.2 磁盘</h4><ol>
 <li>磁盘接口</li>
 <li>磁盘的文件名</li>
 </ol>
-<h4 id="6-7-3分区"><a href="#6-7-3分区" class="headerlink" title="6.7.3分区"></a>6.7.3分区</h4><ol>
+<h4 id="6-7-3-分区"><a href="#6-7-3-分区" class="headerlink" title="6.7.3 分区"></a>6.7.3 分区</h4><ol>
 <li>分区表</li>
 <li>开机检测程序</li>
 </ol>
-<h4 id="6-7-4文件系统"><a href="#6-7-4文件系统" class="headerlink" title="6.7.4文件系统"></a>6.7.4文件系统</h4><ol>
+<h4 id="6-7-4-文件系统"><a href="#6-7-4-文件系统" class="headerlink" title="6.7.4 文件系统"></a>6.7.4 文件系统</h4><ol>
 <li>分区与文件系统</li>
 <li>组成</li>
 <li>文件读取</li>
@@ -3511,7 +3545,7 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>挂载</li>
 <li>目录配置</li>
 </ol>
-<h4 id="6-7-5文件"><a href="#6-7-5文件" class="headerlink" title="6.7.5文件"></a>6.7.5文件</h4><ol>
+<h4 id="6-7-5-文件"><a href="#6-7-5-文件" class="headerlink" title="6.7.5 文件"></a>6.7.5 文件</h4><ol>
 <li>文件属性</li>
 <li>文件与目录的基本操作</li>
 <li>修改权限</li>
@@ -3521,30 +3555,30 @@ Iterator<span class="token operator">&lt;</span>SelectionKey<span class="token o
 <li>获取文件内容</li>
 <li>指令与文件搜索</li>
 </ol>
-<h4 id="6-7-6压缩与打包"><a href="#6-7-6压缩与打包" class="headerlink" title="6.7.6压缩与打包"></a>6.7.6压缩与打包</h4><ol>
+<h4 id="6-7-6-压缩与打包"><a href="#6-7-6-压缩与打包" class="headerlink" title="6.7.6 压缩与打包"></a>6.7.6 压缩与打包</h4><ol>
 <li>压缩文件名</li>
 <li>压缩指令</li>
 <li>打包</li>
 </ol>
-<h4 id="6-7-7Bash"><a href="#6-7-7Bash" class="headerlink" title="6.7.7Bash"></a>6.7.7Bash</h4><ol>
+<h4 id="6-7-7-Bash"><a href="#6-7-7-Bash" class="headerlink" title="6.7.7 Bash"></a>6.7.7 Bash</h4><ol>
 <li>特性</li>
 <li>变量操作</li>
 <li>指令搜索顺序</li>
 <li>数据流重定向</li>
 </ol>
-<h4 id="6-7-8管道指令"><a href="#6-7-8管道指令" class="headerlink" title="6.7.8管道指令"></a>6.7.8管道指令</h4><ol>
+<h4 id="6-7-8-管道指令"><a href="#6-7-8-管道指令" class="headerlink" title="6.7.8 管道指令"></a>6.7.8 管道指令</h4><ol>
 <li>提取指令</li>
 <li>排序指令</li>
 <li>双向输出重定向</li>
 <li>字符转换指令</li>
 <li>分区指令</li>
 </ol>
-<h4 id="6-7-9正则表达式"><a href="#6-7-9正则表达式" class="headerlink" title="6.7.9正则表达式"></a>6.7.9正则表达式</h4><ol>
+<h4 id="6-7-9-正则表达式"><a href="#6-7-9-正则表达式" class="headerlink" title="6.7.9 正则表达式"></a>6.7.9 正则表达式</h4><ol>
 <li>grep</li>
 <li>printf</li>
 <li>awk</li>
 </ol>
-<h4 id="6-7-10进程管理"><a href="#6-7-10进程管理" class="headerlink" title="6.7.10进程管理"></a>6.7.10进程管理</h4><ol>
+<h4 id="6-7-10-进程管理"><a href="#6-7-10-进程管理" class="headerlink" title="6.7.10 进程管理"></a>6.7.10 进程管理</h4><ol>
 <li>查看进程</li>
 <li>进程状态</li>
 <li>SIGCHLD</li>
